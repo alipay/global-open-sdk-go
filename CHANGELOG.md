@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 2.0.0 - 2024-09-27
+* [#1](https://github.com/alipay/global-open-sdk-go/pull/1)  go-sdk-init
+   * go-sdk-init
+
 ## 1.0.3- 2024-09-14
 *  pay-update
    * update：alipayPayRequest
