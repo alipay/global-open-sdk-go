@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 1.2.0 - 2024-09-27
+* [#2](https://github.com/alipay/global-open-sdk-go/pull/2)  go-sdk-low-release
+   * go-sdk-low-release
+
 ## 2.0.0 - 2024-09-27
 * [#1](https://github.com/alipay/global-open-sdk-go/pull/1)  go-sdk-init
    * go-sdk-init
