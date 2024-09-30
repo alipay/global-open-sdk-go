@@ -1,6 +1,14 @@
 # Changelog
 
 
+## 1.2.1 - 2024-09-30
+* [#3](https://github.com/alipay/global-open-sdk-go/pull/3)  update-p1
+  * add MARKETPLACE
+  * add vaulting
+  * add Dispute
+  * add risk
+  * add Notify
+
 ## 1.2.0 - 2024-09-27
 * [#2](https://github.com/alipay/global-open-sdk-go/pull/2)  go-sdk-update-release
    * go-sdk-update-release
