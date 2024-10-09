@@ -18,7 +18,7 @@ type AlipayAuthConsultRequest struct {
 	ExtendInfo        string                  `json:"extendInfo,omitempty"`
 	MerchantRegion    string                  `json:"merchantRegion,omitempty"`
 	RecurringPayment  bool                    `json:"recurringPayment,omitempty"`
-	GrantType         string                  `json:"grant_type,omitempty"`
+	GrantType         string                  `json:"grantType,omitempty"`
 }
 
 func (alipayAuthConsultRequest *AlipayAuthConsultRequest) NewRequest() *request.AlipayRequest {

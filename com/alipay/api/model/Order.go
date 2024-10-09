@@ -63,9 +63,8 @@ type Buyer struct {
 	BuyerPhoneNo          string    `json:"buyerPhoneNo,omitempty"`
 	BuyerEmail            string    `json:"buyerEmail,omitempty"`
 	BuyerRegistrationTime string    `json:"buyerRegistrationTime,omitempty"`
-
-	IsAccountVerified    *bool `json:"isAccountVerified,omitempty"`
-	SuccessfulOrderCount *int  `json:"successfulOrderCount,omitempty"`
+	IsAccountVerified     *bool     `json:"isAccountVerified,omitempty"`
+	SuccessfulOrderCount  *int      `json:"successfulOrderCount,omitempty"`
 }
 
 type BrowserInfo struct {
@@ -123,7 +122,7 @@ type Address struct {
 	City     string `json:"city,omitempty"`
 	Address1 string `json:"address1,omitempty"`
 	Address2 string `json:"address2,omitempty"`
-	ZipCode  string `json:"zip_code,omitempty"`
+	ZipCode  string `json:"zipCode,omitempty"`
 	Label    string `json:"label,omitempty"`
 }
 
@@ -164,4 +163,5 @@ type Order struct {
 	Transit          *Transit  `json:"transit,omitempty"`
 	Lodging          *Lodging  `json:"lodging,omitempty"`
 	Gaming           *Gaming   `json:"gaming,omitempty"`
+	OrderCreatedTime string    `json:"orderCreatedTime,omitempty"`
 }
