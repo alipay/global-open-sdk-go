@@ -1,12 +1,12 @@
 package model
 
 type Certificate struct {
-	CertificateType      CertificateType `json:"certificate_type,omitempty"`
-	CertificateNo        string          `json:"certificate_no,omitempty"`
-	HolderName           *UserName       `json:"holder_name,omitempty"`
-	FileKeys             []string        `json:"file_keys,omitempty"`
-	CertificateAuthority string          `json:"certificate_authority,omitempty"`
-	GrantType            string          `json:"grant_type,omitempty"`
+	CertificateType      CertificateType `json:"certificateType,omitempty"`
+	CertificateNo        string          `json:"certificateNo,omitempty"`
+	HolderName           *UserName       `json:"holderName,omitempty"`
+	FileKeys             []string        `json:"fileKeys,omitempty"`
+	CertificateAuthority string          `json:"certificateAuthority,omitempty"`
+	GrantType            string          `json:"grantType,omitempty"`
 }
 
 type CertificateType string
