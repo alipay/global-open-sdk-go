@@ -22,9 +22,9 @@ func main() {
 		alipayMerchantPrivateKey,
 		alipayAlipayPublicKey)
 
-	//register(client)
+	register(client)
 	//update(client, "mid_zhangtianren_ztr_20230807_180716_981")
-	queryBalance(client, "mid_zhangtianren_ztr_20230807_180716_981")
+	//queryBalance(client, "mid_zhangtianren_ztr_20230807_180716_981")
 }
 
 func register(client *defaultAlipayClient.DefaultAlipayClient) {

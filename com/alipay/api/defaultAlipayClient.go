@@ -68,9 +68,8 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 
 	trans := &http.Transport{
 		DialContext: (&net.Dialer{
-			Timeout: totalTimeout,
+			Timeout: connectTimeout,
 		}).DialContext,
-		TLSHandshakeTimeout:   connectTimeout,
 		ResponseHeaderTimeout: readTimeout,
 	}
 
