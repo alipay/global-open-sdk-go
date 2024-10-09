@@ -1,7 +1,7 @@
 package model
 
 type TransferToDetail struct {
-	TransferToDetail       *PaymentMethod `json:"transferToDetail,omitempty"`
+	TransferToMethod       *PaymentMethod `json:"transferToMethod,omitempty"`
 	TransferToCurrency     string         `json:"transferToCurrency,omitempty"`
 	FeeAmount              *Amount        `json:"feeAmount,omitempty"`
 	ActualTransferToAmount *Amount        `json:"actualTransferToAmount,omitempty"`

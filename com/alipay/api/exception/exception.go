@@ -2,10 +2,10 @@ package exception
 
 import "fmt"
 
-type AlipaySDKError struct {
+type AlipayLibraryError struct {
 	Message string
 }
 
-func (p *AlipaySDKError) Error() string {
+func (p *AlipayLibraryError) Error() string {
 	return fmt.Sprintf("AlipaySDKErrore=%s", p.Message)
 }

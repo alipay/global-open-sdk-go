@@ -12,13 +12,13 @@ type MerchantInfo struct {
 type LegalEntityType string
 
 const (
-	LegalEntityTypeCompany    LegalEntityType = "COMPANY"
-	LegalEntityTypeINDIVIDUAL LegalEntityType = "INDIVIDUAL"
+	LegalEntityType_Company    LegalEntityType = "COMPANY"
+	LegalEntityType_INDIVIDUAL LegalEntityType = "INDIVIDUAL"
 )
 
 type Company struct {
 	LegalName         string           `json:"legalName,omitempty"`
-	CompanyType       string           `json:"companyType,omitempty"`
+	CompanyType       CompanyType      `json:"companyType,omitempty"`
 	RegisteredAddress *Address         `json:"registeredAddress,omitempty"`
 	OperatingAddress  *Address         `json:"operatingAddress,omitempty"`
 	IncorporationDate string           `json:"incorporationDate,omitempty"`
@@ -82,10 +82,10 @@ type StockInfo struct {
 }
 
 type Attachment struct {
-	AttachmentType string `json:"attachmentType,omitempty"`
-	File           string `json:"file,omitempty"`
-	AttachmentName string `json:"attachmentName,omitempty"`
-	FileKey        string `json:"fileKey,omitempty"`
+	AttachmentType AttachmentType `json:"attachmentType,omitempty"`
+	File           string         `json:"file,omitempty"`
+	AttachmentName string         `json:"attachmentName,omitempty"`
+	FileKey        string         `json:"fileKey,omitempty"`
 }
 
 type CompanyUnitType string
@@ -93,6 +93,23 @@ type CompanyUnitType string
 const (
 	CompanyUnitType_HEADQUARTER CompanyUnitType = "HEADQUARTER"
 	CompanyUnitType_BRANCH      CompanyUnitType = "BRANCH"
+)
+
+type CompanyType string
+
+const (
+	CompanyType_ENTERPRISE               CompanyType = "ENTERPRISE"
+	CompanyType_SOLE_PROPRIETORSHIP      CompanyType = "SOLE_PROPRIETORSHIP"
+	CompanyType_PARTNERSHIP              CompanyType = "PARTNERSHIP"
+	CompanyType_STATE_OWNED_BUSINESS     CompanyType = "STATE_OWNED_BUSINESS"
+	CompanyType_PRIVATELY_OWNED_BUSINESS CompanyType = "PRIVATELY_OWNED_BUSINESS"
+	CompanyType_PUBLICLY_LISTED_BUSINESS CompanyType = "PUBLICLY_LISTED_BUSINESS"
+	CompanyType_LTDA                     CompanyType = "LTDA"
+	CompanyType_SA                       CompanyType = "SA"
+	CompanyType_EIRELI                   CompanyType = "EIRELI"
+	CompanyType_BOFC                     CompanyType = "BOFC"
+	CompanyType_MEI                      CompanyType = "MEI"
+	CompanyType_EI                       CompanyType = "EI"
 )
 
 type Contact struct {

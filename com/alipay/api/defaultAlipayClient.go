@@ -15,12 +15,17 @@ import (
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
 	"time"
 )
+
+const readTimeout = 15 * time.Second
+const connectTimeout = 15 * time.Second
+const totalTimeout = 30 * time.Second
 
 type DefaultAlipayClient struct {
 	GatewayUrl         string
@@ -61,14 +66,23 @@ func NewDefaultAlipayClient(gatewayUrl string, clientId string, merchantPrivateK
 // @Return 返回类型 "错误信息"
 func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, headers map[string]string, data []byte, alipayResponse any) (any, error) {
 
-	//自定义cient
+	trans := &http.Transport{
+		DialContext: (&net.Dialer{
+			Timeout: totalTimeout,
+		}).DialContext,
+		TLSHandshakeTimeout:   connectTimeout,
+		ResponseHeaderTimeout: readTimeout,
+	}
+
+	//自定义client
 	client := &http.Client{
-		Timeout: 5 * time.Second, // 超时时间：5秒
+		Timeout:   totalTimeout,
+		Transport: trans,
 	}
 	//http.post等方法只是在NewRequest上又封装来了一层而已
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(data))
 	if err != nil {
-		return nil, &exception.AlipaySDKError{Message: "http.NewRequest is fail " + err.Error()}
+		return nil, &exception.AlipayLibraryError{Message: "http.NewRequest is fail " + err.Error()}
 	}
 	req.Header.Set("Content-type", "application/json")
 
@@ -87,7 +101,7 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, &exception.AlipaySDKError{Message: "client.Do is fail " + err.Error()}
+		return nil, &exception.AlipayLibraryError{Message: "client.Do is fail " + err.Error()}
 	}
 	defer resp.Body.Close()
 
@@ -96,7 +110,7 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 	//但是我们在上次必然已经定义了any的类型
 	err = json.Unmarshal(body, alipayResponse)
 	if err != nil {
-		return nil, &exception.AlipaySDKError{Message: "json.Unmarshal is fail " + err.Error()}
+		return nil, &exception.AlipayLibraryError{Message: "json.Unmarshal is fail " + err.Error()}
 	}
 
 	return alipayResponse, nil
@@ -105,7 +119,7 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRequest) (any, error) {
 	reqPayload, err := json.Marshal(alipayRequest.Param)
 	if err != nil {
-		return nil, &exception.AlipaySDKError{Message: "json.Marshal is fail " + err.Error()}
+		return nil, &exception.AlipayLibraryError{Message: "json.Marshal is fail " + err.Error()}
 	}
 	path := alipayRequest.Path
 	httpMethod := alipayRequest.HttpMethod
@@ -128,16 +142,16 @@ func getPkcsKeu(key string) string {
 func genSign(httpMethod string, path string, clientId string, reqTime string, reqBody string, merchantPrivateKey string) (string, error) {
 	block, _ := pem.Decode([]byte(merchantPrivateKey))
 	if block == nil {
-		return "", &exception.AlipaySDKError{Message: "Failed to decode private key"}
+		return "", &exception.AlipayLibraryError{Message: "Failed to decode private key"}
 	}
 	privateKey, err := x509.ParsePKCS8PrivateKey(block.Bytes)
 	if err != nil {
-		return "", &exception.AlipaySDKError{Message: "Failed to parse private key  " + err.Error()}
+		return "", &exception.AlipayLibraryError{Message: "Failed to parse private key  " + err.Error()}
 	}
 	payload := genSignContent(httpMethod, path, clientId, reqTime, reqBody)
 	signature, err := Sign(privateKey.(*rsa.PrivateKey), []byte(payload))
 	if err != nil {
-		return "", &exception.AlipaySDKError{Message: "Failed to sign data  " + err.Error()}
+		return "", &exception.AlipayLibraryError{Message: "Failed to sign data  " + err.Error()}
 	}
 
 	return signature, nil
