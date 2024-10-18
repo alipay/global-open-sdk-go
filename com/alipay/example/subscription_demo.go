@@ -22,8 +22,8 @@ func main() {
 		alipayAlipayPublicKey)
 
 	//SubscriptionsCreate(client)
-	//SubscriptionsChange(client, "202409141900000000000001J0000009488")
-	subscriptionCancel(client, "202409141900000000000001J0000009488")
+	SubscriptionsChange(client, "202409141900000000000001J0000009488")
+	//subscriptionCancel(client, "202409141900000000000001J0000009488")
 
 }
 
@@ -40,7 +40,7 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 		Currency: "HKD",
 		Value:    "10",
 	}
-	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "http://www.alipay.com"
+	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "http://www.yourNotifyUrl.com"
 	alipaySubscriptionCreateRequest.PeriodRule = &model.PeriodRule{
 		PeriodType:  model.PeriodType_MONTH,
 		PeriodCount: 1,
@@ -64,10 +64,6 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 
 	alipaySubscriptionCreateRequest.PaymentMethod = &model.PaymentMethod{
 		PaymentMethodType: model.ALIPAY_HK,
-	}
-
-	alipaySubscriptionCreateRequest.SettlementStrategy = &model.SettlementStrategy{
-		SettlementCurrency: "USD",
 	}
 
 	alipaySubscriptionCreateRequest.SubscriptionRedirectUrl = "http://www.alipay.com"

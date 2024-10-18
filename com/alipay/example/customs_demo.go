@@ -29,7 +29,7 @@ func declare(paymentId string, client *defaultAlipayClient.DefaultAlipayClient) 
 	request, customsDeclareRequest := customs.NewAlipayCustomsDeclareRequest()
 	customsDeclareRequest.PaymentId = paymentId
 	customsDeclareRequest.DeclarationRequestId = uuid.NewString()
-	customsDeclareRequest.DeclarationAmount = &model.Amount{Value: "CNY", Currency: "1000"}
+	customsDeclareRequest.DeclarationAmount = &model.Amount{Value: "10000", Currency: "CNY"}
 	customsDeclareRequest.MerchantCustomsInfo = &model.MerchantCustomsInfo{
 		MerchantCustomsName: "merchantCustomsName",
 		MerchantCustomsCode: "merchantCustomsCode",
