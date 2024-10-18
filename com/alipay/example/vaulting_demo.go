@@ -31,8 +31,8 @@ func createVaultingSession(client *defaultAlipayClient.DefaultAlipayClient) {
 	request, vaultingRequest := vaulting.NewAlipayVaultingSessionRequest()
 	vaultingRequest.VaultingRequestId = uuid.NewString()
 	vaultingRequest.PaymentMethodType = "CARD"
-	vaultingRequest.VaultingNotificationUrl = "www.global.alipay.com"
-	vaultingRequest.RedirectUrl = "www.global.alipay.com"
+	vaultingRequest.VaultingNotificationUrl = "https://www.yourNotifyUrl.com"
+	vaultingRequest.RedirectUrl = "https://www.yourRedirectUrl.com"
 	vaultingRequest.MerchantRegion = "BR"
 
 	response, err := client.Execute(request)
@@ -47,8 +47,8 @@ func createVaultingSession(client *defaultAlipayClient.DefaultAlipayClient) {
 func vaultPaymentMethod(client *defaultAlipayClient.DefaultAlipayClient) {
 	request, vaultPaymentMethodRequest := vaulting.NewAlipayVaultingPaymentMethodRequest()
 	vaultPaymentMethodRequest.VaultingRequestId = uuid.NewString()
-	vaultPaymentMethodRequest.VaultingNotificationUrl = "www.global.alipay.com"
-	vaultPaymentMethodRequest.RedirectUrl = "www.global.alipay.com"
+	vaultPaymentMethodRequest.VaultingNotificationUrl = "https://www.yourNotifyUrl.com"
+	vaultPaymentMethodRequest.RedirectUrl = "https://www.yourRedirectUrl.com"
 	vaultPaymentMethodRequest.MerchantRegion = "BR"
 
 	vaultPaymentMethodRequest.PaymentMethodDetail = &model.PaymentMethodDetail{

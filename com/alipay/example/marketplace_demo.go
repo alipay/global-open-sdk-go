@@ -229,19 +229,13 @@ func createPayout(client *defaultAlipayClient.DefaultAlipayClient) {
 func createTransfer(client *defaultAlipayClient.DefaultAlipayClient) {
 	request, createTransferRequest := marketplace.NewAlipayCreateTransferRequest()
 	createTransferRequest.TransferRequestId = uuid.NewString()
-	createTransferRequest.TransferFromDetail = &model.TransferFromDetail{
-		TransferFromMethod: &model.PaymentMethod{
-			PaymentMethodId:   uuid.NewString(),
-			PaymentMethodType: model.BALANCE_ACCOUNT,
-		},
-	}
 
 	createTransferRequest.TransferFromDetail = &model.TransferFromDetail{
 		TransferFromMethod: &model.PaymentMethod{
 			PaymentMethodId:   uuid.NewString(),
 			PaymentMethodType: model.BALANCE_ACCOUNT,
 		},
-		TransferFromAmount: model.NewAmount("BRL", "100"),
+		TransferFromAmount: model.NewAmount("100", "BRL"),
 	}
 
 	createTransferRequest.TransferToDetail = &model.TransferToDetail{

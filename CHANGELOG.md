@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.2 - 2024-10-18
+* [#4](https://github.com/alipay/global-open-sdk-go/pull/4)  update-example
+
 
 ## 1.2.1 - 2024-09-30
 * [#3](https://github.com/alipay/global-open-sdk-go/pull/3)  update-p1
