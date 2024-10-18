@@ -40,7 +40,7 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 		Currency: "HKD",
 		Value:    "10",
 	}
-	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "http://www.alipay.com"
+	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "https://www.yourNotifyUrl.com"
 	alipaySubscriptionCreateRequest.PeriodRule = &model.PeriodRule{
 		PeriodType:  model.PeriodType_MONTH,
 		PeriodCount: 1,
@@ -53,7 +53,7 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 	alipaySubscriptionCreateRequest.SubscriptionEndTime = "2024-09-14T12:01:01+08:00"
 	// The duration of subscription preparation process should be less than 48 hours
 	alipaySubscriptionCreateRequest.SubscriptionExpiryTime = "2024-09-15T12:01:01+08:00"
-	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "http://www.alipay.com"
+	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "https://www.yourNotifyUrl.com"
 
 	alipaySubscriptionCreateRequest.OrderInfo = &model.OrderInfo{
 		OrderAmount: &model.Amount{
@@ -70,8 +70,8 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 		SettlementCurrency: "USD",
 	}
 
-	alipaySubscriptionCreateRequest.SubscriptionRedirectUrl = "http://www.alipay.com"
-	alipaySubscriptionCreateRequest.SubscriptionNotificationUrl = "http://www.alipay.com"
+	alipaySubscriptionCreateRequest.SubscriptionRedirectUrl = "https://www.yourRedirectUrl.com"
+	alipaySubscriptionCreateRequest.SubscriptionNotificationUrl = "https://www.yourNotifyUrl.com"
 
 	execute, err := client.Execute(request)
 	if err != nil {
