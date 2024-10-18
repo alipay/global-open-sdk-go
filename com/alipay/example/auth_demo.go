@@ -28,7 +28,7 @@ func main() {
 
 func authConsult(client *defaultAlipayClient.DefaultAlipayClient) {
 	request, authConsultRequest := auth.NewAlipayAuthConsultRequest()
-	authConsultRequest.AuthRedirectUrl = "https://www.alipay.com"
+	authConsultRequest.AuthRedirectUrl = "https://www.yourRedirectUrl.com"
 	authConsultRequest.AuthState = uuid.NewString()
 	authConsultRequest.CustomerBelongsTo = model.ALIPAY_CN
 	authConsultRequest.OsType = model.ANDROID

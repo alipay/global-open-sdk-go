@@ -49,8 +49,8 @@ func doPay(body *defaultAlipayClient.DefaultAlipayClient) {
 
 	request.PaymentAmount = model.NewAmount("100", "HKD")
 
-	request.PaymentNotifyUrl = "https://www.alipay.com"
-	request.PaymentRedirectUrl = "https://www.alipay.com"
+	request.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
+	request.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
 
 	request.PaymentMethod = &model.PaymentMethod{PaymentMethodType: model.ALIPAY_HK}
 
@@ -172,8 +172,8 @@ func createSession(client *defaultAlipayClient.DefaultAlipayClient) {
 	createSessionRequest.PaymentMethod = &model.PaymentMethod{
 		PaymentMethodType: model.SHOPEEPAY_SG,
 	}
-	createSessionRequest.PaymentNotifyUrl = "https://www.alipay.com"
-	createSessionRequest.PaymentRedirectUrl = "https://www.alipay.com"
+	createSessionRequest.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
+	createSessionRequest.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
 	createSessionRequest.Env = &model.Env{
 		OsType:       model.IOS,
 		TerminalType: model.APP,

@@ -33,8 +33,8 @@ https://mvnrepository.com/artifact/com.alipay.global.sdk/global-open-sdk-go
 
 	request.PaymentAmount = model.NewAmount("100", "HKD")
 
-	request.PaymentNotifyUrl = "https://www.alipay.com"
-	request.PaymentRedirectUrl = "https://www.alipay.com"
+	request.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
+	request.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
 
 	request.PaymentMethod = &model.PaymentMethod{PaymentMethodType: model.ALIPAY_HK, PaymentMethodId: "1234567890"}
 
