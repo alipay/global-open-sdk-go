@@ -66,8 +66,8 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 		PaymentMethodType: model.ALIPAY_HK,
 	}
 
-	alipaySubscriptionCreateRequest.SubscriptionRedirectUrl = "http://www.alipay.com"
-	alipaySubscriptionCreateRequest.SubscriptionNotificationUrl = "http://www.alipay.com"
+	alipaySubscriptionCreateRequest.SubscriptionRedirectUrl = "https://www.alipay.com"
+	alipaySubscriptionCreateRequest.SubscriptionNotificationUrl = "https://www.alipay.com"
 
 	execute, err := client.Execute(request)
 	if err != nil {
