@@ -12,6 +12,7 @@ type AlipayVaultingSessionRequest struct {
 	VaultingNotificationUrl string `json:"vaultingNotificationUrl,omitempty"`
 	RedirectUrl             string `json:"redirectUrl,omitempty"`
 	MerchantRegion          string `json:"merchantRegion,omitempty"`
+	Is3DSAuthentication     bool   `json:"is3DSAuthentication,omitempty"`
 }
 
 func NewAlipayVaultingSessionRequest() (*request.AlipayRequest, *AlipayVaultingSessionRequest) {

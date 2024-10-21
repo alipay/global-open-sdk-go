@@ -49,6 +49,7 @@ type CardPaymentMethodDetail struct {
 	CardPasswordDigest          string    `json:"cardPasswordDigest,omitempty"`
 	Cpf                         string    `json:"cpf,omitempty"`
 	PayerEmail                  string    `json:"payerEmail,omitempty"`
+	NetworkTransactionId        string    `json:"networkTransactionId,omitempty"`
 }
 
 type ExternalPaymentMethodDetail struct {
