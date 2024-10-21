@@ -164,4 +164,5 @@ type Order struct {
 	Lodging          *Lodging  `json:"lodging,omitempty"`
 	Gaming           *Gaming   `json:"gaming,omitempty"`
 	OrderCreatedTime string    `json:"orderCreatedTime,omitempty"`
+	NeedDeclaration  bool      `json:"needDeclaration,omitempty"`
 }
