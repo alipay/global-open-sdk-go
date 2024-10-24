@@ -16,4 +16,5 @@ type AlipayPayResultNotify struct {
 	AcquirerReferenceNo      string                   `json:"acquirerReferenceNo,omitempty"`
 	PaymentResultInfo        *model.PaymentResultInfo `json:"paymentResultInfo,omitempty"`
 	AcquirerInfo             *model.AcquirerInfo      `json:"acquirerInfo,omitempty"`
+	PromotionResult          []*model.PromotionResult `json:"promotionResult,omitempty"`
 }
