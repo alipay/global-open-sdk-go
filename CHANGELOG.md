@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 1.2.4 - 2024-10-24
+* [#5](https://github.com/alipay/global-open-sdk-go/pull/5) feature-notify
+    - update notify
+
 ## 1.2.3 - 2024-10-21
 * [#4](https://github.com/alipay/global-open-sdk-go/pull/4) feature-241022
     - add AlipayVaultingSessionRequest.is3DSAuthentication哈啰集成绑卡SDK
