@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.5 - 2024-11-25
+* [#6](https://github.com/alipay/global-open-sdk-go/pull/6) feature-241125
+    - update Leg
 
 ## 1.2.4 - 2024-10-24
 * [#5](https://github.com/alipay/global-open-sdk-go/pull/5) feature-notify
