@@ -1,6 +1,11 @@
 # Changelog
 
 ## 1.2.5 - 2024-11-25
+* [#7](https://github.com/alipay/global-open-sdk-go/pull/7) feature-241125
+    - update AlipayPayResultNotify
+    - update AlipayPayQueryRequest
+
+## 1.2.5 - 2024-11-25
 * [#6](https://github.com/alipay/global-open-sdk-go/pull/6) feature-241125
     - update Leg
 
