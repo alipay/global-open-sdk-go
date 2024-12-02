@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.6 - 2024-12-02
+* [#8](https://github.com/alipay/global-open-sdk-go/pull/8) feature-241202
+    - update AlipayDisputeNotify
+    - update AlipayPayQueryResponse
+
 ## 1.2.5 - 2024-11-25
 * [#7](https://github.com/alipay/global-open-sdk-go/pull/7) feature-241125
     - update AlipayPayResultNotify

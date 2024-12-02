@@ -10,7 +10,6 @@ type AlipayPayQueryRequest struct {
 	PaymentRequestId  string `json:"paymentRequestId,omitempty"`
 	PaymentId         string `json:"paymentId,omitempty"`
 	MerchantAccountId string `json:"MerchantAccountId,omitempty"`
-	PaymentMethodType string `json:"paymentMethodType,omitempty"`
 }
 
 func (alipayPayQueryRequest *AlipayPayQueryRequest) NewRequest() *request.AlipayRequest {

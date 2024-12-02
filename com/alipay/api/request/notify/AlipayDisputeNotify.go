@@ -20,4 +20,5 @@ type AlipayDisputeNotify struct {
 	Rrn                     string                        `json:"arn,omitempty"`
 	DisputeAcceptReason     string                        `json:"disputeAcceptReason,omitempty"`
 	DisputeAcceptTime       string                        `json:"disputeAcceptTime,omitempty"`
+	DisputeType             string                        `json:"disputeType,omitempty"`
 }
