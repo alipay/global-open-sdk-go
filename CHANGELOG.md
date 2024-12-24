@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.8 - 2024-12-24
+* [#10](https://github.com/alipay/global-open-sdk-go/pull/10) feature-241224
+    - CKP二期支持商户传入可选支付方式列表
+    - AMS独立绑卡支持MIT交易
+
+
 ## 1.2.7 - 2024-12-16
 * [#9](https://github.com/alipay/global-open-sdk-go/pull/9) feature-241216
     - RDR拒付通知优化通用能力变更
