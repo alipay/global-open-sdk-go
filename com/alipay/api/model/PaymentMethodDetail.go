@@ -50,6 +50,7 @@ type CardPaymentMethodDetail struct {
 	Cpf                         string    `json:"cpf,omitempty"`
 	PayerEmail                  string    `json:"payerEmail,omitempty"`
 	NetworkTransactionId        string    `json:"networkTransactionId,omitempty"`
+	Is3DSAuthentication         bool      `json:"is3DSAuthentication,omitempty"`
 }
 
 type ExternalPaymentMethodDetail struct {
