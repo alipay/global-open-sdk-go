@@ -3,6 +3,7 @@
 ## 1.2.8 - 2025-01-06
 * [#10](https://github.com/alipay/global-open-sdk-go/pull/10) feature-250106
     - 订阅支付新增“更新接口”
+    - 增加验签
 
 ## 1.2.7 - 2024-12-16
 * [#9](https://github.com/alipay/global-open-sdk-go/pull/9) feature-241216
