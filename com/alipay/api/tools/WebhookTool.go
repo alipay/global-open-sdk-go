@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func CheckSignature(requestUri, httpMethod, clientId, requestTime, notifyBody, signature, alipayPublicKey string) (bool, error) {
+func CheckSignature(requestUri, httpMethod, clientId, requestTime, responseBody, signature, alipayPublicKey string) (bool, error) {
 	realSignature := ""
 
 	// Check if signature is nil or empty
@@ -20,7 +20,7 @@ func CheckSignature(requestUri, httpMethod, clientId, requestTime, notifyBody, s
 	}
 
 	// Verify signature
-	isValid, _ := Verify(httpMethod, requestUri, clientId, requestTime, notifyBody, realSignature, alipayPublicKey)
+	isValid, _ := Verify(httpMethod, requestUri, clientId, requestTime, responseBody, realSignature, alipayPublicKey)
 	if !isValid {
 		return false, errors.New("signature verification failed")
 	}
