@@ -7,11 +7,11 @@ import (
 )
 
 type AlipayAuthCreateSessionRequest struct {
-	ProductCode      model.ProductCodeType `json:"productCode,omitempty"`
-	AgreementInfo    *model.AgreementInfo  `json:"agreementInfo,omitempty"`
-	Scopes           []model.ScopeType     `json:"scopes,omitempty"`
-	PaymentMethod    *model.PaymentMethod  `json:"paymentMethod,omitempty"`
-	PaymentNotifyUrl string                `json:"paymentNotifyUrl,omitempty"`
+	ProductCode        model.ProductCodeType `json:"productCode,omitempty"`
+	AgreementInfo      *model.AgreementInfo  `json:"agreementInfo,omitempty"`
+	Scopes             []model.ScopeType     `json:"scopes,omitempty"`
+	PaymentMethod      *model.PaymentMethod  `json:"paymentMethod,omitempty"`
+	PaymentRedirectUrl string                `json:"paymentRedirectUrl,omitempty"`
 }
 
 func (alipayAuthCreateSessionRequest *AlipayAuthCreateSessionRequest) NewRequest() *request.AlipayRequest {
