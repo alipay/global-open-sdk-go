@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.9 - 2025-01-06
+* [#11](https://github.com/alipay/global-open-sdk-go/pull/11) feature-250106
+    - 订阅支付新增“更新接口”
+    - 增加验签
+
 ## 1.2.8 - 2024-12-24
 * [#10](https://github.com/alipay/global-open-sdk-go/pull/10) feature-241224
     - CKP二期支持商户传入可选支付方式列表

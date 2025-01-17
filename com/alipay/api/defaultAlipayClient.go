@@ -2,22 +2,14 @@ package defaultAlipayClient
 
 import (
 	"bytes"
-	"crypto"
-	"crypto/rand"
-	"crypto/rsa"
-	"crypto/sha256"
-	"crypto/x509"
-	"encoding/base64"
 	"encoding/json"
-	"encoding/pem"
 	"fmt"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/exception"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/tools"
 	"io/ioutil"
-	"log"
 	"net"
 	"net/http"
-	"net/url"
 	"strconv"
 	"strings"
 	"time"
@@ -103,8 +95,15 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 		return nil, &exception.AlipayLibraryError{Message: "client.Do is fail " + err.Error()}
 	}
 	defer resp.Body.Close()
-
 	body, err := ioutil.ReadAll(resp.Body)
+	responseTime := resp.Header.Get("response-time")
+	sign, err := checkRspSign(resp.Request.Method, req.URL.Path, resp.Header.Get("Client-id"), responseTime, string(body), resp.Header.Get("Signature"), alipayClient.AlipayPublicKey)
+	if err != nil {
+		return nil, &exception.AlipayLibraryError{Message: "checkRspSign is fail " + err.Error()}
+	}
+	if !sign {
+		return nil, &exception.AlipayLibraryError{Message: "check signature fail"}
+	}
 	//通过指针将request的response值赋值，这样虽然是any类型，
 	//但是我们在上次必然已经定义了any的类型
 	err = json.Unmarshal(body, alipayResponse)
@@ -123,7 +122,7 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	path := alipayRequest.Path
 	httpMethod := alipayRequest.HttpMethod
 	reqTime := strconv.FormatInt(time.Now().UnixNano(), 10)
-	sign, err := genSign(fmt.Sprintf("%s", httpMethod), path, alipayClient.ClientId, reqTime, string(reqPayload), getPkcsKeu(alipayClient.MerchantPrivateKey))
+	sign, err := tools.GenSign(fmt.Sprintf("%s", httpMethod), path, alipayClient.ClientId, reqTime, string(reqPayload), alipayClient.MerchantPrivateKey)
 	if err != nil {
 		return nil, err
 	}
@@ -134,49 +133,18 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	}
 	return alipayResponse, nil
 }
-func getPkcsKeu(key string) string {
-	return "-----BEGIN PRIVATE KEY-----\n" + key + "\n-----END PRIVATE KEY-----"
-}
 
-func genSign(httpMethod string, path string, clientId string, reqTime string, reqBody string, merchantPrivateKey string) (string, error) {
-	block, _ := pem.Decode([]byte(merchantPrivateKey))
-	if block == nil {
-		return "", &exception.AlipayLibraryError{Message: "Failed to decode private key"}
-	}
-	privateKey, err := x509.ParsePKCS8PrivateKey(block.Bytes)
+func checkRspSign(httpMethod string, path string, clientId string, responseTime string, rspBody string, rspSignValue string, alipayPublicKey string) (bool, error) {
+
+	signature, err := tools.CheckSignature(path, httpMethod, clientId, responseTime, rspBody, rspSignValue, alipayPublicKey)
 	if err != nil {
-		return "", &exception.AlipayLibraryError{Message: "Failed to parse private key  " + err.Error()}
+		return false, &exception.AlipayLibraryError{Message: "Failed to check signature  " + err.Error()}
 	}
-	payload := genSignContent(httpMethod, path, clientId, reqTime, reqBody)
-	signature, err := Sign(privateKey.(*rsa.PrivateKey), []byte(payload))
-	if err != nil {
-		return "", &exception.AlipayLibraryError{Message: "Failed to sign data  " + err.Error()}
+	if !signature {
+		return false, &exception.AlipayLibraryError{Message: "check signature fail"}
+	} else {
+		return true, nil
 	}
-
-	return signature, nil
-
-}
-
-func genSignContent(httpMethod string, path string, clientId string, reqTime string, reqBody string) string {
-	return httpMethod + " " + path + "\n" + clientId + "." + reqTime + "." + reqBody
-}
-
-func Sign(privateKey *rsa.PrivateKey, data []byte) (string, error) {
-	// 计算数据的SHA256哈希
-	hashed := sha256.Sum256(data)
-
-	// 使用私钥签名哈希值
-	signature, err := rsa.SignPKCS1v15(rand.Reader, privateKey, crypto.Hash.HashFunc(crypto.SHA256), hashed[:])
-	if err != nil {
-		return "", err
-	}
-	//base64编码 如果signature直接传string会造成乱码
-	base64Signature := base64.StdEncoding.EncodeToString(signature)
-	return Encode(base64Signature)
-}
-
-func Encode(signature string) (string, error) {
-	return url.QueryEscape(signature), nil
 }
 
 func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatureValue string) map[string]string {
@@ -191,18 +159,4 @@ func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatu
 		"Key-Version":  keyVersion,
 		"Signature":    signatureValue,
 	}
-}
-
-func getJsonValue(jsonValue []byte, jsonField string) any {
-	var jsonMap map[string]any
-
-	if err := json.Unmarshal(jsonValue, &jsonMap); err != nil {
-		log.Fatalf("json.Unmarshal is fail: %v \n")
-	}
-
-	value, ok := jsonMap[jsonField]
-	if !ok {
-		log.Fatalf("jsonMap is not contain jsonField: %v \n")
-	}
-	return value
 }

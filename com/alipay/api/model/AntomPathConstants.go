@@ -19,6 +19,7 @@ const (
 	SUBSCRIPTION_CREATE_PATH               = "/ams/api/v1/subscriptions/create"
 	SUBSCRIPTION_CHANGE_PATH               = "/ams/api/v1/subscriptions/change"
 	SUBSCRIPTION_CANCEL_PATH               = "/ams/api/v1/subscriptions/cancel"
+	SUBSCRIPTION_UPDATE_PATH               = "/ams/api/v1/subscriptions/update"
 	ACCEPT_DISPUTE_PATH                    = "/ams/api/v1/payments/acceptDispute"
 	SUPPLY_DEFENCE_DOC_PATH                = "/ams/api/v1/payments/supplyDefenseDocument"
 	DOWNLOAD_DISPUTE_EVIDENCE_PATH         = "/ams/api/v1/payments/downloadDisputeEvidence"

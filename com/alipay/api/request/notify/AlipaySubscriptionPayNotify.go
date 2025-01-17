@@ -6,5 +6,5 @@ type AlipaySubscriptionPayNotify struct {
 	SubscriptionId        string `json:"subscriptionId,omitempty"`
 	PeriodStartTime       string `json:"periodStartTime,omitempty"`
 	PeriodEndTime         string `json:"periodEndTime,omitempty"`
-	PhaseNo               int    `json:"phaseNo,omitempty"`
+	PhaseNo               string `json:"phaseNo,omitempty"`
 }
