@@ -33,7 +33,7 @@ type AlipayPayQueryResponse struct {
 	PaymentResultInfo        model.PaymentResultInfo     `json:"paymentResultInfo"`
 	AcquirerInfo             model.AcquirerInfo          `json:"acquirerInfo"`
 	MerchantAccountId        string                      `json:"merchantAccountId"`
-	PromotionResults         []model.PromotionResult     `json:"promotionResult"`
+	PromotionResult          []model.PromotionResult     `json:"promotionResult"`
 	EarliestSettlementTime   string                      `json:"earliestSettlementTime"`
 	PaymentMethodType        string                      `json:"paymentMethodType,omitempty"`
 }
