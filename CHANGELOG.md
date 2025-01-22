@@ -1,5 +1,10 @@
 # Changelog
 
+
+## 1.2.10 - 2025-01-22
+* [#12](https://github.com/alipay/global-open-sdk-go/pull/12) feature-250122
+    - update promotionResults
+
 ## 1.2.9 - 2025-01-06
 * [#11](https://github.com/alipay/global-open-sdk-go/pull/11) feature-250106
     - 订阅支付新增“更新接口”
