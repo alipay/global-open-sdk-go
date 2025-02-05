@@ -12,6 +12,11 @@ type PaymentResultInfo struct {
 	CvvResultRaw         string        `json:"cvvResultRaw,omitempty"`
 	NetworkTransactionId string        `json:"networkTransactionId,omitempty"`
 	CreditPayPlan        CreditPayPlan `json:"creditPayPlan,omitempty"`
+	CardholderName       string        `json:"cardholderName,omitempty"`
+	CardBin              string        `json:"cardBin,omitempty"`
+	LastFour             string        `json:"lastFour,omitempty"`
+	ExpiryMonth          string        `json:"expiryMonth,omitempty"`
+	ExpiryYear           string        `json:"expiryYear,omitempty"`
 }
 
 type ThreeDSResult struct {

@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 1.2.11 - 2025-02-05
+* [#13](https://github.com/alipay/global-open-sdk-go/pull/13) feature-250205
+    - 支付、查询、支付结果通知新增卡相关信息字段
+
 ## 1.2.10 - 2025-01-22
 * [#12](https://github.com/alipay/global-open-sdk-go/pull/12) feature-250122
     - update promotionResults
