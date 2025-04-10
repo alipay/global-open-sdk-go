@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.12 - 2025-04-10
+* [#14](https://github.com/alipay/global-open-sdk-go/pull/14) feature-250410
+    - Antom 印度渠道接入AMS拒付相关接口的标准变更
+    - Antom印度渠道接入（UPI/CARD/NETBAKING）相关接口标准变更
+    - CKP二期支持商户传入支付方式地区和支付方式要素
 
 ## 1.2.11 - 2025-02-05
 * [#13](https://github.com/alipay/global-open-sdk-go/pull/13) feature-250205
