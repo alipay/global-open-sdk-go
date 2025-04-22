@@ -2,6 +2,7 @@ package model
 
 type AvailablePaymentMethod struct {
 	PaymentMethodTypeList []PaymentMethodTypeItem `json:"paymentMethodTypeList,omitempty"`
+	PaymentMethodMetaData map[string]any          `json:"paymentMethodMetaData,omitempty"`
 }
 
 type PaymentMethodTypeItem struct {
