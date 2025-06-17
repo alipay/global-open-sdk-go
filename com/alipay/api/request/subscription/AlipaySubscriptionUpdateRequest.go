@@ -16,6 +16,12 @@ type AlipaySubscriptionUpdateRequest struct {
 	OrderInfo                   *model.OrderInfo  `json:"orderInfo,omitempty"`
 }
 
+func NewAlipaySubscriptionUpdateRequest() (*request.AlipayRequest, *AlipaySubscriptionUpdateRequest) {
+	alipaySubscriptionUpdateRequest := &AlipaySubscriptionUpdateRequest{}
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionUpdateRequest, "/ams/api/v1/subscriptions/update", &responseSubscription.AlipaySubscriptionUpdateResponse{})
+	return alipayRequest, alipaySubscriptionUpdateRequest
+}
+
 func (alipaySubscriptionUpdateRequest *AlipaySubscriptionUpdateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionUpdateRequest, model.SUBSCRIPTION_UPDATE_PATH, &responseSubscription.AlipaySubscriptionUpdateResponse{})
+	return request.NewAlipayRequest(&alipaySubscriptionUpdateRequest, "/ams/api/v1/subscriptions/update", &responseSubscription.AlipaySubscriptionUpdateResponse{})
 }

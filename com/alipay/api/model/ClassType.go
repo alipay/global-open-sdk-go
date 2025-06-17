@@ -3,7 +3,7 @@ package model
 type ClassType string
 
 const (
-	FIRSTLEVEL  ClassType = "FIRSTLEVEL"
-	SECONDLEVEL ClassType = "SECONDLEVEL"
-	THIRDLEVEL  ClassType = "THIRDLEVEL"
+	ClassType_FIRSTLEVEL  ClassType = "FIRSTLEVEL"
+	ClassType_SECONDLEVEL ClassType = "SECONDLEVEL"
+	ClassType_THIRDLEVEL  ClassType = "THIRDLEVEL"
 )

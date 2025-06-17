@@ -3,6 +3,6 @@ package model
 type MerchantType string
 
 const (
-	INDIVIDUAL MerchantType = "INDIVIDUAL"
-	ENTERPRISE MerchantType = "ENTERPRISE"
+	MerchantType_INDIVIDUAL MerchantType = "INDIVIDUAL"
+	MerchantType_ENTERPRISE MerchantType = "ENTERPRISE"
 )

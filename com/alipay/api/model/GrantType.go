@@ -3,6 +3,6 @@ package model
 type GrantType string
 
 const (
-	GrantTypeAUTHORIZATION_CODE GrantType = "AUTHORIZATION_CODE"
-	GrantTypeREFRESH_TOKEN      GrantType = "REFRESH_TOKEN"
+	GrantType_AUTHORIZATION_CODE GrantType = "AUTHORIZATION_CODE"
+	GrantType_REFRESH_TOKEN      GrantType = "REFRESH_TOKEN"
 )
