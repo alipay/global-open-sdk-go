@@ -33,8 +33,8 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 	alipaySubscriptionCreateRequest.SubscriptionRequestId = uuid.NewString()
 	alipaySubscriptionCreateRequest.Env = &model.Env{
 		ClientIp:     "1.*.*.*",
-		OsType:       model.ANDROID,
-		TerminalType: model.WEB,
+		OsType:       model.OsType_ANDROID,
+		TerminalType: model.TerminalType_WEB,
 	}
 	alipaySubscriptionCreateRequest.PaymentAmount = &model.Amount{
 		Currency: "HKD",
@@ -42,7 +42,7 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 	}
 	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "https://www.yourNotifyUrl.com"
 	alipaySubscriptionCreateRequest.PeriodRule = &model.PeriodRule{
-		PeriodType:  model.PeriodType_MONTH,
+		PeriodType:  string(model.PeriodType_MONTH),
 		PeriodCount: 1,
 	}
 	alipaySubscriptionCreateRequest.SettlementStrategy = &model.SettlementStrategy{
@@ -91,7 +91,7 @@ func SubscriptionsChange(client *defaultAlipayClient.DefaultAlipayClient, subscr
 		Value:    "100",
 	}
 	changeRequest.PeriodRule = &model.PeriodRule{
-		PeriodType:  model.PeriodType_MONTH,
+		PeriodType:  string(model.PeriodType_MONTH),
 		PeriodCount: 1,
 	}
 	changeRequest.SubscriptionStartTime = "2024-09-12T12:01:01+08:00"
@@ -114,7 +114,7 @@ func SubscriptionsChange(client *defaultAlipayClient.DefaultAlipayClient, subscr
 func subscriptionCancel(client *defaultAlipayClient.DefaultAlipayClient, subscriptionId string) {
 	request, cancelRequest := subscription.NewAlipaySubscriptionCancelRequest()
 	cancelRequest.SubscriptionId = subscriptionId
-	cancelRequest.CancellationType = model.CancellationType_CANCEL
+	cancelRequest.CancellationType = string(model.CancellationType_CANCEL)
 	execute, err := client.Execute(request)
 	if err != nil {
 		panic(err)

@@ -37,24 +37,25 @@ func doPay(body *defaultAlipayClient.DefaultAlipayClient) {
 	order := &model.Order{}
 	order.OrderDescription = "example order"
 	order.ReferenceOrderId = uuid.NewString()
-	order.OrderAmount = model.NewAmount("100", "HKD")
+	order.OrderAmount = &model.Amount{"HKD", "100"}
 	merchant := &model.Merchant{}
 	merchant.ReferenceMerchantId = "1238rye8yr8erwer"
 	merchant.MerchantMCC = "7011"
 	merchant.MerchantName = "example merchant"
 	merchant.Store = &model.Store{StoreMCC: "7011", ReferenceStoreId: "289285674", StoreName: "store 1111"}
 	order.Merchant = merchant
-	order.Env = &model.Env{OsType: model.ANDROID, TerminalType: model.WEB}
+	order.Env = &model.Env{OsType: model.OsType_ANDROID, TerminalType: model.TerminalType_WEB}
 	request.Order = order
 
-	request.PaymentAmount = model.NewAmount("100", "HKD")
+	request.PaymentAmount = &model.Amount{"HKD", "100"}
 
 	request.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
 	request.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
 
 	request.PaymentMethod = &model.PaymentMethod{PaymentMethodType: model.ALIPAY_HK}
 
-	request.ProductCode = model.CASHIER_PAYMENT
+	request.ProductCode = model.ProductCodeType_CASHIER_PAYMENT
+	request.SettlementStrategy = &model.SettlementStrategy{"USD"}
 
 	execute, err := body.Execute(payRequest)
 	if err != nil {
@@ -85,7 +86,7 @@ func refund(paymentId string, client *defaultAlipayClient.DefaultAlipayClient) {
 	refundRequest := pay.AlipayRefundRequest{}
 	refundRequest.RefundRequestId = uuid.NewString()
 	refundRequest.PaymentId = paymentId
-	refundRequest.RefundAmount = model.NewAmount("100", "HKD")
+	refundRequest.RefundAmount = &model.Amount{"HKD", "100"}
 	refundRequest.RefundReason = "example refund"
 	request := refundRequest.NewRequest()
 	execute, err := client.Execute(request)
@@ -119,16 +120,16 @@ func consult(client *defaultAlipayClient.DefaultAlipayClient) {
 	consultRequest.SettlementStrategy = &model.SettlementStrategy{
 		SettlementCurrency: "USD",
 	}
-	consultRequest.ProductCode = model.CASHIER_PAYMENT
+	consultRequest.ProductCode = model.ProductCodeType_CASHIER_PAYMENT
 	consultRequest.UserRegion = "SG"
 	consultRequest.AllowedPaymentMethodRegions = []string{"SG", "HK", "CN"}
 	consultRequest.Env = &model.Env{
-		OsType:       model.IOS,
-		TerminalType: model.APP,
+		OsType:       model.OsType_ANDROID,
+		TerminalType: model.TerminalType_APP,
 	}
-	consultRequest.PaymentAmount = model.NewAmount("1000", "USD")
+	consultRequest.PaymentAmount = &model.Amount{"USD", "100"}
 	consultRequest.PaymentFactor = &model.PaymentFactor{
-		PresentmentMode: model.BUNDLE,
+		PresentmentMode: model.PresentmentMode_BUNDLE,
 	}
 
 	execute, err := client.Execute(request)
@@ -162,21 +163,21 @@ func createSession(client *defaultAlipayClient.DefaultAlipayClient) {
 	createSessionRequest.Order = &model.Order{
 		OrderDescription: "example order",
 		ReferenceOrderId: "289473927358748",
-		OrderAmount:      model.NewAmount("100", "HKD"),
+		OrderAmount:      &model.Amount{"HKD", "100"},
 		Buyer: &model.Buyer{
 			ReferenceBuyerId: "111112132143434",
 		},
 	}
-	createSessionRequest.PaymentAmount = model.NewAmount("100", "HKD")
-	createSessionRequest.ProductCode = model.CASHIER_PAYMENT
+	createSessionRequest.PaymentAmount = &model.Amount{"HKD", "100"}
+	createSessionRequest.ProductCode = model.ProductCodeType_CASHIER_PAYMENT
 	createSessionRequest.PaymentMethod = &model.PaymentMethod{
 		PaymentMethodType: model.SHOPEEPAY_SG,
 	}
 	createSessionRequest.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
 	createSessionRequest.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
 	createSessionRequest.Env = &model.Env{
-		OsType:       model.IOS,
-		TerminalType: model.APP,
+		OsType:       model.OsType_IOS,
+		TerminalType: model.TerminalType_APP,
 	}
 
 	execute, err := client.Execute(request)

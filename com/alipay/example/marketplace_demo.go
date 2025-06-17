@@ -48,7 +48,7 @@ func register(client *defaultAlipayClient.DefaultAlipayClient) {
 
 	registerRequest.MerchantInfo = &model.MerchantInfo{
 		LoginId:         uuid.NewString()[:8] + "wangzunj3ao.wzj@digital-engine.com",
-		LegalEntityType: model.LegalEntityType_Company,
+		LegalEntityType: model.LegalEntityType_COMPANY,
 		Company: &model.Company{
 			LegalName: "legalName",
 			RegisteredAddress: &model.Address{
@@ -88,9 +88,9 @@ func register(client *defaultAlipayClient.DefaultAlipayClient) {
 		EntityAssociations: []*model.EntityAssociations{
 			{
 				Individual: &model.Individual{
-					Certificates: &model.Certificate{
-						CertificateNo:   "123214321",
-						CertificateType: model.CertificateType_CPF,
+					Certificates: []*model.Certificate{
+						{CertificateNo: "123214321",
+							CertificateType: model.CertificateType_CPF},
 					},
 					Name: &model.UserName{
 						FirstName:  "firstName",
@@ -105,10 +105,10 @@ func register(client *defaultAlipayClient.DefaultAlipayClient) {
 			},
 			{
 				Individual: &model.Individual{
-					Certificates: &model.Certificate{
-						CertificateNo:   "123214321",
-						CertificateType: model.CertificateType_CPF,
-						FileKeys:        []string{"wetrewqratewtewgewgewg"},
+					Certificates: []*model.Certificate{
+						{CertificateNo: "123214321",
+							CertificateType: model.CertificateType_CPF,
+							FileKeys:        []string{"wetrewqratewtewgewgewg"}},
 					},
 					Name: &model.UserName{
 						FirstName:  "firstName",
@@ -235,7 +235,7 @@ func createTransfer(client *defaultAlipayClient.DefaultAlipayClient) {
 			PaymentMethodId:   uuid.NewString(),
 			PaymentMethodType: model.BALANCE_ACCOUNT,
 		},
-		TransferFromAmount: model.NewAmount("100", "BRL"),
+		TransferFromAmount: &model.Amount{"BRL", "100"},
 	}
 
 	createTransferRequest.TransferToDetail = &model.TransferToDetail{

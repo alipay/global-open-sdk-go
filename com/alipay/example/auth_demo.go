@@ -31,10 +31,12 @@ func authConsult(client *defaultAlipayClient.DefaultAlipayClient) {
 	authConsultRequest.AuthRedirectUrl = "https://www.yourRedirectUrl.com"
 	authConsultRequest.AuthState = uuid.NewString()
 	authConsultRequest.CustomerBelongsTo = model.ALIPAY_CN
-	authConsultRequest.OsType = model.ANDROID
+	authConsultRequest.OsType = model.OsType_ANDROID
 	authConsultRequest.OsVersion = "1.0.0"
-	authConsultRequest.Scopes = []model.ScopeType{model.ScopeTypeAgreementPay}
-	authConsultRequest.TerminalType = model.APP
+	authConsultRequest.Scopes = []model.ScopeType{
+		model.ScopeType_AGREEMENT_PAY,
+	}
+	authConsultRequest.TerminalType = model.TerminalType_APP
 
 	execute, err := client.Execute(request)
 	if err != nil {
@@ -48,7 +50,7 @@ func authConsult(client *defaultAlipayClient.DefaultAlipayClient) {
 
 func applyToken(authCode string, client *defaultAlipayClient.DefaultAlipayClient) {
 	request, authApplyTokenRequest := auth.NewAlipayAuthApplyTokenRequest()
-	authApplyTokenRequest.GrantType = model.GrantTypeAUTHORIZATION_CODE
+	authApplyTokenRequest.GrantType = model.GrantType_AUTHORIZATION_CODE
 	authApplyTokenRequest.CustomerBelongsTo = model.ALIPAY_CN
 	authApplyTokenRequest.AuthCode = authCode
 
