@@ -74,7 +74,7 @@ func vaultPaymentMethod(client *defaultAlipayClient.DefaultAlipayClient) {
 	}
 
 	vaultPaymentMethodRequest.Env = &model.Env{
-		TerminalType: model.APP,
+		TerminalType: model.TerminalType_APP,
 	}
 
 	response, err := client.Execute(request)

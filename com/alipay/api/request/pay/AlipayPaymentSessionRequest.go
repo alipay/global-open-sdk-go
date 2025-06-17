@@ -27,15 +27,14 @@ type AlipayPaymentSessionRequest struct {
 	SavedPaymentMethods         []*model.PaymentMethod        `json:"savedPaymentMethods,omitempty"`
 	Locale                      string                        `json:"locale,omitempty"`
 	AvailablePaymentMethod      *model.AvailablePaymentMethod `json:"availablePaymentMethod,omitempty"`
-	AllowedPaymentMethodRegions []string                      `json:"allowedPaymentMethodRegions,omitempty"`
-}
-
-func (alipayPaymentSessionRequest *AlipayPaymentSessionRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayPaymentSessionRequest, model.CREATE_SESSION_PATH, &responsePay.AlipayPaymentSessionResponse{})
 }
 
 func NewAlipayPaymentSessionRequest() (*request.AlipayRequest, *AlipayPaymentSessionRequest) {
 	alipayPaymentSessionRequest := &AlipayPaymentSessionRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayPaymentSessionRequest, model.CREATE_SESSION_PATH, &responsePay.AlipayPaymentSessionResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayPaymentSessionRequest, "/ams/api/v1/payments/createPaymentSession", &responsePay.AlipayPaymentSessionResponse{})
 	return alipayRequest, alipayPaymentSessionRequest
+}
+
+func (alipayPaymentSessionRequest *AlipayPaymentSessionRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayPaymentSessionRequest, "/ams/api/v1/payments/createPaymentSession", &responsePay.AlipayPaymentSessionResponse{})
 }

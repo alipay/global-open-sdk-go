@@ -48,7 +48,7 @@ func supplyDefenseDocument(client *defaultAlipayClient.DefaultAlipayClient, disp
 func downloadDisputeEvidence(client *defaultAlipayClient.DefaultAlipayClient, disputeId string) {
 	request, downloadDisputeEvidenceRequest := dispute.NewAlipayDownloadDisputeEvidenceRequest()
 	downloadDisputeEvidenceRequest.DisputeId = disputeId
-	downloadDisputeEvidenceRequest.DisputeEvidenceType = model.DisputeEvidenceType_DISPUTE_EVIDENCE_TEMPLATE
+	downloadDisputeEvidenceRequest.DisputeEvidenceType = model.DisputeEvidenceType_TEMPLATE
 
 	response, err := client.Execute(request)
 	if err != nil {
