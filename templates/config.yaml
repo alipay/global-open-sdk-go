@@ -1,0 +1,6 @@
+gitUserId: antom
+gitRepoId: global-open-sdk-go/
+structPrefix: false
+isGoSubmodule: false
+additionalProperties:
+  useOneOfDiscriminatorLookup: true

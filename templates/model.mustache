@@ -1,0 +1,47 @@
+package {{packageName}}
+
+{{#models}}
+import (
+{{#lambdas.GoParent}}{{classname}}  {{serverUrl}} 1
+{{/lambdas.GoParent}}
+ModelImport
+)
+
+
+{{#model}}
+        {{#isEnum}}
+            {{>modelEnum}}
+        {{/isEnum}}
+    {{^isEnum}}
+
+
+type {{classname}} struct {
+{{#lambdas.GoParent}}{{classname}}  {{serverUrl}} 2
+{{/lambdas.GoParent}}
+{{#vars}}
+    {{#lambdas.skipResult}}
+    {{#isPrimitiveType}}
+        {{name}} {{{dataType}}} `json:"{{baseName}},omitempty"`
+    {{/isPrimitiveType}}
+    {{^isPrimitiveType}}
+    {{#allowableValues}}
+        {{#lambdas.GoModel}} {{classname}} {{name}} {{{dataType}}} {{baseName}} 1
+        {{/lambdas.GoModel}}
+    {{/allowableValues}}
+    {{^allowableValues}}
+        {{#lambdas.GoModel}} {{classname}} {{name}} {{{dataType}}} {{baseName}} 0
+        {{/lambdas.GoModel}}
+    {{/allowableValues}}
+    {{/isPrimitiveType}}
+    {{/lambdas.skipResult}}
+{{/vars}}
+}
+
+Constructor
+
+
+    {{/isEnum}}
+{{/model}}
+
+
+{{/models}}

@@ -1,0 +1,10 @@
+
+type {{classname}} string
+
+const (
+{{#allowableValues}}
+    {{#enumVars}}
+{{classname}}_{{{name}}} {{classname}} = {{{value}}}
+    {{/enumVars}}
+{{/allowableValues}}
+)
