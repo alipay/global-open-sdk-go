@@ -7,10 +7,11 @@ import (
 
 type AlipayCaptureResponse struct {
 	response.AlipayResponse
-	CaptureRequestId    string       `json:"captureRequestId"`
-	CaptureId           string       `json:"captureId"`
-	PaymentId           string       `json:"paymentId"`
-	CaptureAmount       model.Amount `json:"captureAmount"`
-	CaptureTime         string       `json:"captureTime"`
-	AcquirerReferenceNo string       `json:"acquirerReferenceNo"`
+	Result              *model.Result `json:"result,omitempty"`
+	CaptureRequestId    string        `json:"captureRequestId,omitempty"`
+	CaptureId           string        `json:"captureId,omitempty"`
+	PaymentId           string        `json:"paymentId,omitempty"`
+	CaptureAmount       *model.Amount `json:"captureAmount,omitempty"`
+	CaptureTime         string        `json:"captureTime,omitempty"`
+	AcquirerReferenceNo string        `json:"acquirerReferenceNo,omitempty"`
 }
