@@ -119,6 +119,7 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	if err != nil {
 		return nil, &exception.AlipayLibraryError{Message: "json.Marshal is fail " + err.Error()}
 	}
+	AdjustSandboxUrl(alipayClient.IsSandboxMode, alipayRequest)
 	path := alipayRequest.Path
 	httpMethod := alipayRequest.HttpMethod
 	reqTime := strconv.FormatInt(time.Now().UnixNano(), 10)
@@ -158,5 +159,13 @@ func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatu
 		"Client-Id":    clientId,
 		"Key-Version":  keyVersion,
 		"Signature":    signatureValue,
+	}
+
+}
+
+func AdjustSandboxUrl(isSandboxMode bool, req *request.AlipayRequest) {
+	if isSandboxMode {
+		// 替换第一个"/ams/api"为"/ams/sandbox/api"
+		req.Path = strings.Replace(req.Path, "/ams/api", "/ams/sandbox/api", 1)
 	}
 }

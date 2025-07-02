@@ -1,5 +1,10 @@
 # Changelog
 
+
+## 1.2.13 - 2025-07-02
+* [#15](https://github.com/alipay/global-open-sdk-go/pull/15) feature-250702
+    - 沙箱接口需要带/sandbox/路径
+
 ## 1.2.12 - 2025-04-10
 * [#14](https://github.com/alipay/global-open-sdk-go/pull/14) feature-250410
     - Antom 印度渠道接入AMS拒付相关接口的标准变更
