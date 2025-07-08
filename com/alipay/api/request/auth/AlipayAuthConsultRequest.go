@@ -18,16 +18,15 @@ type AlipayAuthConsultRequest struct {
 	ExtendInfo        string                  `json:"extendInfo,omitempty"`
 	MerchantRegion    string                  `json:"merchantRegion,omitempty"`
 	RecurringPayment  bool                    `json:"recurringPayment,omitempty"`
-	GrantType         string                  `json:"grantType,omitempty"`
 	AuthMetaData      *model.AuthMetaData     `json:"authMetaData,omitempty"`
-}
-
-func (alipayAuthConsultRequest *AlipayAuthConsultRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAuthConsultRequest, model.AUTH_CONSULT_PATH, &responseAuth.AlipayAuthConsultResponse{})
 }
 
 func NewAlipayAuthConsultRequest() (*request.AlipayRequest, *AlipayAuthConsultRequest) {
 	alipayAuthConsultRequest := &AlipayAuthConsultRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAuthConsultRequest, model.AUTH_CONSULT_PATH, &responseAuth.AlipayAuthConsultResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAuthConsultRequest, "/ams/api/v1/authorizations/consult", &responseAuth.AlipayAuthConsultResponse{})
 	return alipayRequest, alipayAuthConsultRequest
+}
+
+func (alipayAuthConsultRequest *AlipayAuthConsultRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayAuthConsultRequest, "/ams/api/v1/authorizations/consult", &responseAuth.AlipayAuthConsultResponse{})
 }
