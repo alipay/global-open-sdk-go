@@ -28,6 +28,7 @@ type AlipayPayRequest struct {
 	PaymentVerificationData *model.PaymentVerificationData `json:"paymentVerificationData,omitempty"`
 	ExtendInfo              string                         `json:"extendInfo,omitempty"`
 	MerchantAccountId       string                         `json:"merchantAccountId,omitempty"`
+	SubscriptionInfo        *model.SubscriptionInfo        `json:"subscriptionInfo,omitempty"`
 }
 
 func (alipayPayRequest *AlipayPayRequest) NewRequest() *request.AlipayRequest {

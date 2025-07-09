@@ -7,4 +7,5 @@ type AlipayVaultingSessionResponse struct {
 	VaultingSessionData       string `json:"vaultingSessionData,omitempty"`
 	VaultingSessionId         string `json:"vaultingSessionId,omitempty"`
 	VaultingSessionExpiryTime string `json:"vaultingSessionExpiryTime,omitempty"`
+	NormalUrl                 string `json:"normalUrl,omitempty"`
 }

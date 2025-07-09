@@ -11,6 +11,7 @@ const (
 	CONSULT_PAYMENT_PATH                   = "/ams/api/v1/payments/consult"
 	PAYMENT_PATH                           = "/ams/api/v1/payments/pay"
 	CREATE_SESSION_PATH                    = "/ams/api/v1/payments/createPaymentSession"
+	RETRIEVE_PATH                          = "/ams/api//v1/payments/retrievePaymentSession"
 	CAPTURE_PATH                           = "/ams/api/v1/payments/capture"
 	INQUIRY_PAYMENT_PATH                   = "/ams/api/v1/payments/inquiryPayment"
 	CANCEL_PATH                            = "/ams/api/v1/payments/cancel"

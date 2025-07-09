@@ -1,5 +1,7 @@
 # Changelog
 
+## 1.2.14 - 2025-07-09
+- update 0709
 
 ## 1.2.13 - 2025-07-02
 * [#15](https://github.com/alipay/global-open-sdk-go/pull/15) feature-250702

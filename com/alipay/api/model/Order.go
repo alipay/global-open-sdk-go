@@ -23,17 +23,19 @@ type Merchant struct {
 }
 
 type Goods struct {
-	ReferenceGoodsId   string             `json:"referenceGoodsId,omitempty"`
-	GoodsName          string             `json:"goodsName,omitempty"`
-	GoodsCategory      string             `json:"goodsCategory,omitempty"`
-	GoodsBrand         string             `json:"goodsBrand,omitempty"`
-	GoodsUnitAmount    *Amount            `json:"goodsUnitAmount,omitempty"`
-	GoodsQuantity      string             `json:"goodsQuantity,omitempty"`
-	GoodsSkuName       string             `json:"goodsSkuName,omitempty"`
-	GoodsUrl           string             `json:"goodsUrl,omitempty"`
-	DeliveryMethodType DeliveryMethodType `json:"deliveryMethodType,omitempty"`
-	GoodsImageUrl      string             `json:"goodsImageUrl,omitempty"`
-	PriceId            string             `json:"priceId,omitempty"`
+	ReferenceGoodsId    string             `json:"referenceGoodsId,omitempty"`
+	GoodsName           string             `json:"goodsName,omitempty"`
+	GoodsCategory       string             `json:"goodsCategory,omitempty"`
+	GoodsBrand          string             `json:"goodsBrand,omitempty"`
+	GoodsUnitAmount     *Amount            `json:"goodsUnitAmount,omitempty"`
+	GoodsQuantity       string             `json:"goodsQuantity,omitempty"`
+	GoodsSkuName        string             `json:"goodsSkuName,omitempty"`
+	GoodsUrl            string             `json:"goodsUrl,omitempty"`
+	DeliveryMethodType  DeliveryMethodType `json:"deliveryMethodType,omitempty"`
+	GoodsImageUrl       string             `json:"goodsImageUrl,omitempty"`
+	PriceId             string             `json:"priceId,omitempty"`
+	GoodsDiscountAmount *Amount            `json:"goodsDiscountAmount,omitempty"`
+	CrossSell           *Goods             `json:"crossSell,omitempty"`
 }
 type DeliveryEstimateInfo struct {
 	Unit  string `json:"unit,omitempty"`
@@ -55,6 +57,8 @@ type Shipping struct {
 	ShippingFee         *Amount           `json:"shippingFee,omitempty"`
 	ShippingDescription string            `json:"shippingDescription,omitempty"`
 	DeliveryEstimate    *DeliveryEstimate `json:"deliveryEstimate,omitempty"`
+	ShippingNumber      string            `json:"shippingNumber,omitempty"`
+	Notes               string            `json:"notes,omitempty"`
 }
 
 type Buyer struct {
@@ -153,18 +157,20 @@ type Gaming struct {
 }
 
 type Order struct {
-	ReferenceOrderId string    `json:"referenceOrderId,omitempty"`
-	OrderDescription string    `json:"orderDescription,omitempty"`
-	OrderAmount      *Amount   `json:"orderAmount,omitempty"`
-	Merchant         *Merchant `json:"merchant,omitempty"`
-	Goods            []Goods   `json:"goods,omitempty"`
-	Shipping         *Shipping `json:"shipping,omitempty"`
-	Buyer            *Buyer    `json:"buyer,omitempty"`
-	Env              *Env      `json:"env,omitempty"`
-	ExtendInfo       string    `json:"extendInfo,omitempty"`
-	Transit          *Transit  `json:"transit,omitempty"`
-	Lodging          *Lodging  `json:"lodging,omitempty"`
-	Gaming           *Gaming   `json:"gaming,omitempty"`
-	OrderCreatedTime string    `json:"orderCreatedTime,omitempty"`
-	NeedDeclaration  bool      `json:"needDeclaration,omitempty"`
+	ReferenceOrderId    string    `json:"referenceOrderId,omitempty"`
+	OrderDescription    string    `json:"orderDescription,omitempty"`
+	OrderAmount         *Amount   `json:"orderAmount,omitempty"`
+	Merchant            *Merchant `json:"merchant,omitempty"`
+	Goods               []Goods   `json:"goods,omitempty"`
+	Shipping            *Shipping `json:"shipping,omitempty"`
+	Buyer               *Buyer    `json:"buyer,omitempty"`
+	Env                 *Env      `json:"env,omitempty"`
+	ExtendInfo          string    `json:"extendInfo,omitempty"`
+	Transit             *Transit  `json:"transit,omitempty"`
+	Lodging             *Lodging  `json:"lodging,omitempty"`
+	Gaming              *Gaming   `json:"gaming,omitempty"`
+	OrderCreatedTime    string    `json:"orderCreatedTime,omitempty"`
+	NeedDeclaration     bool      `json:"needDeclaration,omitempty"`
+	OrderDiscountAmount *Amount   `json:"orderDiscountAmount,omitempty"`
+	SubTotalOrderAmount *Amount   `json:"subTotalOrderAmount,omitempty"`
 }

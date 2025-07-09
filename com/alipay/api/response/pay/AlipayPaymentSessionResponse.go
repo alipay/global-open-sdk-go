@@ -1,6 +1,8 @@
 package responsePay
 
-import "github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+import (
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+)
 
 type AlipayPaymentSessionResponse struct {
 	response.AlipayResponse
