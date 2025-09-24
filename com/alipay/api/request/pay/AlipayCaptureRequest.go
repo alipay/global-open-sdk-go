@@ -7,10 +7,12 @@ import (
 )
 
 type AlipayCaptureRequest struct {
-	CaptureRequestId string        `json:"captureRequestId,omitempty"`
-	PaymentId        string        `json:"paymentId,omitempty"`
-	CaptureAmount    *model.Amount `json:"captureAmount,omitempty"`
-	IsLastCapture    bool          `json:"isLastCapture,omitempty"`
+	CaptureRequestId string         `json:"captureRequestId,omitempty"`
+	PaymentId        string         `json:"paymentId,omitempty"`
+	CaptureAmount    *model.Amount  `json:"captureAmount,omitempty"`
+	IsLastCapture    bool           `json:"isLastCapture,omitempty"`
+	CaptureType      string         `json:"captureType,omitempty"`
+	Transit          *model.Transit `json:"transit,omitempty"`
 }
 
 func (alipayCaptureRequest *AlipayCaptureRequest) NewRequest() *request.AlipayRequest {

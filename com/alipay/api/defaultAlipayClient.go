@@ -24,6 +24,7 @@ type DefaultAlipayClient struct {
 	ClientId           string
 	MerchantPrivateKey string
 	AlipayPublicKey    string
+	AgentToken         string
 	IsSandboxMode      bool
 }
 
@@ -33,20 +34,22 @@ type DefaultAlipayClient struct {
  * @param clientId 应用ID
  * @param merchantPrivateKey 商户私钥
  * @param alipayPublicKey 支付宝公钥
+ * @param agentTokenOpt 代理token
  */
-func NewDefaultAlipayClient(gatewayUrl string, clientId string, merchantPrivateKey string, alipayPublicKey string) *DefaultAlipayClient {
-	isSandboxMode := false
-	if strings.HasPrefix(clientId, "SANDBOX_") {
-		isSandboxMode = true
-	}
+func NewDefaultAlipayClient(gatewayUrl, clientId, merchantPrivateKey, alipayPublicKey string, agentTokenOpt ...string) *DefaultAlipayClient {
+	isSandboxMode := strings.HasPrefix(clientId, "SANDBOX_")
 
-	return &DefaultAlipayClient{
+	c := &DefaultAlipayClient{
 		GatewayUrl:         gatewayUrl,
 		ClientId:           clientId,
 		MerchantPrivateKey: merchantPrivateKey,
 		AlipayPublicKey:    alipayPublicKey,
 		IsSandboxMode:      isSandboxMode,
 	}
+	if len(agentTokenOpt) > 0 {
+		c.AgentToken = agentTokenOpt[0]
+	}
+	return c
 }
 
 // @Description 支持任意方式的http请求
@@ -127,7 +130,7 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	if err != nil {
 		return nil, err
 	}
-	header := buildBaseHeader(reqTime, alipayClient.ClientId, alipayRequest.KeyVersion, sign)
+	header := buildBaseHeader(reqTime, alipayClient.ClientId, alipayRequest.KeyVersion, sign, alipayClient.AgentToken)
 	alipayResponse, err := alipayClient.httpDo(alipayClient.GatewayUrl+path, httpMethod, map[string]string{}, header, reqPayload, alipayRequest.AlipayResponse)
 	if err != nil {
 		return nil, err
@@ -148,7 +151,7 @@ func checkRspSign(httpMethod string, path string, clientId string, responseTime 
 	}
 }
 
-func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatureValue string) map[string]string {
+func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatureValue string, agentToken string) map[string]string {
 	if keyVersion == "" {
 		keyVersion = "1"
 	}
@@ -159,6 +162,8 @@ func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatu
 		"Client-Id":    clientId,
 		"Key-Version":  keyVersion,
 		"Signature":    signatureValue,
+		"SDK-VERSION":  "global-open-sdk-go",
+		"agent-token":  agentToken,
 	}
 
 }

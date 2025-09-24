@@ -51,6 +51,18 @@ type CardPaymentMethodDetail struct {
 	PayerEmail                  string    `json:"payerEmail,omitempty"`
 	NetworkTransactionId        string    `json:"networkTransactionId,omitempty"`
 	Is3DSAuthentication         bool      `json:"is3DSAuthentication,omitempty"`
+	Request3DS                  string    `json:"request3DS,omitempty"`
+	ScaExemptionIndicator       string    `json:"scaExemptionIndicator,omitempty"`
+	EnableAuthenticationUpgrade string    `json:"enableAuthenticationUpgrade,omitempty"`
+	MpiData                     *MpiData  `json:"mpiData,omitempty"`
+}
+
+type MpiData struct {
+	ThreeDSVersion  string         `json:"threeDSVersion,omitempty"`
+	Eci             string         `json:"eci,omitempty"`
+	Cavv            string         `json:"cavv,omitempty"`
+	DsTransactionId string         `json:"dsTransactionId,omitempty"`
+	CredentialType  CredentialType `json:"credentialType,omitempty"`
 }
 
 type ExternalPaymentMethodDetail struct {
@@ -76,3 +88,10 @@ type CouponPaymentMethodDetail struct {
 	CouponExpireTime            string  `json:"couponExpireTime,omitempty"`
 	PaymentMethodDetailMetadata string  `json:"paymentMethodDetailMetadata,omitempty"`
 }
+
+type CredentialType string
+
+const (
+	CredentialType_NETWORK_TOKEN CredentialType = "NETWORK_TOKEN"
+	CredentialType_PAN           CredentialType = "PAN"
+)

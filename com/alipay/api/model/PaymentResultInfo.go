@@ -17,12 +17,19 @@ type PaymentResultInfo struct {
 	LastFour             string        `json:"lastFour,omitempty"`
 	ExpiryMonth          string        `json:"expiryMonth,omitempty"`
 	ExpiryYear           string        `json:"expiryYear,omitempty"`
+	AccountNo            string        `json:"accountNo,omitempty"`
+	RefusalCodeRaw       string        `json:"refusalCodeRaw,omitempty"`
+	RefusalReasonRaw     string        `json:"refusalReasonRaw,omitempty"`
+	MerchantAdviceCode   string        `json:"merchantAdviceCode,omitempty"`
+	AcquirerInfo         AcquirerInfo  `json:"acquirerInfo,omitempty"`
 }
 
 type ThreeDSResult struct {
-	ThreeDSVersion  string `json:"threeDSVersion,omitempty"`
-	Eci             string `json:"eci,omitempty"`
-	Cavv            string `json:"cavv,omitempty"`
-	DsTransactionId string `json:"dsTransactionId,omitempty"`
-	Xid             string `json:"xid,omitempty"`
+	ThreeDSVersion                 string `json:"threeDSVersion,omitempty"`
+	Eci                            string `json:"eci,omitempty"`
+	Cavv                           string `json:"cavv,omitempty"`
+	DsTransactionId                string `json:"dsTransactionId,omitempty"`
+	Xid                            string `json:"xid,omitempty"`
+	ThreeDStransactionStatusReason string `json:"threeDStransactionStatusReason,omitempty"`
+	ChallengeCancel                string `json:"challengeCancel,omitempty"`
 }
