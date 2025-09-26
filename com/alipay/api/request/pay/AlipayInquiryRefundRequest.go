@@ -1,7 +1,6 @@
 package pay
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responsePay "github.com/alipay/global-open-sdk-go/com/alipay/api/response/pay"
 )
@@ -12,12 +11,12 @@ type AlipayInquiryRefundRequest struct {
 	MerchantAccountId string `json:"merchantAccountId,omitempty"`
 }
 
-func (alipayInquiryRefundRequest *AlipayInquiryRefundRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquiryRefundRequest, model.INQUIRY_REFUND_PATH, &responsePay.AlipayInquiryRefundResponse{})
-}
-
 func NewAlipayInquiryRefundRequest() (*request.AlipayRequest, *AlipayInquiryRefundRequest) {
 	alipayInquiryRefundRequest := &AlipayInquiryRefundRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquiryRefundRequest, model.INQUIRY_REFUND_PATH, &responsePay.AlipayInquiryRefundResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquiryRefundRequest, "/ams/api/v1/payments/inquiryRefund", &responsePay.AlipayInquiryRefundResponse{})
 	return alipayRequest, alipayInquiryRefundRequest
+}
+
+func (alipayInquiryRefundRequest *AlipayInquiryRefundRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayInquiryRefundRequest, "/ams/api/v1/payments/inquiryRefund", &responsePay.AlipayInquiryRefundResponse{})
 }

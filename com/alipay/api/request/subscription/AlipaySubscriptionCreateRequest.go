@@ -24,12 +24,12 @@ type AlipaySubscriptionCreateRequest struct {
 	Trials                      []*model.Trial            `json:"trials,omitempty"`
 }
 
-func (alipaySubscriptionCreateRequest *AlipaySubscriptionCreateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, model.SUBSCRIPTION_CREATE_PATH, &responseSubscription.AlipaySubscriptionCreateResponse{})
-}
-
 func NewAlipaySubscriptionCreateRequest() (*request.AlipayRequest, *AlipaySubscriptionCreateRequest) {
 	alipaySubscriptionCreateRequest := &AlipaySubscriptionCreateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, model.SUBSCRIPTION_CREATE_PATH, &responseSubscription.AlipaySubscriptionCreateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
 	return alipayRequest, alipaySubscriptionCreateRequest
+}
+
+func (alipaySubscriptionCreateRequest *AlipaySubscriptionCreateRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
 }
