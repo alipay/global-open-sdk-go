@@ -39,4 +39,5 @@ const (
 	RISK_REPORT_PATH                       = "/ams/api/v1/risk/payments/reportRisk"
 	RISK_SEND_PAYMENT_RESULT_PATH          = "/ams/api/v1/risk/payments/sendPaymentResult"
 	RISK_SEND_REFUND_RESULT_PATH           = "/ams/api/v1/risk/payments/sendRefundResult"
+	PAYMENT_INQUIRE_EXCHANGE_RATE_PATH     = "/ams/api/v1/payments/inquireExchangeRate"
 )
