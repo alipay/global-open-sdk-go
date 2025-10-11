@@ -7,4 +7,5 @@ type Quote struct {
 	QuoteStartTime    string  `json:"quoteStartTime,omitempty"`
 	QuoteExpiryTime   string  `json:"quoteExpiryTime,omitempty"`
 	Guaranteed        bool    `json:"guaranteed,omitempty"`
+	ExchangeAmount    Amount  `json:"exchangeAmount,omitempty"`
 }

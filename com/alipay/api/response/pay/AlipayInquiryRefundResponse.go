@@ -15,4 +15,7 @@ type AlipayInquiryRefundResponse struct {
 	GrossSettlementAmount model.Amount                `json:"grossSettlementAmount"`
 	SettlementQuote       model.Quote                 `json:"settlementQuote"`
 	AcquirerInfo          model.AcquirerInfo          `json:"acquirerInfo"`
+	CustomizedInfo        *model.CustomizedInfo       `json:"customizedInfo,omitempty"`
+	Arn                   string                      `json:"arn,omitempty"`
+	ActualRefundAmount    *model.Amount               `json:"actualRefundAmount,omitempty"`
 }
