@@ -125,7 +125,7 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	AdjustSandboxUrl(alipayClient.IsSandboxMode, alipayRequest)
 	path := alipayRequest.Path
 	httpMethod := alipayRequest.HttpMethod
-	reqTime := strconv.FormatInt(time.Now().UnixNano(), 10)
+	reqTime := strconv.FormatInt(time.Now().UnixMilli(), 10)
 	sign, err := tools.GenSign(fmt.Sprintf("%s", httpMethod), path, alipayClient.ClientId, reqTime, string(reqPayload), alipayClient.MerchantPrivateKey)
 	if err != nil {
 		return nil, err
