@@ -22,6 +22,7 @@ type PaymentResultInfo struct {
 	RefusalReasonRaw     string        `json:"refusalReasonRaw,omitempty"`
 	MerchantAdviceCode   string        `json:"merchantAdviceCode,omitempty"`
 	AcquirerInfo         AcquirerInfo  `json:"acquirerInfo,omitempty"`
+	ExemptionRequested   string        `json:"exemptionRequested,omitempty"`
 }
 
 type ThreeDSResult struct {
@@ -32,4 +33,6 @@ type ThreeDSResult struct {
 	Xid                            string `json:"xid,omitempty"`
 	ThreeDStransactionStatusReason string `json:"threeDStransactionStatusReason,omitempty"`
 	ChallengeCancel                string `json:"challengeCancel,omitempty"`
+	Challenged                     bool   `json:"challenged,omitempty"`
+	ExemptionType                  string `json:"exemptionType,omitempty"`
 }
