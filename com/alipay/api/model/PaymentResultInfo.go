@@ -1,28 +1,29 @@
 package model
 
 type PaymentResultInfo struct {
-	CardNo               string        `json:"cardNo,omitempty"`
-	CardBrand            string        `json:"cardBrand,omitempty"`
-	CardToken            string        `json:"cardToken,omitempty"`
-	IssuingCountry       string        `json:"issuingCountry,omitempty"`
-	Funding              string        `json:"funding,omitempty"`
-	PaymentMethodRegion  string        `json:"paymentMethodRegion,omitempty"`
-	ThreeDSResult        ThreeDSResult `json:"threeDSResult,omitempty"`
-	AvsResultRaw         string        `json:"avsResultRaw,omitempty"`
-	CvvResultRaw         string        `json:"cvvResultRaw,omitempty"`
-	NetworkTransactionId string        `json:"networkTransactionId,omitempty"`
-	CreditPayPlan        CreditPayPlan `json:"creditPayPlan,omitempty"`
-	CardholderName       string        `json:"cardholderName,omitempty"`
-	CardBin              string        `json:"cardBin,omitempty"`
-	LastFour             string        `json:"lastFour,omitempty"`
-	ExpiryMonth          string        `json:"expiryMonth,omitempty"`
-	ExpiryYear           string        `json:"expiryYear,omitempty"`
-	AccountNo            string        `json:"accountNo,omitempty"`
-	RefusalCodeRaw       string        `json:"refusalCodeRaw,omitempty"`
-	RefusalReasonRaw     string        `json:"refusalReasonRaw,omitempty"`
-	MerchantAdviceCode   string        `json:"merchantAdviceCode,omitempty"`
-	AcquirerInfo         AcquirerInfo  `json:"acquirerInfo,omitempty"`
-	ExemptionRequested   string        `json:"exemptionRequested,omitempty"`
+	CardNo               string           `json:"cardNo,omitempty"`
+	CardBrand            string           `json:"cardBrand,omitempty"`
+	CardToken            string           `json:"cardToken,omitempty"`
+	IssuingCountry       string           `json:"issuingCountry,omitempty"`
+	Funding              string           `json:"funding,omitempty"`
+	PaymentMethodRegion  string           `json:"paymentMethodRegion,omitempty"`
+	ThreeDSResult        ThreeDSResult    `json:"threeDSResult,omitempty"`
+	AvsResultRaw         string           `json:"avsResultRaw,omitempty"`
+	CvvResultRaw         string           `json:"cvvResultRaw,omitempty"`
+	NetworkTransactionId string           `json:"networkTransactionId,omitempty"`
+	CreditPayPlan        CreditPayPlan    `json:"creditPayPlan,omitempty"`
+	CardCategory         CardCategoryType `json:"cardCategory,omitempty"`
+	CardholderName       string           `json:"cardholderName,omitempty"`
+	CardBin              string           `json:"cardBin,omitempty"`
+	LastFour             string           `json:"lastFour,omitempty"`
+	ExpiryMonth          string           `json:"expiryMonth,omitempty"`
+	ExpiryYear           string           `json:"expiryYear,omitempty"`
+	AccountNo            string           `json:"accountNo,omitempty"`
+	RefusalCodeRaw       string           `json:"refusalCodeRaw,omitempty"`
+	RefusalReasonRaw     string           `json:"refusalReasonRaw,omitempty"`
+	MerchantAdviceCode   string           `json:"merchantAdviceCode,omitempty"`
+	AcquirerInfo         AcquirerInfo     `json:"acquirerInfo,omitempty"`
+	ExemptionRequested   string           `json:"exemptionRequested,omitempty"`
 }
 
 type ThreeDSResult struct {
@@ -36,3 +37,10 @@ type ThreeDSResult struct {
 	Challenged                     bool   `json:"challenged,omitempty"`
 	ExemptionType                  string `json:"exemptionType,omitempty"`
 }
+
+type CardCategoryType string
+
+const (
+	CardCategoryDebit  CardCategoryType = "CONSUMER"
+	CardCategoryCredit CardCategoryType = "COMMERCIAL"
+)
