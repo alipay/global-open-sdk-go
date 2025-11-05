@@ -113,9 +113,11 @@ type Leg struct {
 }
 
 type Passenger struct {
-	PassengerName    UserName `json:"passengerName,omitempty"`
-	PassengerEmail   string   `json:"passengerEmail,omitempty"`
-	PassengerPhoneNo string   `json:"passengerPhoneNo,omitempty"`
+	PassengerName    UserName        `json:"passengerName,omitempty"`
+	PassengerEmail   string          `json:"passengerEmail,omitempty"`
+	PassengerPhoneNo string          `json:"passengerPhoneNo,omitempty"`
+	PassengerIdType  PassengerIdType `json:"passengerIdType,omitempty"`
+	PassengerCode    string          `json:"passengerCode,omitempty"`
 }
 type Transit struct {
 	TransitType TransitType `json:"transitType,omitempty"`
@@ -175,3 +177,18 @@ type Order struct {
 	SubTotalOrderAmount *Amount      `json:"subTotalOrderAmount,omitempty"`
 	Declaration         *Declaration `json:"declaration,omitempty"`
 }
+
+type PassengerIdType string
+
+// PASSPORT, NATIONAL_ID_CARD, DRIVER_LICENSE, MILITARY_ID, GREEN_CARD, TRAVEL_DOCUMENT, ALIEN_REGISTRATION_CARD, BIRTH_CERTIFICATE, OTHERS
+const (
+	PassengerIdType_PASSPORT                PassengerIdType = "PASSPORT"
+	PassengerIdType_NATIONAL_ID_CARD        PassengerIdType = "NATIONAL_ID_CARD"
+	PassengerIdType_DRIVER_LICENSE          PassengerIdType = "DRIVER_LICENSE"
+	PassengerIdType_MILITARY_ID             PassengerIdType = "MILITARY_ID"
+	PassengerIdType_GREEN_CARD              PassengerIdType = "GREEN_CARD"
+	PassengerIdType_TRAVEL_DOCUMENT         PassengerIdType = "TRAVEL_DOCUMENT"
+	PassengerIdType_ALIEN_REGISTRATION_CARD PassengerIdType = "ALIEN_REGISTRATION_CARD"
+	PassengerIdType_BIRTH_CERTIFICATE       PassengerIdType = "BIRTH_CERTIFICATE"
+	PassengerIdType_OTHERS                  PassengerIdType = "OTHERS"
+)

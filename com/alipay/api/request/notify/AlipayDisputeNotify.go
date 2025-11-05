@@ -22,4 +22,7 @@ type AlipayDisputeNotify struct {
 	DisputeAcceptTime       string                        `json:"disputeAcceptTime,omitempty"`
 	DisputeType             string                        `json:"disputeType,omitempty"`
 	Defendable              bool                          `json:"defendable,omitempty"`
+	CaptureId               string                        `json:"captureId,omitempty"`
+	AutoDefendReason        string                        `json:"autoDefendReason,omitempty"`
+	AcquirerInfo            *model.AcquirerInfo           `json:"acquirerInfo,omitempty"`
 }

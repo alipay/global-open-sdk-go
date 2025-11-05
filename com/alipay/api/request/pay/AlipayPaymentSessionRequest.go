@@ -30,6 +30,7 @@ type AlipayPaymentSessionRequest struct {
 	AllowedPaymentMethodRegions []string                      `json:"allowedPaymentMethodRegions,omitempty"`
 	SubscriptionInfo            *model.SubscriptionInfo       `json:"subscriptionInfo,omitempty"`
 	UserRegion                  string                        `json:"userRegion,omitempty"`
+	Scopes                      []string                      `json:"scopes,omitempty"`
 }
 
 func (alipayPaymentSessionRequest *AlipayPaymentSessionRequest) NewRequest() *request.AlipayRequest {

@@ -10,4 +10,5 @@ type AlipayAuthNotify struct {
 	Reason                  string `json:"reason,omitempty"`
 	UserLoginId             string `json:"userLoginId,omitempty"`
 	UserId                  string `json:"userId,omitempty"`
+	PassThroughInfo         string `json:"passThroughInfo,omitempty"`
 }

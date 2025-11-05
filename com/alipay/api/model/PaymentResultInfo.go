@@ -24,6 +24,7 @@ type PaymentResultInfo struct {
 	MerchantAdviceCode   string           `json:"merchantAdviceCode,omitempty"`
 	AcquirerInfo         AcquirerInfo     `json:"acquirerInfo,omitempty"`
 	ExemptionRequested   string           `json:"exemptionRequested,omitempty"`
+	CredentialTypeUsed   string           `json:"credentialTypeUsed,omitempty"`
 }
 
 type ThreeDSResult struct {
@@ -36,6 +37,7 @@ type ThreeDSResult struct {
 	ChallengeCancel                string `json:"challengeCancel,omitempty"`
 	Challenged                     bool   `json:"challenged,omitempty"`
 	ExemptionType                  string `json:"exemptionType,omitempty"`
+	ThreeDSOffered                 bool   `json:"threeDSOffered,omitempty"`
 }
 
 type CardCategoryType string
