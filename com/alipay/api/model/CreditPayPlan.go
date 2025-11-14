@@ -1,14 +1,8 @@
 package model
 
 type CreditPayPlan struct {
-	InstallmentNum   int              `json:"installmentNum,omitempty"`
+	InstallmentNum   int32            `json:"installmentNum,omitempty"`
 	Interval         string           `json:"interval,omitempty"`
 	CreditPayFeeType CreditPayFeeType `json:"creditPayFeeType,omitempty"`
-	FeePercentage    int              `json:"feePercentage,omitempty"`
+	FeePercentage    int32            `json:"feePercentage,omitempty"`
 }
-
-type CreditPayFeeType string
-
-const (
-	PERCENTAGE CreditPayFeeType = "PERCENTAGE"
-)

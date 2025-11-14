@@ -3,8 +3,8 @@ package model
 type TerminalType string
 
 const (
-	WEB      TerminalType = "WEB"
-	WAP      TerminalType = "WAP"
-	APP      TerminalType = "APP"
-	MINI_APP TerminalType = "MINI_APP"
+	TerminalType_WEB      TerminalType = "WEB"
+	TerminalType_WAP      TerminalType = "WAP"
+	TerminalType_APP      TerminalType = "APP"
+	TerminalType_MINI_APP TerminalType = "MINI_APP"
 )

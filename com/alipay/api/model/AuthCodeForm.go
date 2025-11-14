@@ -1,5 +1,5 @@
 package model
 
 type AuthCodeForm struct {
-	CodeDetails []CodeDetail `json:"codeDetails,omitempty"`
+	CodeDetails []*CodeDetail `json:"codeDetails,omitempty"`
 }

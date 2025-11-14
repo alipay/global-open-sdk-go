@@ -7,6 +7,7 @@ import (
 
 type AlipayDownloadDisputeEvidenceResponse struct {
 	response.AlipayResponse
+	Result                *model.Result                   `json:"result,omitempty"`
 	DisputeEvidence       string                          `json:"disputeEvidence,omitempty"`
 	DisputeEvidenceFormat model.DisputeEvidenceFormatType `json:"disputeEvidenceFormat,omitempty"`
 }

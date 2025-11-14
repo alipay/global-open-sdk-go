@@ -15,6 +15,10 @@ type AlipaySettlementInfoUpdateRequest struct {
 
 func NewAlipaySettlementInfoUpdateRequest() (*request.AlipayRequest, *AlipaySettlementInfoUpdateRequest) {
 	alipaySettlementInfoUpdateRequest := &AlipaySettlementInfoUpdateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySettlementInfoUpdateRequest, model.MARKETPLACE_SETTLEMENTINFO_UPDATE_PATH, &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySettlementInfoUpdateRequest, "/ams/api/v1/merchants/settlementInfo/update", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
 	return alipayRequest, alipaySettlementInfoUpdateRequest
+}
+
+func (alipaySettlementInfoUpdateRequest *AlipaySettlementInfoUpdateRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySettlementInfoUpdateRequest, "/ams/api/v1/merchants/settlementInfo/update", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
 }

@@ -3,6 +3,6 @@ package model
 type OsType string
 
 const (
-	IOS     OsType = "IOS"
-	ANDROID OsType = "ANDROID"
+	OsType_IOS     OsType = "IOS"
+	OsType_ANDROID OsType = "ANDROID"
 )

@@ -7,6 +7,7 @@ import (
 
 type AlipaySubmitAttachmentResponse struct {
 	response.AlipayResponse
+	Result                    *model.Result        `json:"result,omitempty"`
 	SubmitAttachmentRequestId string               `json:"submitAttachmentRequestId,omitempty"`
 	AttachmentType            model.AttachmentType `json:"attachmentType,omitempty"`
 	AttachmentKey             string               `json:"attachmentKey,omitempty"`
