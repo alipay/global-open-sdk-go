@@ -12,12 +12,12 @@ type AlipaySubscriptionCancelRequest struct {
 	CancellationType      model.CancellationType `json:"cancellationType,omitempty"`
 }
 
-func (alipaySubscriptionCancelRequest *AlipaySubscriptionCancelRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionCancelRequest, model.SUBSCRIPTION_CANCEL_PATH, &responseSubscription.AlipaySubscriptionCancelResponse{})
-}
-
 func NewAlipaySubscriptionCancelRequest() (*request.AlipayRequest, *AlipaySubscriptionCancelRequest) {
 	alipaySubscriptionCancelRequest := &AlipaySubscriptionCancelRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCancelRequest, model.SUBSCRIPTION_CANCEL_PATH, &responseSubscription.AlipaySubscriptionCancelResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCancelRequest, "/ams/api/v1/subscriptions/cancel", &responseSubscription.AlipaySubscriptionCancelResponse{})
 	return alipayRequest, alipaySubscriptionCancelRequest
+}
+
+func (alipaySubscriptionCancelRequest *AlipaySubscriptionCancelRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySubscriptionCancelRequest, "/ams/api/v1/subscriptions/cancel", &responseSubscription.AlipaySubscriptionCancelResponse{})
 }

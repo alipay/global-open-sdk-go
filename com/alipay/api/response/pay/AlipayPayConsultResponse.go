@@ -7,7 +7,8 @@ import (
 
 type AlipayPayConsultResponse struct {
 	response.AlipayResponse
-	PaymentOptions     []model.PaymentOption     `json:"paymentOptions"`
-	PaymentMethodInfos []model.PaymentMethodInfo `json:"paymentMethodInfos"`
-	ExtendInfo         string                    `json:"extendInfo"`
+	Result             *model.Result              `json:"result,omitempty"`
+	PaymentOptions     []*model.PaymentOption     `json:"paymentOptions,omitempty"`
+	PaymentMethodInfos []*model.PaymentMethodInfo `json:"paymentMethodInfos,omitempty"`
+	ExtendInfo         string                     `json:"extendInfo,omitempty"`
 }

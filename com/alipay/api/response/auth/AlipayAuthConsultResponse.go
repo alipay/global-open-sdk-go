@@ -7,12 +7,12 @@ import (
 
 type AlipayAuthConsultResponse struct {
 	response.AlipayResponse
-	AuthUrl       string             `json:"authUrl"`
-	ExtendInfo    string             `json:"extendInfo"`
-	NormalUrl     string             `json:"normalUrl"`
-	SchemeUrl     string             `json:"schemeUrl"`
-	ApplinkUrl    string             `json:"applinkUrl"`
-	AppIdentifier string             `json:"appIdentifier"`
-	AuthCodeForm  model.AuthCodeForm `json:"authCodeForm"`
-	GrantType     string             `json:"grant_type"`
+	Result        *model.Result       `json:"result,omitempty"`
+	AuthUrl       string              `json:"authUrl,omitempty"`
+	ExtendInfo    string              `json:"extendInfo,omitempty"`
+	NormalUrl     string              `json:"normalUrl,omitempty"`
+	SchemeUrl     string              `json:"schemeUrl,omitempty"`
+	ApplinkUrl    string              `json:"applinkUrl,omitempty"`
+	AppIdentifier string              `json:"appIdentifier,omitempty"`
+	AuthCodeForm  *model.AuthCodeForm `json:"authCodeForm,omitempty"`
 }

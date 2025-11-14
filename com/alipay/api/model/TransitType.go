@@ -3,8 +3,8 @@ package model
 type TransitType string
 
 const (
-	FLIGHT TransitType = "FLIGHT"
-	TRAIN  TransitType = "TRAIN"
-	CRUISE TransitType = "CRUISE"
-	COACH  TransitType = "COACH"
+	TransitType_FLIGHT TransitType = "FLIGHT"
+	TransitType_TRAIN  TransitType = "TRAIN"
+	TransitType_CRUISE TransitType = "CRUISE"
+	TransitType_COACH  TransitType = "COACH"
 )
