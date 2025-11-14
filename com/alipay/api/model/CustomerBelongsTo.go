@@ -26,4 +26,7 @@ const (
 	CustomerBelongsTo_DIRECT_DEBIT_KRUNGTHAIBANK      CustomerBelongsTo = "DIRECT_DEBIT_KRUNGTHAIBANK"
 	CustomerBelongsTo_ZALOPAY                         CustomerBelongsTo = "ZALOPAY"
 	CustomerBelongsTo_DIRECTDEBIT_YAPILY              CustomerBelongsTo = "DIRECTDEBIT_YAPILY"
+	CustomerBelongsTo_TOSSPAY                         CustomerBelongsTo = "TOSSPAY"
+	CustomerBelongsTo_MOMO                            CustomerBelongsTo = "MOMO"
+	CustomerBelongsTo_ANTOM_BIZ_ACCOUNT               CustomerBelongsTo = "ANTOM_BIZ_ACCOUNT"
 )

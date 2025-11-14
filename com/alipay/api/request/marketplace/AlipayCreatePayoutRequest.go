@@ -14,6 +14,10 @@ type AlipayCreatePayoutRequest struct {
 
 func NewAlipayCreatePayoutRequest() (*request.AlipayRequest, *AlipayCreatePayoutRequest) {
 	alipayCreatePayoutRequest := &AlipayCreatePayoutRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreatePayoutRequest, model.MARKETPLACE_CREATEPAYOUT_PATH, &responseMarketplace.AlipayCreatePayoutResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreatePayoutRequest, "/ams/api/v1/funds/createPayout", &responseMarketplace.AlipayCreatePayoutResponse{})
 	return alipayRequest, alipayCreatePayoutRequest
+}
+
+func (alipayCreatePayoutRequest *AlipayCreatePayoutRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayCreatePayoutRequest, "/ams/api/v1/funds/createPayout", &responseMarketplace.AlipayCreatePayoutResponse{})
 }
