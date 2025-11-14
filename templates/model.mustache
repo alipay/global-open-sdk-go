@@ -21,7 +21,7 @@ type {{classname}} struct {
 {{#vars}}
     {{#lambdas.skipResult}}
     {{#isPrimitiveType}}
-        {{name}} {{{dataType}}} `json:"{{baseName}},omitempty"`
+        {{name}} {{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}} `json:"{{baseName}},omitempty"`
     {{/isPrimitiveType}}
     {{^isPrimitiveType}}
     {{#allowableValues}}
@@ -37,7 +37,8 @@ type {{classname}} struct {
 {{/vars}}
 }
 
-Constructor
+{{#lambdas.GospecificConstructor}} {{classname}}
+{{/lambdas.GospecificConstructor}}
 
 
     {{/isEnum}}
