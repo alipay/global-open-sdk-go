@@ -1,7 +1,6 @@
 package marketplace
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responseMarketplace "github.com/alipay/global-open-sdk-go/com/alipay/api/response/marketplace"
 )
@@ -12,6 +11,10 @@ type AlipayInquireBalanceRequest struct {
 
 func NewAlipayInquireBalanceRequest() (*request.AlipayRequest, *AlipayInquireBalanceRequest) {
 	alipayInquireBalanceRequest := &AlipayInquireBalanceRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireBalanceRequest, model.MARKETPLACE_INQUIREBALANCE_PATH, &responseMarketplace.AlipayInquireBalanceResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquireBalanceRequest, "/ams/api/v1/accounts/inquireBalance", &responseMarketplace.AlipayInquireBalanceResponse{})
 	return alipayRequest, alipayInquireBalanceRequest
+}
+
+func (alipayInquireBalanceRequest *AlipayInquireBalanceRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayInquireBalanceRequest, "/ams/api/v1/accounts/inquireBalance", &responseMarketplace.AlipayInquireBalanceResponse{})
 }

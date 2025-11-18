@@ -8,4 +8,5 @@ import (
 type AlipayInquiryStatementListResponse struct {
 	response.AlipayResponse
 	StatementList []*model.Statement `json:"statementList,omitempty"`
+	Result        *model.Result      `json:"result,omitempty"`
 }
