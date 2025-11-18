@@ -3,14 +3,11 @@ package model
 type ScopeType string
 
 const (
-	//BASE_USER_INFO, AGREEMENT_PAY, USER_INFO, USER_LOGIN_ID, HASH_LOGIN_ID, SEND_OTP;
-	ScopeTypeBaseUserInfo                      ScopeType = "BASE_USER_INFO"
-	ScopeTypeAgreementPay                      ScopeType = "AGREEMENT_PAY"
-	ScopeTypeUserInfo                          ScopeType = "USER_INFO"
-	ScopeTypeUserLoginId                       ScopeType = "USER_LOGIN_ID"
-	ScopeTypeHashLoginId                       ScopeType = "HASH_LOGIN_ID"
-	ScopeTypeSendOtp                           ScopeType = "SEND_OTP"
-	ScopeTypeTAOBAOREBIND                      ScopeType = "TAOBAO_REBIND"
-	ScopeType_ABA_LOAN_AUTHORIZATION           ScopeType = "ABA_LOAN_AUTHORIZATION"
-	ScopeType_ABA_DIRECT_PAYMENT_AUTHORIZATION ScopeType = "ABA_DIRECT_PAYMENT_AUTHORIZATION"
+	ScopeType_BASE_USER_INFO ScopeType = "BASE_USER_INFO"
+	ScopeType_AGREEMENT_PAY  ScopeType = "AGREEMENT_PAY"
+	ScopeType_USER_INFO      ScopeType = "USER_INFO"
+	ScopeType_USER_LOGIN_ID  ScopeType = "USER_LOGIN_ID"
+	ScopeType_HASH_LOGIN_ID  ScopeType = "HASH_LOGIN_ID"
+	ScopeType_SEND_OTP       ScopeType = "SEND_OTP"
+	ScopeType_TAOBAO_REBIND  ScopeType = "TAOBAO_REBIND"
 )
