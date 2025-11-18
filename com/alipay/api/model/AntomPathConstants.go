@@ -40,4 +40,5 @@ const (
 	RISK_SEND_PAYMENT_RESULT_PATH          = "/ams/api/v1/risk/payments/sendPaymentResult"
 	RISK_SEND_REFUND_RESULT_PATH           = "/ams/api/v1/risk/payments/sendRefundResult"
 	PAYMENT_INQUIRE_EXCHANGE_RATE_PATH     = "/ams/api/v1/payments/inquireExchangeRate"
+	ABA_INQUERY_STATEMENT_LIST_PATH        = "/ams/api/v1/aba/accounts/inquiryStatementList"
 )

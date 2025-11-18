@@ -98,6 +98,7 @@ type Env struct {
 	DeviceModel              string       `json:"deviceModel,omitempty"`
 	DeviceLanguage           string       `json:"deviceLanguage,omitempty"`
 	DeviceId                 string       `json:"deviceId,omitempty"`
+	OsVersion                string       `json:"osVersion,omitempty"`
 }
 
 type Leg struct {

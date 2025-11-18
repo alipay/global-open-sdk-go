@@ -20,6 +20,7 @@ type AlipayAuthConsultRequest struct {
 	RecurringPayment  bool                    `json:"recurringPayment,omitempty"`
 	GrantType         string                  `json:"grantType,omitempty"`
 	AuthMetaData      *model.AuthMetaData     `json:"authMetaData,omitempty"`
+	AuthNotifyUrl     string                  `json:"authNotifyUrl,omitempty"`
 }
 
 func (alipayAuthConsultRequest *AlipayAuthConsultRequest) NewRequest() *request.AlipayRequest {
