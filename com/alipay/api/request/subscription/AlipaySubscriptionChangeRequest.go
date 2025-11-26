@@ -7,6 +7,8 @@ import (
 )
 
 type AlipaySubscriptionChangeRequest struct {
+	AllowAccumulate             bool              `json:"allowAccumulate,omitempty"`
+	MaxAccumulateAmount         *model.Amount     `json:"maxAccumulateAmount,omitempty"`
 	SubscriptionChangeRequestId string            `json:"subscriptionChangeRequestId,omitempty"`
 	SubscriptionId              string            `json:"subscriptionId,omitempty"`
 	SubscriptionDescription     string            `json:"subscriptionDescription,omitempty"`
@@ -19,12 +21,12 @@ type AlipaySubscriptionChangeRequest struct {
 	PaymentAmountDifference     *model.Amount     `json:"paymentAmountDifference,omitempty"`
 }
 
-func (alipaySubscriptionChangeRequest *AlipaySubscriptionChangeRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionChangeRequest, model.SUBSCRIPTION_CHANGE_PATH, &responseSubscription.AlipaySubscriptionChangeResponse{})
-}
-
 func NewAlipaySubscriptionChangeRequest() (*request.AlipayRequest, *AlipaySubscriptionChangeRequest) {
 	alipaySubscriptionChangeRequest := &AlipaySubscriptionChangeRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionChangeRequest, model.SUBSCRIPTION_CHANGE_PATH, &responseSubscription.AlipaySubscriptionChangeResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionChangeRequest, "/ams/api/v1/subscriptions/change", &responseSubscription.AlipaySubscriptionChangeResponse{})
 	return alipayRequest, alipaySubscriptionChangeRequest
+}
+
+func (alipaySubscriptionChangeRequest *AlipaySubscriptionChangeRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySubscriptionChangeRequest, "/ams/api/v1/subscriptions/change", &responseSubscription.AlipaySubscriptionChangeResponse{})
 }

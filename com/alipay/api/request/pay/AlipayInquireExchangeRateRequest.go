@@ -15,12 +15,12 @@ type AlipayInquireExchangeRateRequest struct {
 	ProductCode       model.ProductCodeType `json:"productCode,omitempty"`
 }
 
-func (alipayInquireExchangeRateRequest *AlipayInquireExchangeRateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireExchangeRateRequest, model.PAYMENT_INQUIRE_EXCHANGE_RATE_PATH, &responsePay.AlipayInquireExchangeRateResponse{})
-}
-
 func NewAlipayInquireExchangeRateRequest() (*request.AlipayRequest, *AlipayInquireExchangeRateRequest) {
 	alipayInquireExchangeRateRequest := &AlipayInquireExchangeRateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireExchangeRateRequest, model.PAYMENT_INQUIRE_EXCHANGE_RATE_PATH, &responsePay.AlipayInquireExchangeRateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquireExchangeRateRequest, "/ams/api/v1/payments/inquireExchangeRate", &responsePay.AlipayInquireExchangeRateResponse{})
 	return alipayRequest, alipayInquireExchangeRateRequest
+}
+
+func (alipayInquireExchangeRateRequest *AlipayInquireExchangeRateRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayInquireExchangeRateRequest, "/ams/api/v1/payments/inquireExchangeRate", &responsePay.AlipayInquireExchangeRateResponse{})
 }
