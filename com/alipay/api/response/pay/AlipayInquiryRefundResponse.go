@@ -7,15 +7,16 @@ import (
 
 type AlipayInquiryRefundResponse struct {
 	response.AlipayResponse
-	RefundId              string                      `json:"refundId"`
-	RefundRequestId       string                      `json:"refundRequestId"`
-	RefundAmount          model.Amount                `json:"refundAmount"`
-	RefundStatus          model.TransactionStatusType `json:"refundStatus"`
-	RefundTime            string                      `json:"refundTime"`
-	GrossSettlementAmount model.Amount                `json:"grossSettlementAmount"`
-	SettlementQuote       model.Quote                 `json:"settlementQuote"`
-	AcquirerInfo          model.AcquirerInfo          `json:"acquirerInfo"`
 	CustomizedInfo        *model.CustomizedInfo       `json:"customizedInfo,omitempty"`
 	Arn                   string                      `json:"arn,omitempty"`
 	ActualRefundAmount    *model.Amount               `json:"actualRefundAmount,omitempty"`
+	Result                *model.Result               `json:"result,omitempty"`
+	RefundId              string                      `json:"refundId,omitempty"`
+	RefundRequestId       string                      `json:"refundRequestId,omitempty"`
+	RefundAmount          *model.Amount               `json:"refundAmount,omitempty"`
+	RefundStatus          model.TransactionStatusType `json:"refundStatus,omitempty"`
+	RefundTime            string                      `json:"refundTime,omitempty"`
+	GrossSettlementAmount *model.Amount               `json:"grossSettlementAmount,omitempty"`
+	SettlementQuote       *model.Quote                `json:"settlementQuote,omitempty"`
+	AcquirerInfo          *model.AcquirerInfo         `json:"acquirerInfo,omitempty"`
 }

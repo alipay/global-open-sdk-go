@@ -27,12 +27,12 @@ type AlipayPayConsultRequest struct {
 	MerchantAccountId           string                    `json:"merchantAccountId,omitempty"`
 }
 
-func (alipayPayConsultRequest *AlipayPayConsultRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayPayConsultRequest, model.CONSULT_PAYMENT_PATH, &responsePay.AlipayPayConsultResponse{})
-}
-
 func NewAlipayPayConsultRequest() (*request.AlipayRequest, *AlipayPayConsultRequest) {
 	alipayPayConsultRequest := &AlipayPayConsultRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayPayConsultRequest, model.CONSULT_PAYMENT_PATH, &responsePay.AlipayPayConsultResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayPayConsultRequest, "/ams/api/v1/payments/consult", &responsePay.AlipayPayConsultResponse{})
 	return alipayRequest, alipayPayConsultRequest
+}
+
+func (alipayPayConsultRequest *AlipayPayConsultRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayPayConsultRequest, "/ams/api/v1/payments/consult", &responsePay.AlipayPayConsultResponse{})
 }

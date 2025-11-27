@@ -1,7 +1,8 @@
 package model
 
 type Trial struct {
-	TrialStartPeriod int     `json:"trialStartPeriod,omitempty"`
+	TrialPeriod      int32   `json:"trialPeriod,omitempty"`
 	TrialAmount      *Amount `json:"trialAmount,omitempty"`
-	TrialEndPeriod   int     `json:"trialEndPeriod,omitempty"`
+	TrialStartPeriod int32   `json:"trialStartPeriod,omitempty"`
+	TrialEndPeriod   int32   `json:"trialEndPeriod,omitempty"`
 }

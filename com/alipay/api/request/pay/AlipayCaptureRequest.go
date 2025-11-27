@@ -15,12 +15,12 @@ type AlipayCaptureRequest struct {
 	Transit          *model.Transit `json:"transit,omitempty"`
 }
 
-func (alipayCaptureRequest *AlipayCaptureRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCaptureRequest, model.CAPTURE_PATH, &responsePay.AlipayCaptureResponse{})
-}
-
 func NewAlipayCaptureRequest() (*request.AlipayRequest, *AlipayCaptureRequest) {
 	alipayCaptureRequest := &AlipayCaptureRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCaptureRequest, model.CAPTURE_PATH, &responsePay.AlipayCaptureResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCaptureRequest, "/ams/api/v1/payments/capture", &responsePay.AlipayCaptureResponse{})
 	return alipayRequest, alipayCaptureRequest
+}
+
+func (alipayCaptureRequest *AlipayCaptureRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayCaptureRequest, "/ams/api/v1/payments/capture", &responsePay.AlipayCaptureResponse{})
 }

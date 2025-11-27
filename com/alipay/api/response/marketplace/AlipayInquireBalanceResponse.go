@@ -7,5 +7,6 @@ import (
 
 type AlipayInquireBalanceResponse struct {
 	response.AlipayResponse
+	Result          *model.Result           `json:"result,omitempty"`
 	AccountBalances []*model.AccountBalance `json:"accountBalances,omitempty"`
 }

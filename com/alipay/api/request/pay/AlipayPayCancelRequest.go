@@ -1,7 +1,6 @@
 package pay
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responsePay "github.com/alipay/global-open-sdk-go/com/alipay/api/response/pay"
 )
@@ -14,6 +13,10 @@ type AlipayPayCancelRequest struct {
 
 func NewAlipayPayCancelRequest() (*request.AlipayRequest, *AlipayPayCancelRequest) {
 	alipayPayCancelRequest := &AlipayPayCancelRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayPayCancelRequest, model.CANCEL_PATH, &responsePay.AlipayPayCancelResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayPayCancelRequest, "/ams/api/v1/payments/cancel", &responsePay.AlipayPayCancelResponse{})
 	return alipayRequest, alipayPayCancelRequest
+}
+
+func (alipayPayCancelRequest *AlipayPayCancelRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayPayCancelRequest, "/ams/api/v1/payments/cancel", &responsePay.AlipayPayCancelResponse{})
 }
