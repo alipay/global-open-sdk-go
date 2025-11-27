@@ -1,9 +1,13 @@
 package responseMarketplace
 
-import "github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+import (
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+)
 
 type AlipaySettleResponse struct {
 	response.AlipayResponse
-	SettlementRequestId string `json:"settlementRequestId,omitempty"`
-	SettlementId        string `json:"settlementId,omitempty"`
+	Result              *model.Result `json:"result,omitempty"`
+	SettlementRequestId string        `json:"settlementRequestId,omitempty"`
+	SettlementId        string        `json:"settlementId,omitempty"`
 }

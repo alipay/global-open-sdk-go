@@ -14,6 +14,10 @@ type AlipaySettleRequest struct {
 
 func NewAlipaySettleRequest() (*request.AlipayRequest, *AlipaySettleRequest) {
 	alipaySettleRequest := &AlipaySettleRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySettleRequest, model.MARKETPLACE_SETTLE_PATH, &responseMarketplace.AlipaySettleResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySettleRequest, "/ams/api/v1/payments/settle", &responseMarketplace.AlipaySettleResponse{})
 	return alipayRequest, alipaySettleRequest
+}
+
+func (alipaySettleRequest *AlipaySettleRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySettleRequest, "/ams/api/v1/payments/settle", &responseMarketplace.AlipaySettleResponse{})
 }

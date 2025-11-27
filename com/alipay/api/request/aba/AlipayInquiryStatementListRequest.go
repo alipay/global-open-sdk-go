@@ -1,13 +1,12 @@
 package aba
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responseAba "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
 )
 
 type AlipayInquiryStatementListRequest struct {
-	CustomerId          string   `json:"customerId,customerId"`
+	CustomerId          string   `json:"customerId,omitempty"`
 	AccessToken         string   `json:"accessToken,omitempty"`
 	StartTime           string   `json:"startTime,omitempty"`
 	EndTime             string   `json:"endTime,omitempty"`
@@ -17,12 +16,12 @@ type AlipayInquiryStatementListRequest struct {
 	PageNumber          string   `json:"pageNumber,omitempty"`
 }
 
-func (alipayInquiryStatementListRequest *AlipayInquiryStatementListRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquiryStatementListRequest, model.ABA_INQUERY_STATEMENT_LIST_PATH, &responseAba.AlipayInquiryStatementListResponse{})
+func NewAlipayInquiryStatementListRequest() (*request.AlipayRequest, *AlipayInquiryStatementListRequest) {
+	alipayInquiryStatementListRequest := &AlipayInquiryStatementListRequest{}
+	alipayRequest := request.NewAlipayRequest(alipayInquiryStatementListRequest, "/ams/api/v1/aba/accounts/inquiryStatementList", &responseAba.AlipayInquiryStatementListResponse{})
+	return alipayRequest, alipayInquiryStatementListRequest
 }
 
-func NewAlipayPayRequest() (*request.AlipayRequest, *AlipayInquiryStatementListRequest) {
-	alipayInquiryStatementListRequest := &AlipayInquiryStatementListRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquiryStatementListRequest, model.ABA_INQUERY_STATEMENT_LIST_PATH, &responseAba.AlipayInquiryStatementListResponse{})
-	return alipayRequest, alipayInquiryStatementListRequest
+func (alipayInquiryStatementListRequest *AlipayInquiryStatementListRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayInquiryStatementListRequest, "/ams/api/v1/aba/accounts/inquiryStatementList", &responseAba.AlipayInquiryStatementListResponse{})
 }

@@ -1,10 +1,14 @@
 package responsePay
 
-import "github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+import (
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+)
 
 type AlipayPayCancelResponse struct {
 	response.AlipayResponse
-	PaymentId        string `json:"paymentId"`
-	PaymentRequestId string `json:"paymentRequestId"`
-	CancelTime       string `json:"cancelTime"`
+	Result           *model.Result `json:"result,omitempty"`
+	PaymentId        string        `json:"paymentId,omitempty"`
+	PaymentRequestId string        `json:"paymentRequestId,omitempty"`
+	CancelTime       string        `json:"cancelTime,omitempty"`
 }
