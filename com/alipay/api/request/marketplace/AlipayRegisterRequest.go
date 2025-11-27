@@ -15,6 +15,10 @@ type AlipayRegisterRequest struct {
 
 func NewAlipayRegisterRequest() (*request.AlipayRequest, *AlipayRegisterRequest) {
 	alipayRegisterRequest := &AlipayRegisterRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayRegisterRequest, model.MARKETPLACE_REGISTER_PATH, &responseMarketplace.AlipayRegisterResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayRegisterRequest, "/ams/api/v1/merchants/register", &responseMarketplace.AlipayRegisterResponse{})
 	return alipayRequest, alipayRegisterRequest
+}
+
+func (alipayRegisterRequest *AlipayRegisterRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayRegisterRequest, "/ams/api/v1/merchants/register", &responseMarketplace.AlipayRegisterResponse{})
 }

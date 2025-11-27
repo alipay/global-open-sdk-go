@@ -15,12 +15,12 @@ type AlipayAuthApplyTokenRequest struct {
 	MerchantRegion    string                  `json:"merchantRegion,omitempty"`
 }
 
-func (alipayAuthApplyTokenRequest *AlipayAuthApplyTokenRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAuthApplyTokenRequest, model.AUTH_APPLY_TOKEN_PATH, &responseAuth.AlipayAuthApplyTokenResponse{})
-}
-
 func NewAlipayAuthApplyTokenRequest() (*request.AlipayRequest, *AlipayAuthApplyTokenRequest) {
 	alipayAuthApplyTokenRequest := &AlipayAuthApplyTokenRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAuthApplyTokenRequest, model.AUTH_APPLY_TOKEN_PATH, &responseAuth.AlipayAuthApplyTokenResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAuthApplyTokenRequest, "/ams/api/v1/authorizations/applyToken", &responseAuth.AlipayAuthApplyTokenResponse{})
 	return alipayRequest, alipayAuthApplyTokenRequest
+}
+
+func (alipayAuthApplyTokenRequest *AlipayAuthApplyTokenRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipayAuthApplyTokenRequest, "/ams/api/v1/authorizations/applyToken", &responseAuth.AlipayAuthApplyTokenResponse{})
 }

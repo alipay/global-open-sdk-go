@@ -7,12 +7,12 @@ import (
 
 type AlipayAuthApplyTokenResponse struct {
 	response.AlipayResponse
-	AccessToken            string                `json:"accessToken"`
-	AccessTokenExpiryTime  string                `json:"accessTokenExpiryTime"`
-	RefreshToken           string                `json:"refreshToken"`
-	RefreshTokenExpiryTime string                `json:"refreshTokenExpiryTime"`
-	ExtendInfo             string                `json:"extendInfo"`
-	UserLoginId            string                `json:"userLoginId"`
-	PspCustomerInfo        model.PspCustomerInfo `json:"pspCustomerInfo"`
-	GrantType              string                `json:"grant_type"`
+	Result                 *model.Result          `json:"result,omitempty"`
+	AccessToken            string                 `json:"accessToken,omitempty"`
+	AccessTokenExpiryTime  string                 `json:"accessTokenExpiryTime,omitempty"`
+	RefreshToken           string                 `json:"refreshToken,omitempty"`
+	RefreshTokenExpiryTime string                 `json:"refreshTokenExpiryTime,omitempty"`
+	ExtendInfo             string                 `json:"extendInfo,omitempty"`
+	UserLoginId            string                 `json:"userLoginId,omitempty"`
+	PspCustomerInfo        *model.PspCustomerInfo `json:"pspCustomerInfo,omitempty"`
 }

@@ -7,6 +7,10 @@ import (
 )
 
 type AlipaySubscriptionCreateRequest struct {
+	CustomizedInfo              *model.CustomizedInfo     `json:"customizedInfo,omitempty"`
+	MerchantAccountId           string                    `json:"merchantAccountId,omitempty"`
+	AllowAccumulate             bool                      `json:"allowAccumulate,omitempty"`
+	MaxAccumulateAmount         *model.Amount             `json:"maxAccumulateAmount,omitempty"`
 	SubscriptionRequestId       string                    `json:"subscriptionRequestId,omitempty"`
 	SubscriptionDescription     string                    `json:"subscriptionDescription,omitempty"`
 	SubscriptionRedirectUrl     string                    `json:"subscriptionRedirectUrl,omitempty"`
@@ -24,12 +28,12 @@ type AlipaySubscriptionCreateRequest struct {
 	Trials                      []*model.Trial            `json:"trials,omitempty"`
 }
 
-func (alipaySubscriptionCreateRequest *AlipaySubscriptionCreateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, model.SUBSCRIPTION_CREATE_PATH, &responseSubscription.AlipaySubscriptionCreateResponse{})
-}
-
 func NewAlipaySubscriptionCreateRequest() (*request.AlipayRequest, *AlipaySubscriptionCreateRequest) {
 	alipaySubscriptionCreateRequest := &AlipaySubscriptionCreateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, model.SUBSCRIPTION_CREATE_PATH, &responseSubscription.AlipaySubscriptionCreateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
 	return alipayRequest, alipaySubscriptionCreateRequest
+}
+
+func (alipaySubscriptionCreateRequest *AlipaySubscriptionCreateRequest) NewRequest() *request.AlipayRequest {
+	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
 }
