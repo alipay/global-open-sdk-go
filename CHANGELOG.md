@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.30 - 2025-11-27
+- update 20251127
+
 ## 1.2.23 - 2025-11-18
 - ABA Statement
 - ESP & 普通代扣 API集成方案
