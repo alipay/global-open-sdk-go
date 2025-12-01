@@ -25,4 +25,5 @@ type PaymentResultInfo struct {
 	AccountNo            string         `json:"accountNo,omitempty"`
 	ExemptionRequested   string         `json:"exemptionRequested,omitempty"`
 	CredentialTypeUsed   string         `json:"credentialTypeUsed,omitempty"`
+	Rrn                  string         `json:"rrn,omitempty"`
 }
