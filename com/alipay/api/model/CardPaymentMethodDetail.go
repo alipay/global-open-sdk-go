@@ -1,6 +1,7 @@
 package model
 
 type CardPaymentMethodDetail struct {
+	SupportedBrands             string    `json:"supportedBrands,omitempty"`
 	CardToken                   string    `json:"cardToken,omitempty"`
 	CardNo                      string    `json:"cardNo,omitempty"`
 	Brand                       CardBrand `json:"brand,omitempty"`
