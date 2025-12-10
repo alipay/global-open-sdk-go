@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayRefundRequest struct {
+	Metadata              string                  `json:"metadata,omitempty"`
 	CustomizedInfo        *model.CustomizedInfo   `json:"customizedInfo,omitempty"`
 	CaptureId             string                  `json:"captureId,omitempty"`
 	RefundToBankInfo      *model.RefundToBankInfo `json:"refundToBankInfo,omitempty"`
