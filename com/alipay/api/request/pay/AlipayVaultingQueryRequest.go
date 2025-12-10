@@ -7,6 +7,7 @@ import (
 
 type AlipayVaultingQueryRequest struct {
 	VaultingRequestId string `json:"vaultingRequestId,omitempty"`
+	MerchantAccountId string `json:"merchantAccountId,omitempty"`
 }
 
 func NewAlipayVaultingQueryRequest() (*request.AlipayRequest, *AlipayVaultingQueryRequest) {
