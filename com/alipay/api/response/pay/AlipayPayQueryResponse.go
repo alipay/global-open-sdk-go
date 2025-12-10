@@ -7,6 +7,7 @@ import (
 
 type AlipayPayQueryResponse struct {
 	response.AlipayResponse
+	Metadata                 string                      `json:"metadata,omitempty"`
 	Result                   *model.Result               `json:"result,omitempty"`
 	CustomizedInfo           *model.CustomizedInfo       `json:"customizedInfo,omitempty"`
 	ProcessingAmount         *model.Amount               `json:"processingAmount,omitempty"`

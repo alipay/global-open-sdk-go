@@ -1,6 +1,7 @@
 package model
 
 type PaymentResultInfo struct {
+	IssuerName           string         `json:"issuerName,omitempty"`
 	RefusalCodeRaw       string         `json:"refusalCodeRaw,omitempty"`
 	RefusalReasonRaw     string         `json:"refusalReasonRaw,omitempty"`
 	MerchantAdviceCode   string         `json:"merchantAdviceCode,omitempty"`
