@@ -7,6 +7,8 @@ import (
 )
 
 type AlipayPaymentSessionRequest struct {
+	MerchantAccountId           string                        `json:"merchantAccountId,omitempty"`
+	Metadata                    string                        `json:"metadata,omitempty"`
 	AllowedPaymentMethodRegions string                        `json:"allowedPaymentMethodRegions,omitempty"`
 	CustomizedInfo              *model.CustomizedInfo         `json:"customizedInfo,omitempty"`
 	PaymentQuote                *model.Quote                  `json:"paymentQuote,omitempty"`
