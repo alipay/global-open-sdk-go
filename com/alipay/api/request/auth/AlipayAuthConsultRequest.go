@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayAuthConsultRequest struct {
+	MerchantAccountId string                  `json:"merchantAccountId,omitempty"`
 	AuthNotifyUrl     string                  `json:"authNotifyUrl,omitempty"`
 	CustomerBelongsTo model.CustomerBelongsTo `json:"customerBelongsTo,omitempty"`
 	AuthClientId      string                  `json:"authClientId,omitempty"`
