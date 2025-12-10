@@ -63,12 +63,12 @@ func register(client *defaultAlipayClient.DefaultAlipayClient) {
 				{
 					AttachmentName: "1.jpg",
 					FileKey:        "test",
-					AttachmentType: model.AttachmentType_ARTICLES_OF_ASSOCIATION,
+					AttachmentType: string(model.AttachmentType_ARTICLES_OF_ASSOCIATION),
 				},
 				{
 					AttachmentName: "2.jpg",
 					FileKey:        "test",
-					AttachmentType: model.AttachmentType_ASSOCIATION_ARTICLE,
+					AttachmentType: string(model.AttachmentType_ASSOCIATION_ARTICLE),
 				},
 			},
 			Certificates: &model.Certificate{

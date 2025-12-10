@@ -14,4 +14,5 @@ type AlipayRefundNotify struct {
 	CustomizedInfo        *model.CustomizedInfo `json:"customizedInfo,omitempty"`
 	Arn                   string                `json:"arn,omitempty"`
 	ActualRefundAmount    *model.Amount         `json:"actualRefundAmount,omitempty"`
+	Metadata              string                `json:"metadata,omitempty"`
 }

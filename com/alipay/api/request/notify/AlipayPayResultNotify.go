@@ -18,4 +18,5 @@ type AlipayPayResultNotify struct {
 	AcquirerInfo             *model.AcquirerInfo      `json:"acquirerInfo,omitempty"`
 	PromotionResult          []*model.PromotionResult `json:"promotionResult,omitempty"`
 	PaymentMethodType        string                   `json:"paymentMethodType,omitempty"`
+	Metadata                 string                   `json:"metadata,omitempty"`
 }

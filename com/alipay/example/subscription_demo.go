@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	defaultAlipayClient "github.com/alipay/global-open-sdk-go/com/alipay/api"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request/subscription"
@@ -42,7 +43,7 @@ func SubscriptionsCreate(client *defaultAlipayClient.DefaultAlipayClient) {
 	}
 	alipaySubscriptionCreateRequest.PaymentNotificationUrl = "https://www.yourNotifyUrl.com"
 	alipaySubscriptionCreateRequest.PeriodRule = &model.PeriodRule{
-		PeriodType:  model.PeriodType_MONTH,
+		PeriodType:  string(model.PeriodType_MONTH),
 		PeriodCount: 1,
 	}
 	alipaySubscriptionCreateRequest.SettlementStrategy = &model.SettlementStrategy{
@@ -91,7 +92,7 @@ func SubscriptionsChange(client *defaultAlipayClient.DefaultAlipayClient, subscr
 		Value:    "100",
 	}
 	changeRequest.PeriodRule = &model.PeriodRule{
-		PeriodType:  model.PeriodType_MONTH,
+		PeriodType:  string(model.PeriodType_MONTH),
 		PeriodCount: 1,
 	}
 	changeRequest.SubscriptionStartTime = "2024-09-12T12:01:01+08:00"
