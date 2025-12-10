@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayAuthApplyTokenRequest struct {
+	MerchantAccountId string                  `json:"merchantAccountId,omitempty"`
 	GrantType         model.GrantType         `json:"grantType,omitempty"`
 	CustomerBelongsTo model.CustomerBelongsTo `json:"customerBelongsTo,omitempty"`
 	AuthCode          string                  `json:"authCode,omitempty"`
