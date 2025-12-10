@@ -6,8 +6,9 @@ import (
 )
 
 type AlipayAuthRevokeTokenRequest struct {
-	AccessToken string `json:"accessToken,omitempty"`
-	ExtendInfo  string `json:"extendInfo,omitempty"`
+	AccessToken       string `json:"accessToken,omitempty"`
+	ExtendInfo        string `json:"extendInfo,omitempty"`
+	MerchantAccountId string `json:"merchantAccountId,omitempty"`
 }
 
 func NewAlipayAuthRevokeTokenRequest() (*request.AlipayRequest, *AlipayAuthRevokeTokenRequest) {
