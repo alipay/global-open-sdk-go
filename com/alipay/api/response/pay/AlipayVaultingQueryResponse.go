@@ -14,4 +14,5 @@ type AlipayVaultingQueryResponse struct {
 	ApplinkUrl          string                     `json:"applinkUrl,omitempty"`
 	VaultingStatus      string                     `json:"vaultingStatus,omitempty"`
 	PaymentMethodDetail *model.PaymentMethodDetail `json:"paymentMethodDetail,omitempty"`
+	Metadata            string                     `json:"metadata,omitempty"`
 }
