@@ -1,7 +1,7 @@
 package model
 
 type Result struct {
-	ResultCode    string                 `json:"resultCode,omitempty"`
-	ResultStatus  map[string]interface{} `json:"resultStatus,omitempty"`
-	ResultMessage string                 `json:"resultMessage,omitempty"`
+	ResultCode    string           `json:"resultCode,omitempty"`
+	ResultStatus  ResultStatusType `json:"resultStatus,omitempty"`
+	ResultMessage string           `json:"resultMessage,omitempty"`
 }
