@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayPayConsultRequest struct {
+	PaymentEvaluation           *model.PaymentEvaluation  `json:"paymentEvaluation,omitempty"`
 	ProductCode                 model.ProductCodeType     `json:"productCode,omitempty"`
 	PaymentAmount               *model.Amount             `json:"paymentAmount,omitempty"`
 	MerchantRegion              string                    `json:"merchantRegion,omitempty"`
