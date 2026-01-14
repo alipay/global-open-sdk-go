@@ -13,5 +13,6 @@ const (
 	SubscriptionNotificationType_CREATE    SubscriptionNotificationType = "CREATE"
 	SubscriptionNotificationType_CHANGE    SubscriptionNotificationType = "CHANGE"
 	SubscriptionNotificationType_CANCEL    SubscriptionNotificationType = "CANCEL"
+	SubscriptionNotificationType_UPDATE    SubscriptionNotificationType = "UPDATE"
 	SubscriptionNotificationType_TERMINATE SubscriptionNotificationType = "TERMINATE"
 )
