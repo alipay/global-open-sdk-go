@@ -7,6 +7,7 @@ import (
 
 type AlipayInquireExchangeRateResponse struct {
 	response.AlipayResponse
-	Quotes []*model.Quote `json:"quotes,omitempty"`
-	Result *model.Result  `json:"result,omitempty"`
+	Quotes        []*model.Quote        `json:"quotes,omitempty"`
+	Result        *model.Result         `json:"result,omitempty"`
+	PaymentQuotes []*model.PaymentQuote `json:"paymentQuotes,omitempty"`
 }

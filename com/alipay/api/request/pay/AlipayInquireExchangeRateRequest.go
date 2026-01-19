@@ -13,6 +13,7 @@ type AlipayInquireExchangeRateRequest struct {
 	SellCurrency      string                `json:"sellCurrency,omitempty"`
 	BuyCurrency       string                `json:"buyCurrency,omitempty"`
 	ProductCode       model.ProductCodeType `json:"productCode,omitempty"`
+	RateType          model.RateType        `json:"rateType,omitempty"`
 }
 
 func NewAlipayInquireExchangeRateRequest() (*request.AlipayRequest, *AlipayInquireExchangeRateRequest) {
