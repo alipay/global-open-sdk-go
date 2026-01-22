@@ -7,6 +7,9 @@ import (
 
 type AlipayInquiryStatementListResponse struct {
 	response.AlipayResponse
-	StatementList []*model.Statement `json:"statementList,omitempty"`
-	Result        *model.Result      `json:"result,omitempty"`
+	StatementList     []*model.Statement `json:"statementList,omitempty"`
+	Result            *model.Result      `json:"result,omitempty"`
+	TotalCount        *model.TotalCount  `json:"totalCount,omitempty"`
+	TotalPageNumber   string             `json:"totalPageNumber,omitempty"`
+	CurrentPageNumber string             `json:"currentPageNumber,omitempty"`
 }

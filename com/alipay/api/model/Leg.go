@@ -13,4 +13,5 @@ type Leg struct {
 	FareBasis            string    `json:"fareBasis,omitempty"`
 	CouponNumber         string    `json:"couponNumber,omitempty"`
 	FlightNumber         string    `json:"flightNumber,omitempty"`
+	PassengerNameRecord  string    `json:"passengerNameRecord,omitempty"`
 }
