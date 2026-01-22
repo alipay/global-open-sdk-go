@@ -6,6 +6,7 @@ import (
 )
 
 type AlipayInquiryStatementListRequest struct {
+	FuzzyName           string   `json:"fuzzyName,omitempty"`
 	CustomerId          string   `json:"customerId,omitempty"`
 	AccessToken         string   `json:"accessToken,omitempty"`
 	StartTime           string   `json:"startTime,omitempty"`
