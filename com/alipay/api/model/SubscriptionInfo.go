@@ -8,4 +8,6 @@ type SubscriptionInfo struct {
 	Trials                  []*Trial    `json:"trials,omitempty"`
 	SubscriptionNotifyUrl   string      `json:"subscriptionNotifyUrl,omitempty"`
 	SubscriptionExpiryTime  string      `json:"subscriptionExpiryTime,omitempty"`
+	AllowRetry              bool        `json:"allowRetry,omitempty"`
+	MaxAmountFloor          *Amount     `json:"maxAmountFloor,omitempty"`
 }
