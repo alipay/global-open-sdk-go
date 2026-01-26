@@ -11,6 +11,8 @@ type AlipaySubscriptionCreateRequest struct {
 	MerchantAccountId           string                    `json:"merchantAccountId,omitempty"`
 	AllowAccumulate             bool                      `json:"allowAccumulate,omitempty"`
 	MaxAccumulateAmount         *model.Amount             `json:"maxAccumulateAmount,omitempty"`
+	AllowRetry                  bool                      `json:"allowRetry,omitempty"`
+	MaxAmountFloor              *model.Amount             `json:"maxAmountFloor,omitempty"`
 	SubscriptionRequestId       string                    `json:"subscriptionRequestId,omitempty"`
 	SubscriptionDescription     string                    `json:"subscriptionDescription,omitempty"`
 	SubscriptionRedirectUrl     string                    `json:"subscriptionRedirectUrl,omitempty"`
