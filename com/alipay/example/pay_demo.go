@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	defaultAlipayClient "github.com/alipay/global-open-sdk-go/com/alipay/api"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request/pay"
@@ -21,13 +22,13 @@ func main() {
 		alipayMerchantPrivateKey,
 		alipayAlipayPublicKey)
 
-	doPay(client)
+	//doPay(client)
 	//payQuery("1e6d724d-da95-407b-9802-6f2217c301d6", client)
 	//refund("202408151940108001001886C0209996792", client)
 	//queryRefund("ad53716a-81-4c4c-b151-216c5225e", client)
 	//cancel("ad53716a-81-4c4c-b51-20916c5225e", client)
 	//consult(client)
-	//createSession(client)
+	createSession(client)
 }
 
 func doPay(body *defaultAlipayClient.DefaultAlipayClient) {
@@ -170,7 +171,10 @@ func createSession(client *defaultAlipayClient.DefaultAlipayClient) {
 	createSessionRequest.PaymentAmount = model.NewAmount("100", "HKD")
 	createSessionRequest.ProductCode = model.CASHIER_PAYMENT
 	createSessionRequest.PaymentMethod = &model.PaymentMethod{
-		PaymentMethodType: model.SHOPEEPAY_SG,
+		PaymentMethodType: "",
+		PaymentMethodMetaData: map[string]any{
+			"is3DSAuthentication": "true",
+		},
 	}
 	createSessionRequest.PaymentNotifyUrl = "https://www.yourNotifyUrl.com"
 	createSessionRequest.PaymentRedirectUrl = "https://www.yourRedirectUrl.com"
