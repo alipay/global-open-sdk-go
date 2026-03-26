@@ -9,4 +9,6 @@ type AcquirerInfo struct {
 	AcquirerResultMessage     string `json:"acquirerResultMessage,omitempty"`
 	AcquirerMerchantName      string `json:"acquirerMerchantName,omitempty"`
 	AcquirerReasonDescription string `json:"acquirerReasonDescription,omitempty"`
+	PtspTransactionId         string `json:"ptspTransactionId,omitempty"`
+	AcquirerCardToken         string `json:"acquirerCardToken,omitempty"`
 }
