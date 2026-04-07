@@ -13,10 +13,10 @@ type AlipayDownloadDisputeEvidenceRequest struct {
 
 func NewAlipayDownloadDisputeEvidenceRequest() (*request.AlipayRequest, *AlipayDownloadDisputeEvidenceRequest) {
 	alipayDownloadDisputeEvidenceRequest := &AlipayDownloadDisputeEvidenceRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayDownloadDisputeEvidenceRequest, "/ams/api/v1/payments/downloadDisputeEvidence", &responseDispute.AlipayDownloadDisputeEvidenceResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayDownloadDisputeEvidenceRequest, "null", &responseDispute.AlipayDownloadDisputeEvidenceResponse{})
 	return alipayRequest, alipayDownloadDisputeEvidenceRequest
 }
 
 func (alipayDownloadDisputeEvidenceRequest *AlipayDownloadDisputeEvidenceRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayDownloadDisputeEvidenceRequest, "/ams/api/v1/payments/downloadDisputeEvidence", &responseDispute.AlipayDownloadDisputeEvidenceResponse{})
+	return request.NewAlipayRequest(&alipayDownloadDisputeEvidenceRequest, "null", &responseDispute.AlipayDownloadDisputeEvidenceResponse{})
 }

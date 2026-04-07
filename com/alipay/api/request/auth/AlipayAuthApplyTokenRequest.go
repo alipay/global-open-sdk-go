@@ -18,10 +18,10 @@ type AlipayAuthApplyTokenRequest struct {
 
 func NewAlipayAuthApplyTokenRequest() (*request.AlipayRequest, *AlipayAuthApplyTokenRequest) {
 	alipayAuthApplyTokenRequest := &AlipayAuthApplyTokenRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAuthApplyTokenRequest, "/ams/api/v1/authorizations/applyToken", &responseAuth.AlipayAuthApplyTokenResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAuthApplyTokenRequest, "null", &responseAuth.AlipayAuthApplyTokenResponse{})
 	return alipayRequest, alipayAuthApplyTokenRequest
 }
 
 func (alipayAuthApplyTokenRequest *AlipayAuthApplyTokenRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAuthApplyTokenRequest, "/ams/api/v1/authorizations/applyToken", &responseAuth.AlipayAuthApplyTokenResponse{})
+	return request.NewAlipayRequest(&alipayAuthApplyTokenRequest, "null", &responseAuth.AlipayAuthApplyTokenResponse{})
 }
