@@ -18,10 +18,10 @@ type AlipayApplyCardRequest struct {
 
 func NewAlipayApplyCardRequest() (*request.AlipayRequest, *AlipayApplyCardRequest) {
 	alipayApplyCardRequest := &AlipayApplyCardRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayApplyCardRequest, "/ams/api/v1/aba/cards/applyCard", &responseAba.AlipayApplyCardResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayApplyCardRequest, "null", &responseAba.AlipayApplyCardResponse{})
 	return alipayRequest, alipayApplyCardRequest
 }
 
 func (alipayApplyCardRequest *AlipayApplyCardRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayApplyCardRequest, "/ams/api/v1/aba/cards/applyCard", &responseAba.AlipayApplyCardResponse{})
+	return request.NewAlipayRequest(&alipayApplyCardRequest, "null", &responseAba.AlipayApplyCardResponse{})
 }

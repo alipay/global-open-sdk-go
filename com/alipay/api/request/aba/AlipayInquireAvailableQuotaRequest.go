@@ -11,10 +11,10 @@ type AlipayInquireAvailableQuotaRequest struct {
 
 func NewAlipayInquireAvailableQuotaRequest() (*request.AlipayRequest, *AlipayInquireAvailableQuotaRequest) {
 	alipayInquireAvailableQuotaRequest := &AlipayInquireAvailableQuotaRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireAvailableQuotaRequest, "/ams/v1/aba/account/inquireAvailableQuota", &responseAba.AlipayInquireAvailableQuotaResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquireAvailableQuotaRequest, "null", &responseAba.AlipayInquireAvailableQuotaResponse{})
 	return alipayRequest, alipayInquireAvailableQuotaRequest
 }
 
 func (alipayInquireAvailableQuotaRequest *AlipayInquireAvailableQuotaRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireAvailableQuotaRequest, "/ams/v1/aba/account/inquireAvailableQuota", &responseAba.AlipayInquireAvailableQuotaResponse{})
+	return request.NewAlipayRequest(&alipayInquireAvailableQuotaRequest, "null", &responseAba.AlipayInquireAvailableQuotaResponse{})
 }

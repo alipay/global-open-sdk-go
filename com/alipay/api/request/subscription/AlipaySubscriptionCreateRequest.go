@@ -32,10 +32,10 @@ type AlipaySubscriptionCreateRequest struct {
 
 func NewAlipaySubscriptionCreateRequest() (*request.AlipayRequest, *AlipaySubscriptionCreateRequest) {
 	alipaySubscriptionCreateRequest := &AlipaySubscriptionCreateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCreateRequest, "null", &responseSubscription.AlipaySubscriptionCreateResponse{})
 	return alipayRequest, alipaySubscriptionCreateRequest
 }
 
 func (alipaySubscriptionCreateRequest *AlipaySubscriptionCreateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, "/ams/api/v1/subscriptions/create", &responseSubscription.AlipaySubscriptionCreateResponse{})
+	return request.NewAlipayRequest(&alipaySubscriptionCreateRequest, "null", &responseSubscription.AlipaySubscriptionCreateResponse{})
 }
