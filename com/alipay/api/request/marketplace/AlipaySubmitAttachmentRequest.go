@@ -14,10 +14,10 @@ type AlipaySubmitAttachmentRequest struct {
 
 func NewAlipaySubmitAttachmentRequest() (*request.AlipayRequest, *AlipaySubmitAttachmentRequest) {
 	alipaySubmitAttachmentRequest := &AlipaySubmitAttachmentRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubmitAttachmentRequest, "/ams/api/open/openapiv2_file/v1/business/attachment/submitAttachment", &responseMarketplace.AlipaySubmitAttachmentResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubmitAttachmentRequest, "null", &responseMarketplace.AlipaySubmitAttachmentResponse{})
 	return alipayRequest, alipaySubmitAttachmentRequest
 }
 
 func (alipaySubmitAttachmentRequest *AlipaySubmitAttachmentRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubmitAttachmentRequest, "/ams/api/open/openapiv2_file/v1/business/attachment/submitAttachment", &responseMarketplace.AlipaySubmitAttachmentResponse{})
+	return request.NewAlipayRequest(&alipaySubmitAttachmentRequest, "null", &responseMarketplace.AlipaySubmitAttachmentResponse{})
 }

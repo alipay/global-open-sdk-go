@@ -18,10 +18,10 @@ type AlipayInquiryStatementRequest struct {
 
 func NewAlipayInquiryStatementRequest() (*request.AlipayRequest, *AlipayInquiryStatementRequest) {
 	alipayInquiryStatementRequest := &AlipayInquiryStatementRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquiryStatementRequest, "/ams/api/v1/aba/accounts/inquiryStatement", &responseAba.AlipayInquiryStatementResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquiryStatementRequest, "null", &responseAba.AlipayInquiryStatementResponse{})
 	return alipayRequest, alipayInquiryStatementRequest
 }
 
 func (alipayInquiryStatementRequest *AlipayInquiryStatementRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquiryStatementRequest, "/ams/api/v1/aba/accounts/inquiryStatement", &responseAba.AlipayInquiryStatementResponse{})
+	return request.NewAlipayRequest(&alipayInquiryStatementRequest, "null", &responseAba.AlipayInquiryStatementResponse{})
 }
