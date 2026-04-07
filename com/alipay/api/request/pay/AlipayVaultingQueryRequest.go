@@ -12,10 +12,10 @@ type AlipayVaultingQueryRequest struct {
 
 func NewAlipayVaultingQueryRequest() (*request.AlipayRequest, *AlipayVaultingQueryRequest) {
 	alipayVaultingQueryRequest := &AlipayVaultingQueryRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVaultingQueryRequest, "/ams/api/v1/vaults/inquireVaulting", &responsePay.AlipayVaultingQueryResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayVaultingQueryRequest, "null", &responsePay.AlipayVaultingQueryResponse{})
 	return alipayRequest, alipayVaultingQueryRequest
 }
 
 func (alipayVaultingQueryRequest *AlipayVaultingQueryRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVaultingQueryRequest, "/ams/api/v1/vaults/inquireVaulting", &responsePay.AlipayVaultingQueryResponse{})
+	return request.NewAlipayRequest(&alipayVaultingQueryRequest, "null", &responsePay.AlipayVaultingQueryResponse{})
 }
