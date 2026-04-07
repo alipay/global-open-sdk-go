@@ -1,7 +1,22 @@
 package model
 
+import (
+
+)
+
+
+
+
 type RateResult struct {
-	BuyCurrency  string `json:"buyCurrency,omitempty"`
-	SellCurrency string `json:"sellCurrency,omitempty"`
-	ExchangeRate string `json:"exchangeRate,omitempty"`
+        BuyCurrency string `json:"buyCurrency,omitempty"`
+        SellCurrency string `json:"sellCurrency,omitempty"`
+        ExchangeRate string `json:"exchangeRate,omitempty"`
 }
+
+
+
+
+
+
+
+

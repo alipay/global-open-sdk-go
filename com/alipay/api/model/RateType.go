@@ -1,9 +1,18 @@
 package model
 
+import (
+
+)
+
+
+            
 type RateType string
 
 const (
-	RateType_TRADE           RateType = "TRADE"
-	RateType_REFERENCE       RateType = "REFERENCE"
-	RateType_REFERENCE_TRADE RateType = "REFERENCE_TRADE"
+RateType_TRADE RateType = "TRADE"
+RateType_REFERENCE RateType = "REFERENCE"
+RateType_REFERENCE_TRADE RateType = "REFERENCE_TRADE"
 )
+
+
+

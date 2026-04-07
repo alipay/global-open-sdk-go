@@ -1,9 +1,18 @@
 package model
 
+import (
+
+)
+
+
+            
 type ResultStatusType string
 
 const (
-	ResultStatusType_S ResultStatusType = "S"
-	ResultStatusType_F ResultStatusType = "F"
-	ResultStatusType_U ResultStatusType = "U"
+ResultStatusType_S ResultStatusType = "S"
+ResultStatusType_F ResultStatusType = "F"
+ResultStatusType_U ResultStatusType = "U"
 )
+
+
+

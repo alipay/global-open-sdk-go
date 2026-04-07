@@ -1,20 +1,32 @@
 package aba
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responseAba "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
+responseAba  "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba" 
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+
 )
 
+
+
+
 type AlipayInquireCardDetailRequest struct {
-	AssetId string `json:"assetId,omitempty"`
+        AssetId string `json:"assetId,omitempty"`
 }
 
-func NewAlipayInquireCardDetailRequest() (*request.AlipayRequest, *AlipayInquireCardDetailRequest) {
-	alipayInquireCardDetailRequest := &AlipayInquireCardDetailRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireCardDetailRequest, "/ams/api/v1/aba/cards/inquireCardDetail", &responseAba.AlipayInquireCardDetailResponse{})
-	return alipayRequest, alipayInquireCardDetailRequest
+func NewAlipayInquireCardDetailRequest() (*request.AlipayRequest, *AlipayInquireCardDetailRequest) { 
+alipayInquireCardDetailRequest := &AlipayInquireCardDetailRequest{} 
+alipayRequest := request.NewAlipayRequest (alipayInquireCardDetailRequest,  "null", &responseAba.AlipayInquireCardDetailResponse{}) 
+return alipayRequest, alipayInquireCardDetailRequest 
+} 
+ 
+func (alipayInquireCardDetailRequest *AlipayInquireCardDetailRequest) NewRequest() *request.AlipayRequest { 
+return request.NewAlipayRequest(&alipayInquireCardDetailRequest,  "null", &responseAba.AlipayInquireCardDetailResponse{}) 
 }
 
-func (alipayInquireCardDetailRequest *AlipayInquireCardDetailRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireCardDetailRequest, "/ams/api/v1/aba/cards/inquireCardDetail", &responseAba.AlipayInquireCardDetailResponse{})
-}
+
+
+
+
+
+

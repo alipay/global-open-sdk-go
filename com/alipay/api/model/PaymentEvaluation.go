@@ -1,5 +1,20 @@
 package model
 
+import (
+
+)
+
+
+
+
 type PaymentEvaluation struct {
-	PaymentMethods []*PaymentMethod `json:"paymentMethods,omitempty"`
+        PaymentMethods [] *PaymentMethod `json:"paymentMethods,omitempty"` 
 }
+
+
+
+
+
+
+
+

@@ -1,6 +1,22 @@
 package model
 
+import (
+
+)
+
+
+
+
 type CardholderInfo struct {
-	CardHolderName *UserName `json:"cardHolderName,omitempty"`
-	BillAddress    *Address  `json:"billAddress,omitempty"`
+        CardHolderName *UserName `json:"cardHolderName,omitempty"` 
+        BillAddress *Address `json:"billAddress,omitempty"` 
+        DisplayName string `json:"displayName,omitempty"`
 }
+
+
+
+
+
+
+
+

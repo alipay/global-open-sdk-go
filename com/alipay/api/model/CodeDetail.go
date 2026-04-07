@@ -1,7 +1,22 @@
 package model
 
+import (
+
+)
+
+
+
+
 type CodeDetail struct {
-	CodeValueType CodeValueType `json:"codeValueType,omitempty"`
-	CodeValue     string        `json:"codeValue,omitempty"`
-	DisplayType   DisplayType   `json:"displayType,omitempty"`
+        CodeValueType CodeValueType `json:"codeValueType,omitempty"` 
+        CodeValue string `json:"codeValue,omitempty"`
+        DisplayType DisplayType `json:"displayType,omitempty"` 
 }
+
+
+
+
+
+
+
+

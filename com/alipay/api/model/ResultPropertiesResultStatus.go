@@ -1,6 +1,21 @@
 package model
 
+import (
+
+)
+
+
+
+
 type ResultPropertiesResultStatus struct {
-	Description string `json:"description,omitempty"`
-	Ref         string `json:"$ref,omitempty"`
+        Description string `json:"description,omitempty"`
+        Ref string `json:"$ref,omitempty"`
 }
+
+
+
+
+
+
+
+

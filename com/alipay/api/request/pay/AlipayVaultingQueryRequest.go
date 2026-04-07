@@ -1,21 +1,33 @@
 package pay
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responsePay "github.com/alipay/global-open-sdk-go/com/alipay/api/response/pay"
+responsePay  "github.com/alipay/global-open-sdk-go/com/alipay/api/response/pay" 
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+
 )
 
+
+
+
 type AlipayVaultingQueryRequest struct {
-	VaultingRequestId string `json:"vaultingRequestId,omitempty"`
-	MerchantAccountId string `json:"merchantAccountId,omitempty"`
+        VaultingRequestId string `json:"vaultingRequestId,omitempty"`
+        MerchantAccountId string `json:"merchantAccountId,omitempty"`
 }
 
-func NewAlipayVaultingQueryRequest() (*request.AlipayRequest, *AlipayVaultingQueryRequest) {
-	alipayVaultingQueryRequest := &AlipayVaultingQueryRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVaultingQueryRequest, "/ams/api/v1/vaults/inquireVaulting", &responsePay.AlipayVaultingQueryResponse{})
-	return alipayRequest, alipayVaultingQueryRequest
+func NewAlipayVaultingQueryRequest() (*request.AlipayRequest, *AlipayVaultingQueryRequest) { 
+alipayVaultingQueryRequest := &AlipayVaultingQueryRequest{} 
+alipayRequest := request.NewAlipayRequest (alipayVaultingQueryRequest,  "null", &responsePay.AlipayVaultingQueryResponse{}) 
+return alipayRequest, alipayVaultingQueryRequest 
+} 
+ 
+func (alipayVaultingQueryRequest *AlipayVaultingQueryRequest) NewRequest() *request.AlipayRequest { 
+return request.NewAlipayRequest(&alipayVaultingQueryRequest,  "null", &responsePay.AlipayVaultingQueryResponse{}) 
 }
 
-func (alipayVaultingQueryRequest *AlipayVaultingQueryRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVaultingQueryRequest, "/ams/api/v1/vaults/inquireVaulting", &responsePay.AlipayVaultingQueryResponse{})
-}
+
+
+
+
+
+

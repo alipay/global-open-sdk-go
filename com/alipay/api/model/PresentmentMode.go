@@ -1,9 +1,18 @@
 package model
 
+import (
+
+)
+
+
+            
 type PresentmentMode string
 
 const (
-	PresentmentMode_BUNDLE  PresentmentMode = "BUNDLE"
-	PresentmentMode_TILE    PresentmentMode = "TILE"
-	PresentmentMode_UNIFIED PresentmentMode = "UNIFIED"
+PresentmentMode_BUNDLE PresentmentMode = "BUNDLE"
+PresentmentMode_TILE PresentmentMode = "TILE"
+PresentmentMode_UNIFIED PresentmentMode = "UNIFIED"
 )
+
+
+

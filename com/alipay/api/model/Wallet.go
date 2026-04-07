@@ -1,11 +1,26 @@
 package model
 
+import (
+
+)
+
+
+
+
 type Wallet struct {
-	AccountNo         string    `json:"accountNo,omitempty"`
-	AccountHolderName *UserName `json:"accountHolderName,omitempty"`
-	PhoneNo           string    `json:"phoneNo,omitempty"`
-	Email             string    `json:"email,omitempty"`
-	BillingAddress    *Address  `json:"billingAddress,omitempty"`
-	Token             string    `json:"token,omitempty"`
-	TokenExpiryTime   string    `json:"tokenExpiryTime,omitempty"`
+        AccountNo string `json:"accountNo,omitempty"`
+        AccountHolderName *UserName `json:"accountHolderName,omitempty"` 
+        PhoneNo string `json:"phoneNo,omitempty"`
+        Email string `json:"email,omitempty"`
+        BillingAddress *Address `json:"billingAddress,omitempty"` 
+        Token string `json:"token,omitempty"`
+        TokenExpiryTime string `json:"tokenExpiryTime,omitempty"`
 }
+
+
+
+
+
+
+
+

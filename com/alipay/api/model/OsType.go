@@ -1,8 +1,17 @@
 package model
 
+import (
+
+)
+
+
+            
 type OsType string
 
 const (
-	OsType_IOS     OsType = "IOS"
-	OsType_ANDROID OsType = "ANDROID"
+OsType_IOS OsType = "IOS"
+OsType_ANDROID OsType = "ANDROID"
 )
+
+
+

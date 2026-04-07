@@ -1,20 +1,32 @@
 package aba
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responseAba "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
+responseAba  "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba" 
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+
 )
 
+
+
+
 type AlipayInquireCardSensitiveInfoRequest struct {
-	AssetId string `json:"assetId,omitempty"`
+        AssetId string `json:"assetId,omitempty"`
 }
 
-func NewAlipayInquireCardSensitiveInfoRequest() (*request.AlipayRequest, *AlipayInquireCardSensitiveInfoRequest) {
-	alipayInquireCardSensitiveInfoRequest := &AlipayInquireCardSensitiveInfoRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireCardSensitiveInfoRequest, "/ams/api/v1/aba/cards/inquireCardSensitiveInfo", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
-	return alipayRequest, alipayInquireCardSensitiveInfoRequest
+func NewAlipayInquireCardSensitiveInfoRequest() (*request.AlipayRequest, *AlipayInquireCardSensitiveInfoRequest) { 
+alipayInquireCardSensitiveInfoRequest := &AlipayInquireCardSensitiveInfoRequest{} 
+alipayRequest := request.NewAlipayRequest (alipayInquireCardSensitiveInfoRequest,  "null", &responseAba.AlipayInquireCardSensitiveInfoResponse{}) 
+return alipayRequest, alipayInquireCardSensitiveInfoRequest 
+} 
+ 
+func (alipayInquireCardSensitiveInfoRequest *AlipayInquireCardSensitiveInfoRequest) NewRequest() *request.AlipayRequest { 
+return request.NewAlipayRequest(&alipayInquireCardSensitiveInfoRequest,  "null", &responseAba.AlipayInquireCardSensitiveInfoResponse{}) 
 }
 
-func (alipayInquireCardSensitiveInfoRequest *AlipayInquireCardSensitiveInfoRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireCardSensitiveInfoRequest, "/ams/api/v1/aba/cards/inquireCardSensitiveInfo", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
-}
+
+
+
+
+
+
