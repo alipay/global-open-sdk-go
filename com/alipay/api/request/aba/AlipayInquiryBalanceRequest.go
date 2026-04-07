@@ -1,22 +1,34 @@
 package aba
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responseAba "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
+responseAba  "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba" 
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+
 )
 
+
+
+
 type AlipayInquiryBalanceRequest struct {
-	CurrencyList []string `json:"currencyList,omitempty"`
-	Accesstoken  string   `json:"accesstoken,omitempty"`
-	CustomerId   string   `json:"customerId,omitempty"`
+        CurrencyList []string `json:"currencyList,omitempty"`
+        Accesstoken string `json:"accesstoken,omitempty"`
+        CustomerId string `json:"customerId,omitempty"`
 }
 
-func NewAlipayInquiryBalanceRequest() (*request.AlipayRequest, *AlipayInquiryBalanceRequest) {
-	alipayInquiryBalanceRequest := &AlipayInquiryBalanceRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquiryBalanceRequest, "/ams/v1/aba/accounts/inquiryBalance", &responseAba.AlipayInquiryBalanceResponse{})
-	return alipayRequest, alipayInquiryBalanceRequest
+func NewAlipayInquiryBalanceRequest() (*request.AlipayRequest, *AlipayInquiryBalanceRequest) { 
+alipayInquiryBalanceRequest := &AlipayInquiryBalanceRequest{} 
+alipayRequest := request.NewAlipayRequest (alipayInquiryBalanceRequest,  "null", &responseAba.AlipayInquiryBalanceResponse{}) 
+return alipayRequest, alipayInquiryBalanceRequest 
+} 
+ 
+func (alipayInquiryBalanceRequest *AlipayInquiryBalanceRequest) NewRequest() *request.AlipayRequest { 
+return request.NewAlipayRequest(&alipayInquiryBalanceRequest,  "null", &responseAba.AlipayInquiryBalanceResponse{}) 
 }
 
-func (alipayInquiryBalanceRequest *AlipayInquiryBalanceRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquiryBalanceRequest, "/ams/v1/aba/accounts/inquiryBalance", &responseAba.AlipayInquiryBalanceResponse{})
-}
+
+
+
+
+
+

@@ -1,13 +1,27 @@
 package model
 
+import (
+
+)
+
+
+
+
 type Amount struct {
-	Currency string `json:"currency,omitempty"`
-	Value    string `json:"value,omitempty"`
+        Currency string `json:"currency,omitempty"`
+        Value string `json:"value,omitempty"`
 }
 
-func NewAmount(value string, currency string) *Amount {
-	return &Amount{
-		Value:    value,
-		Currency: currency,
-	}
-}
+
+
+
+func NewAmount(value string, currency string) *Amount { 
+    return &Amount{ 
+       Value:    value, 
+       Currency: currency, 
+    } 
+} 
+
+
+
+

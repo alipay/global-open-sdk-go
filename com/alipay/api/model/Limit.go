@@ -1,7 +1,22 @@
 package model
 
+import (
+
+)
+
+
+
+
 type Limit struct {
-	RemainingLimit *Amount `json:"remainingLimit,omitempty"`
-	RangeLimit     *Amount `json:"rangeLimit,omitempty"`
-	UsedLimit      *Amount `json:"usedLimit,omitempty"`
+        RemainingLimit *Amount `json:"remainingLimit,omitempty"` 
+        RangeLimit *Amount `json:"rangeLimit,omitempty"` 
+        UsedLimit *Amount `json:"usedLimit,omitempty"` 
 }
+
+
+
+
+
+
+
+

@@ -1,13 +1,25 @@
 package responseDispute
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/response"
+"github.com/alipay/global-open-sdk-go/com/alipay/api/model" 
+"github.com/alipay/global-open-sdk-go/com/alipay/api/response" 
+
 )
 
+
+
+
 type AlipayDownloadDisputeEvidenceResponse struct {
-	response.AlipayResponse
-	Result                *model.Result                   `json:"result,omitempty"`
-	DisputeEvidence       string                          `json:"disputeEvidence,omitempty"`
-	DisputeEvidenceFormat model.DisputeEvidenceFormatType `json:"disputeEvidenceFormat,omitempty"`
+response.AlipayResponse 
+        Result *model.Result `json:"result,omitempty"` 
+        DisputeEvidence string `json:"disputeEvidence,omitempty"`
+        DisputeEvidenceFormat model.DisputeEvidenceFormatType `json:"disputeEvidenceFormat,omitempty"` 
 }
+
+
+
+
+
+
+
+

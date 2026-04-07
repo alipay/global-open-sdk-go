@@ -1,8 +1,17 @@
 package model
 
+import (
+
+)
+
+
+            
 type AccountType string
 
 const (
-	AccountType_CHECKING      AccountType = "CHECKING"
-	AccountType_FIXED_DEPOSIT AccountType = "FIXED_DEPOSIT"
+AccountType_CHECKING AccountType = "CHECKING"
+AccountType_FIXED_DEPOSIT AccountType = "FIXED_DEPOSIT"
 )
+
+
+

@@ -1,24 +1,35 @@
 package marketplace
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responseMarketplace "github.com/alipay/global-open-sdk-go/com/alipay/api/response/marketplace"
+responseMarketplace  "github.com/alipay/global-open-sdk-go/com/alipay/api/response/marketplace" 
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+ "github.com/alipay/global-open-sdk-go/com/alipay/api/request"
+
 )
 
+
+
+
 type AlipaySettlementInfoUpdateRequest struct {
-	UpdateRequestId       string                       `json:"updateRequestId,omitempty"`
-	ReferenceMerchantId   string                       `json:"referenceMerchantId,omitempty"`
-	SettlementCurrency    string                       `json:"settlementCurrency,omitempty"`
-	SettlementBankAccount *model.SettlementBankAccount `json:"settlementBankAccount,omitempty"`
+        UpdateRequestId string `json:"updateRequestId,omitempty"`
+        ReferenceMerchantId string `json:"referenceMerchantId,omitempty"`
+        SettlementCurrency string `json:"settlementCurrency,omitempty"`
+        SettlementBankAccount *model.SettlementBankAccount `json:"settlementBankAccount,omitempty"` 
 }
 
-func NewAlipaySettlementInfoUpdateRequest() (*request.AlipayRequest, *AlipaySettlementInfoUpdateRequest) {
-	alipaySettlementInfoUpdateRequest := &AlipaySettlementInfoUpdateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySettlementInfoUpdateRequest, "/ams/api/v1/merchants/settlementInfo/update", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
-	return alipayRequest, alipaySettlementInfoUpdateRequest
+func NewAlipaySettlementInfoUpdateRequest() (*request.AlipayRequest, *AlipaySettlementInfoUpdateRequest) { 
+alipaySettlementInfoUpdateRequest := &AlipaySettlementInfoUpdateRequest{} 
+alipayRequest := request.NewAlipayRequest (alipaySettlementInfoUpdateRequest,  "null", &responseMarketplace.AlipaySettlementInfoUpdateResponse{}) 
+return alipayRequest, alipaySettlementInfoUpdateRequest 
+} 
+ 
+func (alipaySettlementInfoUpdateRequest *AlipaySettlementInfoUpdateRequest) NewRequest() *request.AlipayRequest { 
+return request.NewAlipayRequest(&alipaySettlementInfoUpdateRequest,  "null", &responseMarketplace.AlipaySettlementInfoUpdateResponse{}) 
 }
 
-func (alipaySettlementInfoUpdateRequest *AlipaySettlementInfoUpdateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySettlementInfoUpdateRequest, "/ams/api/v1/merchants/settlementInfo/update", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
-}
+
+
+
+
+
+

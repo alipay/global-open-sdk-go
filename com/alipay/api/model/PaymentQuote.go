@@ -1,8 +1,23 @@
 package model
 
+import (
+
+)
+
+
+
+
 type PaymentQuote struct {
-	BuyCurrency  string  `json:"buyCurrency,omitempty"`
-	SellCurrency string  `json:"sellCurrency,omitempty"`
-	QuoteId      string  `json:"quoteId,omitempty"`
-	ExchangeRate float32 `json:"exchangeRate,omitempty"`
+        BuyCurrency string `json:"buyCurrency,omitempty"`
+        SellCurrency string `json:"sellCurrency,omitempty"`
+        QuoteId string `json:"quoteId,omitempty"`
+        ExchangeRate float32 `json:"exchangeRate,omitempty"`
 }
+
+
+
+
+
+
+
+
