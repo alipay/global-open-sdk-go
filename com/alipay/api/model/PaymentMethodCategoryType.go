@@ -10,4 +10,5 @@ const (
 	PaymentMethodCategoryType_ONLINE_BANKING     PaymentMethodCategoryType = "ONLINE_BANKING"
 	PaymentMethodCategoryType_CARD               PaymentMethodCategoryType = "CARD"
 	PaymentMethodCategoryType_OTC                PaymentMethodCategoryType = "OTC"
+	PaymentMethodCategoryType_VA                 PaymentMethodCategoryType = "VA"
 )
