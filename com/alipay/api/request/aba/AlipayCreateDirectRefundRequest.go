@@ -20,10 +20,10 @@ type AlipayCreateDirectRefundRequest struct {
 
 func NewAlipayCreateDirectRefundRequest() (*request.AlipayRequest, *AlipayCreateDirectRefundRequest) {
 	alipayCreateDirectRefundRequest := &AlipayCreateDirectRefundRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreateDirectRefundRequest, "null", &responseAba.AlipayCreateDirectRefundResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreateDirectRefundRequest, "/ams/api/v1/aba/funds/createDirectRefund", &responseAba.AlipayCreateDirectRefundResponse{})
 	return alipayRequest, alipayCreateDirectRefundRequest
 }
 
 func (alipayCreateDirectRefundRequest *AlipayCreateDirectRefundRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCreateDirectRefundRequest, "null", &responseAba.AlipayCreateDirectRefundResponse{})
+	return request.NewAlipayRequest(&alipayCreateDirectRefundRequest, "/ams/api/v1/aba/funds/createDirectRefund", &responseAba.AlipayCreateDirectRefundResponse{})
 }

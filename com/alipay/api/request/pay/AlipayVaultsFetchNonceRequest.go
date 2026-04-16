@@ -12,10 +12,10 @@ type AlipayVaultsFetchNonceRequest struct {
 
 func NewAlipayVaultsFetchNonceRequest() (*request.AlipayRequest, *AlipayVaultsFetchNonceRequest) {
 	alipayVaultsFetchNonceRequest := &AlipayVaultsFetchNonceRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVaultsFetchNonceRequest, "null", &responsePay.AlipayVaultsFetchNonceResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayVaultsFetchNonceRequest, "/ams/api/v1/vaults/fetchNonce", &responsePay.AlipayVaultsFetchNonceResponse{})
 	return alipayRequest, alipayVaultsFetchNonceRequest
 }
 
 func (alipayVaultsFetchNonceRequest *AlipayVaultsFetchNonceRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVaultsFetchNonceRequest, "null", &responsePay.AlipayVaultsFetchNonceResponse{})
+	return request.NewAlipayRequest(&alipayVaultsFetchNonceRequest, "/ams/api/v1/vaults/fetchNonce", &responsePay.AlipayVaultsFetchNonceResponse{})
 }

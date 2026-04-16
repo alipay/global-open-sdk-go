@@ -21,10 +21,10 @@ type AlipayVaultingPaymentMethodRequest struct {
 
 func NewAlipayVaultingPaymentMethodRequest() (*request.AlipayRequest, *AlipayVaultingPaymentMethodRequest) {
 	alipayVaultingPaymentMethodRequest := &AlipayVaultingPaymentMethodRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVaultingPaymentMethodRequest, "null", &responsePay.AlipayVaultingPaymentMethodResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayVaultingPaymentMethodRequest, "/ams/api/v1/vaults/vaultPaymentMethod", &responsePay.AlipayVaultingPaymentMethodResponse{})
 	return alipayRequest, alipayVaultingPaymentMethodRequest
 }
 
 func (alipayVaultingPaymentMethodRequest *AlipayVaultingPaymentMethodRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVaultingPaymentMethodRequest, "null", &responsePay.AlipayVaultingPaymentMethodResponse{})
+	return request.NewAlipayRequest(&alipayVaultingPaymentMethodRequest, "/ams/api/v1/vaults/vaultPaymentMethod", &responsePay.AlipayVaultingPaymentMethodResponse{})
 }

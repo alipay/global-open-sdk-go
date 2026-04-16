@@ -26,10 +26,10 @@ type AlipayRefundRequest struct {
 
 func NewAlipayRefundRequest() (*request.AlipayRequest, *AlipayRefundRequest) {
 	alipayRefundRequest := &AlipayRefundRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayRefundRequest, "null", &responsePay.AlipayRefundResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayRefundRequest, "/ams/api/v1/payments/refund", &responsePay.AlipayRefundResponse{})
 	return alipayRequest, alipayRefundRequest
 }
 
 func (alipayRefundRequest *AlipayRefundRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayRefundRequest, "null", &responsePay.AlipayRefundResponse{})
+	return request.NewAlipayRequest(&alipayRefundRequest, "/ams/api/v1/payments/refund", &responsePay.AlipayRefundResponse{})
 }

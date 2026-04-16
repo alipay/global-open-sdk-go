@@ -16,10 +16,10 @@ type AlipayVaultingSessionRequest struct {
 
 func NewAlipayVaultingSessionRequest() (*request.AlipayRequest, *AlipayVaultingSessionRequest) {
 	alipayVaultingSessionRequest := &AlipayVaultingSessionRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVaultingSessionRequest, "null", &responsePay.AlipayVaultingSessionResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayVaultingSessionRequest, "/ams/api/v1/vaults/createVaultingSession", &responsePay.AlipayVaultingSessionResponse{})
 	return alipayRequest, alipayVaultingSessionRequest
 }
 
 func (alipayVaultingSessionRequest *AlipayVaultingSessionRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVaultingSessionRequest, "null", &responsePay.AlipayVaultingSessionResponse{})
+	return request.NewAlipayRequest(&alipayVaultingSessionRequest, "/ams/api/v1/vaults/createVaultingSession", &responsePay.AlipayVaultingSessionResponse{})
 }

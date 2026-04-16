@@ -14,10 +14,10 @@ type AlipayUpdateCardStatusRequest struct {
 
 func NewAlipayUpdateCardStatusRequest() (*request.AlipayRequest, *AlipayUpdateCardStatusRequest) {
 	alipayUpdateCardStatusRequest := &AlipayUpdateCardStatusRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayUpdateCardStatusRequest, "null", &responseAba.AlipayUpdateCardStatusResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayUpdateCardStatusRequest, "/ams/api/v1/aba/cards/updateCardStatus", &responseAba.AlipayUpdateCardStatusResponse{})
 	return alipayRequest, alipayUpdateCardStatusRequest
 }
 
 func (alipayUpdateCardStatusRequest *AlipayUpdateCardStatusRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayUpdateCardStatusRequest, "null", &responseAba.AlipayUpdateCardStatusResponse{})
+	return request.NewAlipayRequest(&alipayUpdateCardStatusRequest, "/ams/api/v1/aba/cards/updateCardStatus", &responseAba.AlipayUpdateCardStatusResponse{})
 }
