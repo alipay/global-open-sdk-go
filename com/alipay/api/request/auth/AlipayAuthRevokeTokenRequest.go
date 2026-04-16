@@ -13,10 +13,10 @@ type AlipayAuthRevokeTokenRequest struct {
 
 func NewAlipayAuthRevokeTokenRequest() (*request.AlipayRequest, *AlipayAuthRevokeTokenRequest) {
 	alipayAuthRevokeTokenRequest := &AlipayAuthRevokeTokenRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAuthRevokeTokenRequest, "null", &responseAuth.AlipayAuthRevokeTokenResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAuthRevokeTokenRequest, "", &responseAuth.AlipayAuthRevokeTokenResponse{})
 	return alipayRequest, alipayAuthRevokeTokenRequest
 }
 
 func (alipayAuthRevokeTokenRequest *AlipayAuthRevokeTokenRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAuthRevokeTokenRequest, "null", &responseAuth.AlipayAuthRevokeTokenResponse{})
+	return request.NewAlipayRequest(&alipayAuthRevokeTokenRequest, "", &responseAuth.AlipayAuthRevokeTokenResponse{})
 }

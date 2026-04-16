@@ -11,10 +11,10 @@ type AlipayInquireCardSensitiveInfoRequest struct {
 
 func NewAlipayInquireCardSensitiveInfoRequest() (*request.AlipayRequest, *AlipayInquireCardSensitiveInfoRequest) {
 	alipayInquireCardSensitiveInfoRequest := &AlipayInquireCardSensitiveInfoRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireCardSensitiveInfoRequest, "null", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquireCardSensitiveInfoRequest, "", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
 	return alipayRequest, alipayInquireCardSensitiveInfoRequest
 }
 
 func (alipayInquireCardSensitiveInfoRequest *AlipayInquireCardSensitiveInfoRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireCardSensitiveInfoRequest, "null", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
+	return request.NewAlipayRequest(&alipayInquireCardSensitiveInfoRequest, "", &responseAba.AlipayInquireCardSensitiveInfoResponse{})
 }

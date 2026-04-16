@@ -19,10 +19,10 @@ type AlipayCreateDirectPaymentRequest struct {
 
 func NewAlipayCreateDirectPaymentRequest() (*request.AlipayRequest, *AlipayCreateDirectPaymentRequest) {
 	alipayCreateDirectPaymentRequest := &AlipayCreateDirectPaymentRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreateDirectPaymentRequest, "null", &responseAba.AlipayCreateDirectPaymentResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreateDirectPaymentRequest, "", &responseAba.AlipayCreateDirectPaymentResponse{})
 	return alipayRequest, alipayCreateDirectPaymentRequest
 }
 
 func (alipayCreateDirectPaymentRequest *AlipayCreateDirectPaymentRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCreateDirectPaymentRequest, "null", &responseAba.AlipayCreateDirectPaymentResponse{})
+	return request.NewAlipayRequest(&alipayCreateDirectPaymentRequest, "", &responseAba.AlipayCreateDirectPaymentResponse{})
 }

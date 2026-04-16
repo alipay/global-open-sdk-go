@@ -14,10 +14,10 @@ type AlipayCreateTransferRequest struct {
 
 func NewAlipayCreateTransferRequest() (*request.AlipayRequest, *AlipayCreateTransferRequest) {
 	alipayCreateTransferRequest := &AlipayCreateTransferRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreateTransferRequest, "null", &responseMarketplace.AlipayCreateTransferResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreateTransferRequest, "", &responseMarketplace.AlipayCreateTransferResponse{})
 	return alipayRequest, alipayCreateTransferRequest
 }
 
 func (alipayCreateTransferRequest *AlipayCreateTransferRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCreateTransferRequest, "null", &responseMarketplace.AlipayCreateTransferResponse{})
+	return request.NewAlipayRequest(&alipayCreateTransferRequest, "", &responseMarketplace.AlipayCreateTransferResponse{})
 }
