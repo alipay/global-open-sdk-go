@@ -11,10 +11,10 @@ type AlipayInquireCardDetailRequest struct {
 
 func NewAlipayInquireCardDetailRequest() (*request.AlipayRequest, *AlipayInquireCardDetailRequest) {
 	alipayInquireCardDetailRequest := &AlipayInquireCardDetailRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquireCardDetailRequest, "null", &responseAba.AlipayInquireCardDetailResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquireCardDetailRequest, "", &responseAba.AlipayInquireCardDetailResponse{})
 	return alipayRequest, alipayInquireCardDetailRequest
 }
 
 func (alipayInquireCardDetailRequest *AlipayInquireCardDetailRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquireCardDetailRequest, "null", &responseAba.AlipayInquireCardDetailResponse{})
+	return request.NewAlipayRequest(&alipayInquireCardDetailRequest, "", &responseAba.AlipayInquireCardDetailResponse{})
 }

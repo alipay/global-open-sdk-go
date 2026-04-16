@@ -20,10 +20,10 @@ type AlipaySubscriptionUpdateRequest struct {
 
 func NewAlipaySubscriptionUpdateRequest() (*request.AlipayRequest, *AlipaySubscriptionUpdateRequest) {
 	alipaySubscriptionUpdateRequest := &AlipaySubscriptionUpdateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionUpdateRequest, "null", &responseSubscription.AlipaySubscriptionUpdateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionUpdateRequest, "", &responseSubscription.AlipaySubscriptionUpdateResponse{})
 	return alipayRequest, alipaySubscriptionUpdateRequest
 }
 
 func (alipaySubscriptionUpdateRequest *AlipaySubscriptionUpdateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionUpdateRequest, "null", &responseSubscription.AlipaySubscriptionUpdateResponse{})
+	return request.NewAlipayRequest(&alipaySubscriptionUpdateRequest, "", &responseSubscription.AlipaySubscriptionUpdateResponse{})
 }

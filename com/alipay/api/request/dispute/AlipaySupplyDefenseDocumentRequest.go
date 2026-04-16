@@ -12,10 +12,10 @@ type AlipaySupplyDefenseDocumentRequest struct {
 
 func NewAlipaySupplyDefenseDocumentRequest() (*request.AlipayRequest, *AlipaySupplyDefenseDocumentRequest) {
 	alipaySupplyDefenseDocumentRequest := &AlipaySupplyDefenseDocumentRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySupplyDefenseDocumentRequest, "null", &responseDispute.AlipaySupplyDefenseDocumentResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySupplyDefenseDocumentRequest, "", &responseDispute.AlipaySupplyDefenseDocumentResponse{})
 	return alipayRequest, alipaySupplyDefenseDocumentRequest
 }
 
 func (alipaySupplyDefenseDocumentRequest *AlipaySupplyDefenseDocumentRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySupplyDefenseDocumentRequest, "null", &responseDispute.AlipaySupplyDefenseDocumentResponse{})
+	return request.NewAlipayRequest(&alipaySupplyDefenseDocumentRequest, "", &responseDispute.AlipaySupplyDefenseDocumentResponse{})
 }

@@ -13,10 +13,10 @@ type AlipayPayCancelRequest struct {
 
 func NewAlipayPayCancelRequest() (*request.AlipayRequest, *AlipayPayCancelRequest) {
 	alipayPayCancelRequest := &AlipayPayCancelRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayPayCancelRequest, "null", &responsePay.AlipayPayCancelResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayPayCancelRequest, "", &responsePay.AlipayPayCancelResponse{})
 	return alipayRequest, alipayPayCancelRequest
 }
 
 func (alipayPayCancelRequest *AlipayPayCancelRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayPayCancelRequest, "null", &responsePay.AlipayPayCancelResponse{})
+	return request.NewAlipayRequest(&alipayPayCancelRequest, "", &responsePay.AlipayPayCancelResponse{})
 }

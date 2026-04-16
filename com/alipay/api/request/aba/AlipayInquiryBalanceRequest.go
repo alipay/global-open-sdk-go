@@ -13,10 +13,10 @@ type AlipayInquiryBalanceRequest struct {
 
 func NewAlipayInquiryBalanceRequest() (*request.AlipayRequest, *AlipayInquiryBalanceRequest) {
 	alipayInquiryBalanceRequest := &AlipayInquiryBalanceRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayInquiryBalanceRequest, "null", &responseAba.AlipayInquiryBalanceResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayInquiryBalanceRequest, "", &responseAba.AlipayInquiryBalanceResponse{})
 	return alipayRequest, alipayInquiryBalanceRequest
 }
 
 func (alipayInquiryBalanceRequest *AlipayInquiryBalanceRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayInquiryBalanceRequest, "null", &responseAba.AlipayInquiryBalanceResponse{})
+	return request.NewAlipayRequest(&alipayInquiryBalanceRequest, "", &responseAba.AlipayInquiryBalanceResponse{})
 }

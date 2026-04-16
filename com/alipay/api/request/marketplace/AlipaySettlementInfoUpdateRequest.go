@@ -15,10 +15,10 @@ type AlipaySettlementInfoUpdateRequest struct {
 
 func NewAlipaySettlementInfoUpdateRequest() (*request.AlipayRequest, *AlipaySettlementInfoUpdateRequest) {
 	alipaySettlementInfoUpdateRequest := &AlipaySettlementInfoUpdateRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySettlementInfoUpdateRequest, "null", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySettlementInfoUpdateRequest, "", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
 	return alipayRequest, alipaySettlementInfoUpdateRequest
 }
 
 func (alipaySettlementInfoUpdateRequest *AlipaySettlementInfoUpdateRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySettlementInfoUpdateRequest, "null", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
+	return request.NewAlipayRequest(&alipaySettlementInfoUpdateRequest, "", &responseMarketplace.AlipaySettlementInfoUpdateResponse{})
 }

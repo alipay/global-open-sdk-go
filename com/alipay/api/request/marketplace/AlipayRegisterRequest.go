@@ -15,10 +15,10 @@ type AlipayRegisterRequest struct {
 
 func NewAlipayRegisterRequest() (*request.AlipayRequest, *AlipayRegisterRequest) {
 	alipayRegisterRequest := &AlipayRegisterRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayRegisterRequest, "null", &responseMarketplace.AlipayRegisterResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayRegisterRequest, "", &responseMarketplace.AlipayRegisterResponse{})
 	return alipayRequest, alipayRegisterRequest
 }
 
 func (alipayRegisterRequest *AlipayRegisterRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayRegisterRequest, "null", &responseMarketplace.AlipayRegisterResponse{})
+	return request.NewAlipayRequest(&alipayRegisterRequest, "", &responseMarketplace.AlipayRegisterResponse{})
 }
