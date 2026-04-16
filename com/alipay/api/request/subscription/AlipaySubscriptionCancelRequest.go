@@ -14,10 +14,10 @@ type AlipaySubscriptionCancelRequest struct {
 
 func NewAlipaySubscriptionCancelRequest() (*request.AlipayRequest, *AlipaySubscriptionCancelRequest) {
 	alipaySubscriptionCancelRequest := &AlipaySubscriptionCancelRequest{}
-	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCancelRequest, "null", &responseSubscription.AlipaySubscriptionCancelResponse{})
+	alipayRequest := request.NewAlipayRequest(alipaySubscriptionCancelRequest, "/ams/api/v1/subscriptions/cancel", &responseSubscription.AlipaySubscriptionCancelResponse{})
 	return alipayRequest, alipaySubscriptionCancelRequest
 }
 
 func (alipaySubscriptionCancelRequest *AlipaySubscriptionCancelRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipaySubscriptionCancelRequest, "null", &responseSubscription.AlipaySubscriptionCancelResponse{})
+	return request.NewAlipayRequest(&alipaySubscriptionCancelRequest, "/ams/api/v1/subscriptions/cancel", &responseSubscription.AlipaySubscriptionCancelResponse{})
 }

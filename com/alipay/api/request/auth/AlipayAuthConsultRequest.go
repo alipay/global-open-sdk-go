@@ -26,10 +26,10 @@ type AlipayAuthConsultRequest struct {
 
 func NewAlipayAuthConsultRequest() (*request.AlipayRequest, *AlipayAuthConsultRequest) {
 	alipayAuthConsultRequest := &AlipayAuthConsultRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAuthConsultRequest, "null", &responseAuth.AlipayAuthConsultResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAuthConsultRequest, "/ams/api/v1/authorizations/consult", &responseAuth.AlipayAuthConsultResponse{})
 	return alipayRequest, alipayAuthConsultRequest
 }
 
 func (alipayAuthConsultRequest *AlipayAuthConsultRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAuthConsultRequest, "null", &responseAuth.AlipayAuthConsultResponse{})
+	return request.NewAlipayRequest(&alipayAuthConsultRequest, "/ams/api/v1/authorizations/consult", &responseAuth.AlipayAuthConsultResponse{})
 }

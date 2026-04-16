@@ -14,10 +14,10 @@ type AlipayCreateQuoteRequest struct {
 
 func NewAlipayCreateQuoteRequest() (*request.AlipayRequest, *AlipayCreateQuoteRequest) {
 	alipayCreateQuoteRequest := &AlipayCreateQuoteRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreateQuoteRequest, "null", &responseAba.AlipayCreateQuoteResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreateQuoteRequest, "/ams/api/v1/aba/funds/createQuote", &responseAba.AlipayCreateQuoteResponse{})
 	return alipayRequest, alipayCreateQuoteRequest
 }
 
 func (alipayCreateQuoteRequest *AlipayCreateQuoteRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCreateQuoteRequest, "null", &responseAba.AlipayCreateQuoteResponse{})
+	return request.NewAlipayRequest(&alipayCreateQuoteRequest, "/ams/api/v1/aba/funds/createQuote", &responseAba.AlipayCreateQuoteResponse{})
 }

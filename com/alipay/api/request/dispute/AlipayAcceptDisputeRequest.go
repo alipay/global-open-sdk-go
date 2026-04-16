@@ -11,10 +11,10 @@ type AlipayAcceptDisputeRequest struct {
 
 func NewAlipayAcceptDisputeRequest() (*request.AlipayRequest, *AlipayAcceptDisputeRequest) {
 	alipayAcceptDisputeRequest := &AlipayAcceptDisputeRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayAcceptDisputeRequest, "null", &responseDispute.AlipayAcceptDisputeResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayAcceptDisputeRequest, "/ams/api/v1/payments/acceptDispute", &responseDispute.AlipayAcceptDisputeResponse{})
 	return alipayRequest, alipayAcceptDisputeRequest
 }
 
 func (alipayAcceptDisputeRequest *AlipayAcceptDisputeRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayAcceptDisputeRequest, "null", &responseDispute.AlipayAcceptDisputeResponse{})
+	return request.NewAlipayRequest(&alipayAcceptDisputeRequest, "/ams/api/v1/payments/acceptDispute", &responseDispute.AlipayAcceptDisputeResponse{})
 }

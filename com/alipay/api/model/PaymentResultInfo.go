@@ -28,4 +28,5 @@ type PaymentResultInfo struct {
 	CredentialTypeUsed      string         `json:"credentialTypeUsed,omitempty"`
 	Rrn                     string         `json:"rrn,omitempty"`
 	UserAuthorizationStatus string         `json:"userAuthorizationStatus,omitempty"`
+	AuthorizationCode       string         `json:"authorizationCode,omitempty"`
 }

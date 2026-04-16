@@ -14,10 +14,10 @@ type AlipayVerifyAndCompletePaymentRequest struct {
 
 func NewAlipayVerifyAndCompletePaymentRequest() (*request.AlipayRequest, *AlipayVerifyAndCompletePaymentRequest) {
 	alipayVerifyAndCompletePaymentRequest := &AlipayVerifyAndCompletePaymentRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayVerifyAndCompletePaymentRequest, "null", &responsePay.AlipayVerifyAndCompletePaymentResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayVerifyAndCompletePaymentRequest, "/ams/api/v1/payments/verifyAndCompletePayment", &responsePay.AlipayVerifyAndCompletePaymentResponse{})
 	return alipayRequest, alipayVerifyAndCompletePaymentRequest
 }
 
 func (alipayVerifyAndCompletePaymentRequest *AlipayVerifyAndCompletePaymentRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayVerifyAndCompletePaymentRequest, "null", &responsePay.AlipayVerifyAndCompletePaymentResponse{})
+	return request.NewAlipayRequest(&alipayVerifyAndCompletePaymentRequest, "/ams/api/v1/payments/verifyAndCompletePayment", &responsePay.AlipayVerifyAndCompletePaymentResponse{})
 }

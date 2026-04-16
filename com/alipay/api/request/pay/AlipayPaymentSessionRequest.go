@@ -42,10 +42,10 @@ type AlipayPaymentSessionRequest struct {
 
 func NewAlipayPaymentSessionRequest() (*request.AlipayRequest, *AlipayPaymentSessionRequest) {
 	alipayPaymentSessionRequest := &AlipayPaymentSessionRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayPaymentSessionRequest, "null", &responsePay.AlipayPaymentSessionResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayPaymentSessionRequest, "/ams/api/v1/payments/createPaymentSession", &responsePay.AlipayPaymentSessionResponse{})
 	return alipayRequest, alipayPaymentSessionRequest
 }
 
 func (alipayPaymentSessionRequest *AlipayPaymentSessionRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayPaymentSessionRequest, "null", &responsePay.AlipayPaymentSessionResponse{})
+	return request.NewAlipayRequest(&alipayPaymentSessionRequest, "/ams/api/v1/payments/createPaymentSession", &responsePay.AlipayPaymentSessionResponse{})
 }

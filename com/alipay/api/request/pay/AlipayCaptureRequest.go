@@ -17,10 +17,10 @@ type AlipayCaptureRequest struct {
 
 func NewAlipayCaptureRequest() (*request.AlipayRequest, *AlipayCaptureRequest) {
 	alipayCaptureRequest := &AlipayCaptureRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCaptureRequest, "null", &responsePay.AlipayCaptureResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCaptureRequest, "/ams/api/v1/payments/capture", &responsePay.AlipayCaptureResponse{})
 	return alipayRequest, alipayCaptureRequest
 }
 
 func (alipayCaptureRequest *AlipayCaptureRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCaptureRequest, "null", &responsePay.AlipayCaptureResponse{})
+	return request.NewAlipayRequest(&alipayCaptureRequest, "/ams/api/v1/payments/capture", &responsePay.AlipayCaptureResponse{})
 }
