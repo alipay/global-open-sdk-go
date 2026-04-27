@@ -5,4 +5,5 @@ type CreditPayPlan struct {
 	Interval         string           `json:"interval,omitempty"`
 	CreditPayFeeType CreditPayFeeType `json:"creditPayFeeType,omitempty"`
 	FeePercentage    int32            `json:"feePercentage,omitempty"`
+	InterestRate     string           `json:"interestRate,omitempty"`
 }
