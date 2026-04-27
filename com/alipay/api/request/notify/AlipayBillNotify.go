@@ -7,6 +7,7 @@ import "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 type AlipayBillNotify struct {
 	AlipayNotify
 
+	BillNo          string `json:"billNo,omitempty"`
 	AssetId         string `json:"assetId"`
 	MaskedCardNo    string `json:"maskedCardNo"`
 	OrderNo         string `json:"orderNo"`
