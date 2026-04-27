@@ -14,6 +14,7 @@ type AlipayInquiryStatementRequest struct {
 	CurrencyList        []string    `json:"currencyList,omitempty"`
 	PageSize            int32       `json:"pageSize,omitempty"`
 	PageNumber          int32       `json:"pageNumber,omitempty"`
+	AssetId             string      `json:"assetId,omitempty"`
 }
 
 func NewAlipayInquiryStatementRequest() (*request.AlipayRequest, *AlipayInquiryStatementRequest) {
