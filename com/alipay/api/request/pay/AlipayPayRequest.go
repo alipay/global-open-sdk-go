@@ -35,6 +35,7 @@ type AlipayPayRequest struct {
 	ExtendInfo              string                         `json:"extendInfo,omitempty"`
 	MerchantAccountId       string                         `json:"merchantAccountId,omitempty"`
 	DualOfflinePayment      bool                           `json:"dualOfflinePayment,omitempty"`
+	TeaDrinkerPlusTest      string                         `json:"teaDrinkerPlusTest,omitempty"`
 }
 
 func NewAlipayPayRequest() (*request.AlipayRequest, *AlipayPayRequest) {
