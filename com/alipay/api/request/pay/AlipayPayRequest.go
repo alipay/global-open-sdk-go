@@ -33,6 +33,7 @@ type AlipayPayRequest struct {
 	Merchant                *model.Merchant                `json:"merchant,omitempty"`
 	PaymentVerificationData *model.PaymentVerificationData `json:"paymentVerificationData,omitempty"`
 	ExtendInfo              string                         `json:"extendInfo,omitempty"`
+	Ordertestrequest        string                         `json:"ordertestrequest,omitempty"`
 	MerchantAccountId       string                         `json:"merchantAccountId,omitempty"`
 	DualOfflinePayment      bool                           `json:"dualOfflinePayment,omitempty"`
 }
