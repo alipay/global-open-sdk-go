@@ -8,6 +8,7 @@ import (
 
 type AlipayInquiryRateRequest struct {
 	RateConditionList []*model.InquiryRateCondition `json:"rateConditionList,omitempty"`
+	TestRequestId     string                        `json:"testRequestId,omitempty"`
 }
 
 func NewAlipayInquiryRateRequest() (*request.AlipayRequest, *AlipayInquiryRateRequest) {
