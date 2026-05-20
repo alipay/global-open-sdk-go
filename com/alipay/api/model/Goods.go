@@ -13,5 +13,6 @@ type Goods struct {
 	GoodsImageUrl       string  `json:"goodsImageUrl,omitempty"`
 	PriceId             string  `json:"priceId,omitempty"`
 	GoodsDiscountAmount *Amount `json:"goodsDiscountAmount,omitempty"`
+	GoodsEndsOnTime     string  `json:"goodsEndsOnTime,omitempty"`
 	CrossSell           *Goods  `json:"crossSell,omitempty"`
 }
