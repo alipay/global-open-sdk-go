@@ -32,5 +32,5 @@ const (
 	CustomerBelongsTo_BKASH                           CustomerBelongsTo = "BKASH"
 	CustomerBelongsTo_EASYPAISA                       CustomerBelongsTo = "EASYPAISA"
 	CustomerBelongsTo_DIRECTDEBIT_YAPILY              CustomerBelongsTo = "DIRECTDEBIT_YAPILY"
-	CustomerBelongsTo_ANTIM_BIZ_ACCOUNT               CustomerBelongsTo = "ANTIM_BIZ_ACCOUNT"
+	CustomerBelongsTo_ANTOM_BIZ_ACCOUNT               CustomerBelongsTo = "ANTOM_BIZ_ACCOUNT"
 )
