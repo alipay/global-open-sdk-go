@@ -1,20 +1,21 @@
 package aba
 
 import (
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responseAba "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
 )
 
 type AlipayInquiryStatementRequest struct {
-	CustomerId          string      `json:"customerId,omitempty"`
-	AccessToken         string      `json:"accessToken,omitempty"`
-	StartTime           interface{} `json:"startTime,omitempty"`
-	EndTime             string      `json:"endTime,omitempty"`
-	TransactionTypeList []string    `json:"transactionTypeList,omitempty"`
-	CurrencyList        []string    `json:"currencyList,omitempty"`
-	PageSize            int32       `json:"pageSize,omitempty"`
-	PageNumber          int32       `json:"pageNumber,omitempty"`
-	AssetId             string      `json:"assetId,omitempty"`
+	CustomerId          string                           `json:"customerId,omitempty"`
+	AccessToken         string                           `json:"accessToken,omitempty"`
+	StartTime           interface{}                      `json:"startTime,omitempty"`
+	EndTime             string                           `json:"endTime,omitempty"`
+	TransactionTypeList []model.StatementTransactionType `json:"transactionTypeList,omitempty"`
+	CurrencyList        []string                         `json:"currencyList,omitempty"`
+	PageSize            int32                            `json:"pageSize,omitempty"`
+	PageNumber          int32                            `json:"pageNumber,omitempty"`
+	AssetId             string                           `json:"assetId,omitempty"`
 }
 
 func NewAlipayInquiryStatementRequest() (*request.AlipayRequest, *AlipayInquiryStatementRequest) {
