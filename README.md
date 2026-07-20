@@ -1,7 +1,7 @@
 ```
 Language：GO  
 GO version：1.22.5+  
-Tags：v1.2.47
+Tags：v1.2.48
 Copyright：Ant financial services group  
 ```
 
