@@ -9,4 +9,5 @@ const (
 	TransactionType_CANCEL        TransactionType = "CANCEL"
 	TransactionType_AUTHORIZATION TransactionType = "AUTHORIZATION"
 	TransactionType_VOID          TransactionType = "VOID"
+	TransactionType_INCREMENTAL   TransactionType = "INCREMENTAL"
 )

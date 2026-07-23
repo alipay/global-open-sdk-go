@@ -7,4 +7,5 @@ type Plan struct {
 	InstallmentNum       string  `json:"installmentNum,omitempty"`
 	Interval             string  `json:"interval,omitempty"`
 	Enabled              bool    `json:"enabled,omitempty"`
+	ExtendInfo           string  `json:"extendInfo,omitempty"`
 }
