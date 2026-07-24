@@ -34,4 +34,8 @@ type AlipayPayResponse struct {
 	PaymentResultInfo       *model.PaymentResultInfo   `json:"paymentResultInfo,omitempty"`
 	AcquirerInfo            *model.AcquirerInfo        `json:"acquirerInfo,omitempty"`
 	PromotionResult         []*model.PromotionResult   `json:"promotionResult,omitempty"`
+	SubscriptionId          string                     `json:"subscriptionId,omitempty"`
+	Status                  string                     `json:"status,omitempty"`
+	CurrentPeriodStart      string                     `json:"currentPeriodStart,omitempty"`
+	CurrentPeriodEnd        string                     `json:"currentPeriodEnd,omitempty"`
 }
