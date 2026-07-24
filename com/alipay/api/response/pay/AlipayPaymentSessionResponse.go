@@ -13,4 +13,6 @@ type AlipayPaymentSessionResponse struct {
 	PaymentSessionId         string        `json:"paymentSessionId,omitempty"`
 	NormalUrl                string        `json:"normalUrl,omitempty"`
 	Url                      string        `json:"url,omitempty"`
+	SubscriptionId           string        `json:"subscriptionId,omitempty"`
+	InvoiceId                string        `json:"invoiceId,omitempty"`
 }
