@@ -143,6 +143,11 @@ var reservedHeaders = map[string]bool{
 	"content-type": true, "agent-token": true,
 }
 
+var sandboxProductionPathPrefixes = []string{
+	"/ams/api/v1/billing/",
+	"/ams/api/v1/meter/",
+}
+
 func (alipayClient *DefaultAlipayClient) ExecuteWithHeaders(alipayRequest *request.AlipayRequest, extraHeaders map[string]string) (any, error) {
 	reqPayload, err := json.Marshal(alipayRequest.Param)
 	if err != nil {
@@ -202,8 +207,17 @@ func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatu
 }
 
 func AdjustSandboxUrl(isSandboxMode bool, req *request.AlipayRequest) {
-	if isSandboxMode {
+	if isSandboxMode && !shouldUseProductionPathInSandbox(req.Path) {
 		// 替换第一个"/ams/api"为"/ams/sandbox/api"
 		req.Path = strings.Replace(req.Path, "/ams/api", "/ams/sandbox/api", 1)
 	}
+}
+
+func shouldUseProductionPathInSandbox(path string) bool {
+	for _, prefix := range sandboxProductionPathPrefixes {
+		if strings.HasPrefix(path, prefix) {
+			return true
+		}
+	}
+	return false
 }
