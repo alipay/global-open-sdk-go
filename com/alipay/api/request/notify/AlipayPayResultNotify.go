@@ -23,4 +23,5 @@ type AlipayPayResultNotify struct {
 	RetryInfo                *model.RetryInfo         `json:"retryInfo,omitempty"`
 	UpdateRequestId          string                   `json:"updateRequestId,omitempty"`
 	AuthExpiryTime           string                   `json:"authExpiryTime,omitempty"`
+	TaxCalculationId         string                   `json:"taxCalculationId,omitempty"`
 }

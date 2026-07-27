@@ -138,6 +138,39 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 	return alipayResponse, nil
 }
 
+var reservedHeaders = map[string]bool{
+	"signature": true, "client-id": true, "request-time": true,
+	"content-type": true, "agent-token": true,
+}
+
+func (alipayClient *DefaultAlipayClient) ExecuteWithHeaders(alipayRequest *request.AlipayRequest, extraHeaders map[string]string) (any, error) {
+	reqPayload, err := json.Marshal(alipayRequest.Param)
+	if err != nil {
+		return nil, &exception.AlipayLibraryError{Message: "json.Marshal is fail " + err.Error()}
+	}
+	AdjustSandboxUrl(alipayClient.IsSandboxMode, alipayRequest)
+	path := alipayRequest.Path
+	httpMethod := alipayRequest.HttpMethod
+	reqTime := strconv.FormatInt(time.Now().UnixMilli(), 10)
+	sign, err := tools.GenSign(fmt.Sprintf("%s", httpMethod), path, alipayClient.ClientId, reqTime, string(reqPayload), alipayClient.MerchantPrivateKey)
+	if err != nil {
+		return nil, err
+	}
+	header := buildBaseHeader(reqTime, alipayClient.ClientId, alipayRequest.KeyVersion, sign, alipayClient.AgentToken)
+	if extraHeaders != nil {
+		for key, value := range extraHeaders {
+			if !reservedHeaders[strings.ToLower(key)] {
+				header[key] = value
+			}
+		}
+	}
+	alipayResponse, err := alipayClient.httpDo(alipayClient.GatewayUrl+path, httpMethod, map[string]string{}, header, reqPayload, alipayRequest.AlipayResponse)
+	if err != nil {
+		return nil, err
+	}
+	return alipayResponse, nil
+}
+
 func checkRspSign(httpMethod string, path string, clientId string, responseTime string, rspBody string, rspSignValue string, alipayPublicKey string) (bool, error) {
 
 	signature, err := tools.CheckSignature(path, httpMethod, clientId, responseTime, rspBody, rspSignValue, alipayPublicKey)
