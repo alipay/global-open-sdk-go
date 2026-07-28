@@ -11,4 +11,5 @@ type AlipayCaptureResultNotify struct {
 	CaptureTime         string              `json:"captureTime,omitempty"`
 	AcquirerReferenceNo string              `json:"acquirerReferenceNo,omitempty"`
 	AcquirerInfo        *model.AcquirerInfo `json:"acquirerInfo,omitempty"`
+	TaxCalculationId    string              `json:"taxCalculationId,omitempty"`
 }
