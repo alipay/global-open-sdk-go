@@ -140,7 +140,8 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 
 var reservedHeaders = map[string]bool{
 	"signature": true, "client-id": true, "request-time": true,
-	"content-type": true, "agent-token": true,
+	"content-type": true, "agent-token": true, "user-agent": true,
+	"sdk-version": true,
 }
 
 var sandboxProductionPathPrefixes = []string{
@@ -200,6 +201,7 @@ func buildBaseHeader(reqTime string, clientId string, keyVersion string, signatu
 		"Client-Id":    clientId,
 		"Key-Version":  keyVersion,
 		"Signature":    signatureValue,
+		"User-Agent":   sdkUserAgent(),
 		"SDK-VERSION":  "global-open-sdk-go",
 		"agent-token":  agentToken,
 	}
