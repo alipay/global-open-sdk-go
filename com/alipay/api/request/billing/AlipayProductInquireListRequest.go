@@ -13,6 +13,7 @@ type AlipayProductInquireListRequest struct {
 	Type          string `json:"type,omitempty"`
 	Keyword       string `json:"keyword,omitempty"`
 	IncludeTotal  bool   `json:"includeTotal,omitempty"`
+	UsageType     string `json:"usageType,omitempty"`
 }
 
 func NewAlipayProductInquireListRequest() (*request.AlipayRequest, *AlipayProductInquireListRequest) {
