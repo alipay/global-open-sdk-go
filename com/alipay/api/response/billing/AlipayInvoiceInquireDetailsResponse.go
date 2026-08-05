@@ -24,7 +24,7 @@ type AlipayInvoiceInquireDetailsResponse struct {
 	DiscountAmount        *model.Amount            `json:"discountAmount,omitempty"`
 	TotalAmount           *model.Amount            `json:"totalAmount,omitempty"`
 	PaidAmount            *model.Amount            `json:"paidAmount,omitempty"`
-	RemainingAmount       *model.Amount            `json:"remainingAmount,omitempty"`
+	RemainAmount          *model.Amount            `json:"remainAmount,omitempty"`
 	TaxAmount             *model.Amount            `json:"taxAmount,omitempty"`
 	PaymentDeductedAmount *model.Amount            `json:"paymentDeductedAmount,omitempty"`
 	CollectionMethod      string                   `json:"collectionMethod,omitempty"`

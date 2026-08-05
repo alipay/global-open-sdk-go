@@ -13,6 +13,7 @@ type AlipayInvoiceUpdateRequest struct {
 	CollectionMethod string                 `json:"collectionMethod,omitempty"`
 	PaymentMethod    *model.PaymentMethod   `json:"paymentMethod,omitempty"`
 	Shipping         *model.InvoiceShipping `json:"shipping,omitempty"`
+	InvoiceNotifyUrl string                 `json:"invoiceNotifyUrl,omitempty"`
 }
 
 func NewAlipayInvoiceUpdateRequest() (*request.AlipayRequest, *AlipayInvoiceUpdateRequest) {

@@ -39,4 +39,5 @@ type AlipayPayQueryResponse struct {
 	PromotionResults         []*model.PromotionResult    `json:"promotionResults,omitempty"`
 	EarliestSettlementTime   string                      `json:"earliestSettlementTime,omitempty"`
 	PaymentMethodType        string                      `json:"paymentMethodType,omitempty"`
+	RetryInfo                *model.RetryInfo            `json:"retryInfo,omitempty"`
 }

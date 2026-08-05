@@ -11,7 +11,7 @@ type AlipayPriceInquireListRequest struct {
 	Active        bool   `json:"active,omitempty"`
 	StartingAfter string `json:"startingAfter,omitempty"`
 	EndingBefore  string `json:"endingBefore,omitempty"`
-	List          int32  `json:"list,omitempty"`
+	Limit         int32  `json:"limit,omitempty"`
 	IncludeTotal  bool   `json:"includeTotal,omitempty"`
 }
 
