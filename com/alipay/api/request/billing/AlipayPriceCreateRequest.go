@@ -16,7 +16,7 @@ type AlipayPriceCreateRequest struct {
 	UnitLabel        string                   `json:"unitLabel,omitempty"`
 	MeterId          string                   `json:"meterId,omitempty"`
 	Recurring        *model.RecurringSettings `json:"recurring,omitempty"`
-	IncludedQuantity int32                    `json:"includedQuantity,omitempty"`
+	IncludedQuantity int64                    `json:"includedQuantity,omitempty"`
 	TiersMode        string                   `json:"tiersMode,omitempty"`
 	Tiers            []*model.Tier            `json:"tiers,omitempty"`
 	Metadata         map[string]string        `json:"metadata,omitempty"`

@@ -6,7 +6,13 @@ import (
 )
 
 type AlipayCustomerInquireDetailsRequest struct {
-	CustomerId string `json:"customerId,omitempty"`
+	CustomerId          string `json:"customerId,omitempty"`
+	PhoneNo             string `json:"phoneNo,omitempty"`
+	CountryCode         string `json:"countryCode,omitempty"`
+	BillingEmail        string `json:"billingEmail,omitempty"`
+	ShippingFirstName   string `json:"shippingFirstName,omitempty"`
+	ShippingLastName    string `json:"shippingLastName,omitempty"`
+	ShippingCountryCode string `json:"shippingCountryCode,omitempty"`
 }
 
 func NewAlipayCustomerInquireDetailsRequest() (*request.AlipayRequest, *AlipayCustomerInquireDetailsRequest) {

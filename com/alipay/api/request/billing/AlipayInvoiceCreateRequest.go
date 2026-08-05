@@ -21,6 +21,7 @@ type AlipayInvoiceCreateRequest struct {
 	PaymentMethod    *model.PaymentMethod       `json:"paymentMethod,omitempty"`
 	Shipping         *model.InvoiceShipping     `json:"shipping,omitempty"`
 	Discounts        []*model.BillingDiscount   `json:"discounts,omitempty"`
+	InvoiceNotifyUrl string                     `json:"invoiceNotifyUrl,omitempty"`
 }
 
 func NewAlipayInvoiceCreateRequest() (*request.AlipayRequest, *AlipayInvoiceCreateRequest) {

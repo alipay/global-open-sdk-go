@@ -23,4 +23,7 @@ type SubscriptionInfo struct {
 	SubscriptionExpiryTime  string             `json:"subscriptionExpiryTime,omitempty"`
 	AllowRetry              bool               `json:"allowRetry,omitempty"`
 	MaxAmountFloor          *Amount            `json:"maxAmountFloor,omitempty"`
+	FixedAmount             *Amount            `json:"fixedAmount,omitempty"`
+	RetryMode               string             `json:"retryMode,omitempty"`
+	SubscriptionOrderId     string             `json:"subscriptionOrderId,omitempty"`
 }

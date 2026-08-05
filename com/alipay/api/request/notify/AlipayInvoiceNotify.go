@@ -1,14 +1,16 @@
 package notify
 
+import "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+
 type AlipayInvoiceNotify struct {
 	AlipayNotify
-	MerchantRequestId string `json:"merchantRequestId,omitempty"`
-	EventTime         string `json:"eventTime,omitempty"`
-	InvoiceId         string `json:"invoiceId,omitempty"`
-	SubscriptionId    string `json:"subscriptionId,omitempty"`
-	CustomerId        string `json:"customerId,omitempty"`
-	Status            string `json:"status,omitempty"`
-	PreviousStatus    string `json:"previousStatus,omitempty"`
-	Reason            string `json:"reason,omitempty"`
-	ReasonDescription string `json:"reasonDescription,omitempty"`
+	InvoiceRequestId  string                    `json:"invoiceRequestId,omitempty"`
+	InvoiceId         string                    `json:"invoiceId,omitempty"`
+	InvoiceStatus     string                    `json:"invoiceStatus,omitempty"`
+	InvoiceAmount     *model.Amount             `json:"invoiceAmount,omitempty"`
+	PaymentInfo       *model.InvoicePaymentInfo `json:"paymentInfo,omitempty"`
+	Subscription      *model.SubscriptionInfo   `json:"subscription,omitempty"`
+	CustomerId        string                    `json:"customerId,omitempty"`
+	Reason            string                    `json:"reason,omitempty"`
+	ReasonDescription string                    `json:"reasonDescription,omitempty"`
 }

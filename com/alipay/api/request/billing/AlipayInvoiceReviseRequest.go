@@ -10,6 +10,7 @@ type AlipayInvoiceReviseRequest struct {
 	InvoiceRequestId         string `json:"invoiceRequestId,omitempty"`
 	InvoiceRevisionRequestId string `json:"invoiceRevisionRequestId,omitempty"`
 	Void                     bool   `json:"void,omitempty"`
+	InvoiceNotifyUrl         string `json:"invoiceNotifyUrl,omitempty"`
 }
 
 func NewAlipayInvoiceReviseRequest() (*request.AlipayRequest, *AlipayInvoiceReviseRequest) {

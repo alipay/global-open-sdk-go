@@ -19,7 +19,7 @@ type AlipayPriceCreateResponse struct {
 	UnitAmount       *model.Amount            `json:"unitAmount,omitempty"`
 	Recurring        *model.RecurringSettings `json:"recurring,omitempty"`
 	Active           bool                     `json:"active,omitempty"`
-	IncludedQuantity int32                    `json:"includedQuantity,omitempty"`
+	IncludedQuantity int64                    `json:"includedQuantity,omitempty"`
 	TiersMode        string                   `json:"tiersMode,omitempty"`
 	Tiers            []*model.Tier            `json:"tiers,omitempty"`
 	Metadata         map[string]string        `json:"metadata,omitempty"`

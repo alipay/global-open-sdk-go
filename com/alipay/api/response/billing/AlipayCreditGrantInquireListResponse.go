@@ -7,6 +7,6 @@ import (
 
 type AlipayCreditGrantInquireListResponse struct {
 	response.AlipayResponse
-	Result       *model.Result      `json:"result,omitempty"`
-	CreditGrants *model.CreditGrant `json:"creditGrants,omitempty"`
+	Result       *model.Result        `json:"result,omitempty"`
+	CreditGrants []*model.CreditGrant `json:"creditGrants,omitempty"`
 }
