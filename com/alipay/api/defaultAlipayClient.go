@@ -144,10 +144,8 @@ var reservedHeaders = map[string]bool{
 	"sdk-version": true,
 }
 
-var sandboxProductionPathPrefixes = []string{
-	"/ams/api/v1/billing/",
-	"/ams/api/v1/meter/",
-}
+// Billing and Meter APIs now support sandbox. Keep the filter logic for future use.
+var sandboxProductionPathPrefixes = []string{}
 
 func (alipayClient *DefaultAlipayClient) ExecuteWithHeaders(alipayRequest *request.AlipayRequest, extraHeaders map[string]string) (any, error) {
 	reqPayload, err := json.Marshal(alipayRequest.Param)
