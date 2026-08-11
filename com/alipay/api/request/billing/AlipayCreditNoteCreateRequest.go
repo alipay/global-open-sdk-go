@@ -7,20 +7,21 @@ import (
 )
 
 type AlipayCreditNoteCreateRequest struct {
-	CreditNoteRequestId string            `json:"creditNoteRequestId,omitempty"`
-	InvoiceId           string            `json:"invoiceId,omitempty"`
-	Type                string            `json:"type,omitempty"`
-	TotalAmount         *model.Amount     `json:"totalAmount,omitempty"`
-	Items               []*model.LineItem `json:"items,omitempty"`
-	RefundAmount        *model.Amount     `json:"refundAmount,omitempty"`
-	RefundDestination   string            `json:"refundDestination,omitempty"`
-	Reason              string            `json:"reason,omitempty"`
-	ReasonDescription   string            `json:"reasonDescription,omitempty"`
-	Memo                string            `json:"memo,omitempty"`
-	EmailType           string            `json:"emailType,omitempty"`
-	Language            string            `json:"language,omitempty"`
-	EffectiveDate       string            `json:"effectiveDate,omitempty"`
-	Metadata            map[string]string `json:"metadata,omitempty"`
+	CreditNoteRequestId string                        `json:"creditNoteRequestId,omitempty"`
+	InvoiceId           string                        `json:"invoiceId,omitempty"`
+	Type                string                        `json:"type,omitempty"`
+	TotalAmount         *model.Amount                 `json:"totalAmount,omitempty"`
+	Items               []*model.CreditNoteCreateItem `json:"items,omitempty"`
+	RefundAmount        *model.Amount                 `json:"refundAmount,omitempty"`
+	RefundDestination   string                        `json:"refundDestination,omitempty"`
+	Reason              string                        `json:"reason,omitempty"`
+	ReasonDescription   string                        `json:"reasonDescription,omitempty"`
+	Memo                string                        `json:"memo,omitempty"`
+	EmailType           string                        `json:"emailType,omitempty"`
+	Language            string                        `json:"language,omitempty"`
+	EffectiveDate       string                        `json:"effectiveDate,omitempty"`
+	Metadata            string                        `json:"metadata,omitempty"`
+	CreditNoteNotifyUrl string                        `json:"creditNoteNotifyUrl,omitempty"`
 }
 
 func NewAlipayCreditNoteCreateRequest() (*request.AlipayRequest, *AlipayCreditNoteCreateRequest) {

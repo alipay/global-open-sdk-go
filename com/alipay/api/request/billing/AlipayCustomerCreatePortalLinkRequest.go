@@ -8,7 +8,6 @@ import (
 type AlipayCustomerCreatePortalLinkRequest struct {
 	CustomerId string   `json:"customerId,omitempty"`
 	Email      string   `json:"email,omitempty"`
-	ExpiryDays int32    `json:"expiryDays,omitempty"`
 	Features   []string `json:"features,omitempty"`
 	AutoSend   bool     `json:"autoSend,omitempty"`
 	SettingId  string   `json:"settingId,omitempty"`

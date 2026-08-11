@@ -6,11 +6,11 @@ import (
 )
 
 type AlipayPriceUpdateRequest struct {
-	PriceId              string            `json:"priceId,omitempty"`
-	Name                 string            `json:"name,omitempty"`
-	Metadata             map[string]string `json:"metadata,omitempty"`
-	MetadataKeysToRemove string            `json:"metadataKeysToRemove,omitempty"`
-	Active               bool              `json:"active,omitempty"`
+	PriceId      string `json:"priceId,omitempty"`
+	Name         string `json:"name,omitempty"`
+	Metadata     string `json:"metadata,omitempty"`
+	Active       bool   `json:"active,omitempty"`
+	DefaultPrice bool   `json:"defaultPrice,omitempty"`
 }
 
 func NewAlipayPriceUpdateRequest() (*request.AlipayRequest, *AlipayPriceUpdateRequest) {

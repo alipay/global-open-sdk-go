@@ -6,15 +6,16 @@ import (
 )
 
 type AlipayReceiptExportRequest struct {
-	Limit          int32    `json:"limit,omitempty"`
 	Status         string   `json:"status,omitempty"`
-	ReceiptType    string   `json:"receiptType,omitempty"`
-	InvoiceId      string   `json:"invoiceId,omitempty"`
 	SubscriptionId string   `json:"subscriptionId,omitempty"`
 	CustomerId     string   `json:"customerId,omitempty"`
 	StartDate      string   `json:"startDate,omitempty"`
 	EndDate        string   `json:"endDate,omitempty"`
 	ReceiptIds     []string `json:"receiptIds,omitempty"`
+	FileFormat     string   `json:"fileFormat,omitempty"`
+	Language       string   `json:"language,omitempty"`
+	DownloadType   string   `json:"downloadType,omitempty"`
+	ColumnPreset   string   `json:"columnPreset,omitempty"`
 }
 
 func NewAlipayReceiptExportRequest() (*request.AlipayRequest, *AlipayReceiptExportRequest) {

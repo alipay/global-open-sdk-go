@@ -6,13 +6,13 @@ import (
 )
 
 type AlipayProductCreateRequest struct {
-	ProductRequestId string            `json:"productRequestId,omitempty"`
-	Name             string            `json:"name,omitempty"`
-	Type             string            `json:"type,omitempty"`
-	Description      string            `json:"description,omitempty"`
-	Images           []string          `json:"images,omitempty"`
-	UnitLabel        string            `json:"unitLabel,omitempty"`
-	Metadata         map[string]string `json:"metadata,omitempty"`
+	ProductRequestId string   `json:"productRequestId,omitempty"`
+	Name             string   `json:"name,omitempty"`
+	Type             string   `json:"type,omitempty"`
+	Description      string   `json:"description,omitempty"`
+	Images           []string `json:"images,omitempty"`
+	UnitLabel        string   `json:"unitLabel,omitempty"`
+	Metadata         string   `json:"metadata,omitempty"`
 }
 
 func NewAlipayProductCreateRequest() (*request.AlipayRequest, *AlipayProductCreateRequest) {

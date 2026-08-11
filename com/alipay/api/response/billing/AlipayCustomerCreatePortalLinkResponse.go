@@ -7,11 +7,9 @@ import (
 
 type AlipayCustomerCreatePortalLinkResponse struct {
 	response.AlipayResponse
-	Result       *model.Result     `json:"result,omitempty"`
-	Token        string            `json:"token,omitempty"`
-	PortalUrl    string            `json:"portalUrl,omitempty"`
-	ExpiresAt    string            `json:"expiresAt,omitempty"`
-	SendStatus   string            `json:"sendStatus,omitempty"`
-	Success      bool              `json:"success,omitempty"`
-	ErrorContext *model.ErrorStack `json:"errorContext,omitempty"`
+	Result     *model.Result `json:"result,omitempty"`
+	Token      string        `json:"token,omitempty"`
+	PortalUrl  string        `json:"portalUrl,omitempty"`
+	ExpiresAt  string        `json:"expiresAt,omitempty"`
+	SendStatus string        `json:"sendStatus,omitempty"`
 }

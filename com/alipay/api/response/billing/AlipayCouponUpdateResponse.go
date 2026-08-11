@@ -7,13 +7,7 @@ import (
 
 type AlipayCouponUpdateResponse struct {
 	response.AlipayResponse
-	Result         *model.CouponUpdateResult `json:"result,omitempty"`
-	CouponId       string                    `json:"couponId,omitempty"`
-	CouponName     string                    `json:"couponName,omitempty"`
-	Status         string                    `json:"status,omitempty"`
-	MaxRedemptions int32                     `json:"maxRedemptions,omitempty"`
-	RedeemedCount  int32                     `json:"redeemedCount,omitempty"`
-	RedeemBy       string                    `json:"redeemBy,omitempty"`
-	Metadata       map[string]string         `json:"metadata,omitempty"`
-	UpdateTime     string                    `json:"updateTime,omitempty"`
+	Result   *model.ResultInfo `json:"result,omitempty"`
+	CouponId string            `json:"couponId,omitempty"`
+	Status   string            `json:"status,omitempty"`
 }

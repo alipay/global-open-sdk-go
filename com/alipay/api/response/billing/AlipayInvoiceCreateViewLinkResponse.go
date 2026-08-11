@@ -7,8 +7,8 @@ import (
 
 type AlipayInvoiceCreateViewLinkResponse struct {
 	response.AlipayResponse
-	Result    *model.InvoiceCreateViewLinkResult `json:"result,omitempty"`
-	Token     string                             `json:"token,omitempty"`
-	ViewUrl   string                             `json:"viewUrl,omitempty"`
-	ExpiresAt string                             `json:"expiresAt,omitempty"`
+	Result    *model.ResultInfo `json:"result,omitempty"`
+	Token     string            `json:"token,omitempty"`
+	ViewUrl   string            `json:"viewUrl,omitempty"`
+	ExpiresAt string            `json:"expiresAt,omitempty"`
 }

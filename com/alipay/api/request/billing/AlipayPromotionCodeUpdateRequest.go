@@ -6,11 +6,11 @@ import (
 )
 
 type AlipayPromotionCodeUpdateRequest struct {
-	PromotionCodeId string            `json:"promotionCodeId,omitempty"`
-	Status          string            `json:"status,omitempty"`
-	MaxRedemptions  int32             `json:"maxRedemptions,omitempty"`
-	ExpiryTime      string            `json:"expiryTime,omitempty"`
-	Metadata        map[string]string `json:"metadata,omitempty"`
+	PromotionCodeId string `json:"promotionCodeId,omitempty"`
+	Status          string `json:"status,omitempty"`
+	MaxRedemptions  int32  `json:"maxRedemptions,omitempty"`
+	ExpiryTime      string `json:"expiryTime,omitempty"`
+	Metadata        string `json:"metadata,omitempty"`
 }
 
 func NewAlipayPromotionCodeUpdateRequest() (*request.AlipayRequest, *AlipayPromotionCodeUpdateRequest) {
