@@ -7,21 +7,20 @@ import (
 )
 
 type AlipayBillingSubscriptionCreateRequest struct {
-	SubscriptionRequestId string                                        `json:"subscriptionRequestId,omitempty"`
-	CustomerId            string                                        `json:"customerId,omitempty"`
-	CustomerEmail         string                                        `json:"customerEmail,omitempty"`
-	PriceItems            []*model.PriceItem                            `json:"priceItems,omitempty"`
-	TrialSettings         *model.BillingSubscriptionCreateTrialSettings `json:"trialSettings,omitempty"`
-	Discounts             []*model.BillingSubscriptionCreateDiscount    `json:"discounts,omitempty"`
-	PaymentBehavior       string                                        `json:"paymentBehavior,omitempty"`
-	CollectionMethod      string                                        `json:"collectionMethod,omitempty"`
-	DaysUntilDue          int32                                         `json:"daysUntilDue,omitempty"`
-	BillingCycleAnchor    string                                        `json:"billingCycleAnchor,omitempty"`
-	CancelAt              string                                        `json:"cancelAt,omitempty"`
-	CancelAtPeriodEnd     bool                                          `json:"cancelAtPeriodEnd,omitempty"`
-	Description           string                                        `json:"description,omitempty"`
-	SubscriptionNotifyUrl string                                        `json:"subscriptionNotifyUrl,omitempty"`
-	Metadata              map[string]string                             `json:"metadata,omitempty"`
+	SubscriptionRequestId string                      `json:"subscriptionRequestId,omitempty"`
+	CustomerId            string                      `json:"customerId,omitempty"`
+	CustomerEmail         string                      `json:"customerEmail,omitempty"`
+	PriceItems            []*model.PriceItem          `json:"priceItems,omitempty"`
+	TrialSettings         *model.BillingTrialSettings `json:"trialSettings,omitempty"`
+	Discounts             []*model.BillingDiscount    `json:"discounts,omitempty"`
+	PaymentBehavior       string                      `json:"paymentBehavior,omitempty"`
+	CollectionMethod      string                      `json:"collectionMethod,omitempty"`
+	DaysUntilDue          int32                       `json:"daysUntilDue,omitempty"`
+	CancelAt              string                      `json:"cancelAt,omitempty"`
+	CancelAtPeriodEnd     bool                        `json:"cancelAtPeriodEnd,omitempty"`
+	Description           string                      `json:"description,omitempty"`
+	SubscriptionNotifyUrl string                      `json:"subscriptionNotifyUrl,omitempty"`
+	Metadata              string                      `json:"metadata,omitempty"`
 }
 
 func NewAlipayBillingSubscriptionCreateRequest() (*request.AlipayRequest, *AlipayBillingSubscriptionCreateRequest) {

@@ -6,12 +6,12 @@ import (
 )
 
 type AlipayCouponUpdateRequest struct {
-	CouponId       string            `json:"couponId,omitempty"`
-	CouponName     string            `json:"couponName,omitempty"`
-	Status         string            `json:"status,omitempty"`
-	MaxRedemptions int32             `json:"maxRedemptions,omitempty"`
-	RedeemBy       string            `json:"redeemBy,omitempty"`
-	Metadata       map[string]string `json:"metadata,omitempty"`
+	CouponId       string `json:"couponId,omitempty"`
+	CouponName     string `json:"couponName,omitempty"`
+	Status         string `json:"status,omitempty"`
+	RedeemBy       string `json:"redeemBy,omitempty"`
+	Metadata       string `json:"metadata,omitempty"`
+	MaxRedemptions int32  `json:"maxRedemptions,omitempty"`
 }
 
 func NewAlipayCouponUpdateRequest() (*request.AlipayRequest, *AlipayCouponUpdateRequest) {

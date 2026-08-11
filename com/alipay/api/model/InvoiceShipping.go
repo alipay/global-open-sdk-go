@@ -2,7 +2,7 @@ package model
 
 type InvoiceShipping struct {
 	ShippingName            *UserName         `json:"shippingName,omitempty"`
-	ShippingAddress         *Address          `json:"shippingAddress,omitempty"`
+	ShippingAddress         *InvoiceAddress   `json:"shippingAddress,omitempty"`
 	ShippingCarrier         string            `json:"shippingCarrier,omitempty"`
 	ShippingNumber          string            `json:"shippingNumber,omitempty"`
 	ShippingPhoneNo         string            `json:"shippingPhoneNo,omitempty"`

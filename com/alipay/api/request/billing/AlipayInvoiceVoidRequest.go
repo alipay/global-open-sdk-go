@@ -6,9 +6,8 @@ import (
 )
 
 type AlipayInvoiceVoidRequest struct {
-	VoidRequestId string `json:"voidRequestId,omitempty"`
-	InvoiceId     string `json:"invoiceId,omitempty"`
-	InvoiceNote   string `json:"invoiceNote,omitempty"`
+	InvoiceId   string `json:"invoiceId,omitempty"`
+	InvoiceNote string `json:"invoiceNote,omitempty"`
 }
 
 func NewAlipayInvoiceVoidRequest() (*request.AlipayRequest, *AlipayInvoiceVoidRequest) {

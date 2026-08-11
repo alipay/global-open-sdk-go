@@ -1,8 +1,9 @@
 package model
 
 type PriceItemChange struct {
-	ChangeType     string `json:"changeType,omitempty"`
+	Type           string `json:"type,omitempty"`
+	ItemId         string `json:"itemId,omitempty"`
 	CurrentPriceId string `json:"currentPriceId,omitempty"`
 	NewPriceId     string `json:"newPriceId,omitempty"`
-	Quantity       int32  `json:"quantity,omitempty"`
+	NewQuantity    int32  `json:"newQuantity,omitempty"`
 }

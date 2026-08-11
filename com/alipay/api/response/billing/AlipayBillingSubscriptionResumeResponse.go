@@ -11,6 +11,4 @@ type AlipayBillingSubscriptionResumeResponse struct {
 	SubscriptionId     string            `json:"subscriptionId,omitempty"`
 	Status             string            `json:"status,omitempty"`
 	BillingCycleAnchor string            `json:"billingCycleAnchor,omitempty"`
-	ProrationInvoiceId string            `json:"prorationInvoiceId,omitempty"`
-	ProrationDate      string            `json:"prorationDate,omitempty"`
 }

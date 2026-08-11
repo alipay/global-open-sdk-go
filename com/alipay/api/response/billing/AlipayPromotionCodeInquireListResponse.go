@@ -11,6 +11,6 @@ type AlipayPromotionCodeInquireListResponse struct {
 	PromotionCodes []*model.PromotionCodeInfo `json:"promotionCodes,omitempty"`
 	HasMore        bool                       `json:"hasMore,omitempty"`
 	NextCursor     string                     `json:"nextCursor,omitempty"`
-	PrevCursor     string                     `json:"prevCursor,omitempty"`
 	Total          int32                      `json:"total,omitempty"`
+	PreviousCursor string                     `json:"previousCursor,omitempty"`
 }

@@ -7,13 +7,18 @@ import (
 )
 
 type AlipayInvoiceUpdateRequest struct {
-	InvoiceId        string                 `json:"invoiceId,omitempty"`
-	Description      string                 `json:"description,omitempty"`
-	DueDate          string                 `json:"dueDate,omitempty"`
-	CollectionMethod string                 `json:"collectionMethod,omitempty"`
-	PaymentMethod    *model.PaymentMethod   `json:"paymentMethod,omitempty"`
-	Shipping         *model.InvoiceShipping `json:"shipping,omitempty"`
-	InvoiceNotifyUrl string                 `json:"invoiceNotifyUrl,omitempty"`
+	InvoiceId          string                      `json:"invoiceId,omitempty"`
+	Description        string                      `json:"description,omitempty"`
+	DueDate            string                      `json:"dueDate,omitempty"`
+	CollectionMethod   string                      `json:"collectionMethod,omitempty"`
+	PaymentMethod      *model.PaymentMethod        `json:"paymentMethod,omitempty"`
+	Shipping           *model.InvoiceShipping      `json:"shipping,omitempty"`
+	CustomerId         string                      `json:"customerId,omitempty"`
+	Footer             string                      `json:"footer,omitempty"`
+	IncludePaymentLink bool                        `json:"includePaymentLink,omitempty"`
+	Memo               string                      `json:"memo,omitempty"`
+	CustomFields       []*model.InvoiceCustomField `json:"customFields,omitempty"`
+	InvoiceNotifyUrl   string                      `json:"invoiceNotifyUrl,omitempty"`
 }
 
 func NewAlipayInvoiceUpdateRequest() (*request.AlipayRequest, *AlipayInvoiceUpdateRequest) {

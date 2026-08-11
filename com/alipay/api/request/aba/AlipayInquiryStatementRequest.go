@@ -6,16 +6,16 @@ import (
 )
 
 type AlipayInquiryStatementRequest struct {
-	CustomerId          string      `json:"customerId,omitempty"`
-	AccessToken         string      `json:"accessToken,omitempty"`
-	StartTime           interface{} `json:"startTime,omitempty"`
-	EndTime             string      `json:"endTime,omitempty"`
-	TransactionTypeList []string    `json:"transactionTypeList,omitempty"`
-	CurrencyList        []string    `json:"currencyList,omitempty"`
-	PageSize            int32       `json:"pageSize,omitempty"`
-	PageNumber          int32       `json:"pageNumber,omitempty"`
-	AssetId             string      `json:"assetId,omitempty"`
-	FuzzyName           string      `json:"fuzzyName,omitempty"`
+	CustomerId          string   `json:"customerId,omitempty"`
+	AccessToken         string   `json:"accessToken,omitempty"`
+	StartTime           string   `json:"startTime,omitempty"`
+	EndTime             string   `json:"endTime,omitempty"`
+	TransactionTypeList []string `json:"transactionTypeList,omitempty"`
+	CurrencyList        []string `json:"currencyList,omitempty"`
+	PageSize            int32    `json:"pageSize,omitempty"`
+	PageNumber          int32    `json:"pageNumber,omitempty"`
+	AssetId             string   `json:"assetId,omitempty"`
+	FuzzyName           string   `json:"fuzzyName,omitempty"`
 }
 
 func NewAlipayInquiryStatementRequest() (*request.AlipayRequest, *AlipayInquiryStatementRequest) {

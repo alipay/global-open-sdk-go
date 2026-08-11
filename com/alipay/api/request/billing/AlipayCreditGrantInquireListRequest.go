@@ -6,6 +6,8 @@ import (
 )
 
 type AlipayCreditGrantInquireListRequest struct {
+	PageNum    int32  `json:"pageNum,omitempty"`
+	PageSize   int32  `json:"pageSize,omitempty"`
 	CustomerId string `json:"customerId,omitempty"`
 	Status     string `json:"status,omitempty"`
 }
