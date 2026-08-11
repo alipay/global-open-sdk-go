@@ -15,11 +15,11 @@ type AlipayCouponCreateRequest struct {
 	DurationType    string                       `json:"durationType,omitempty"`
 	DurationValue   int32                        `json:"durationValue,omitempty"`
 	DurationUnit    string                       `json:"durationUnit,omitempty"`
-	MaxRedemptions  int32                        `json:"maxRedemptions,omitempty"`
 	RedeemBy        string                       `json:"redeemBy,omitempty"`
 	AppliesTo       *model.CouponCreateAppliesTo `json:"appliesTo,omitempty"`
-	Metadata        map[string]string            `json:"metadata,omitempty"`
+	Metadata        string                       `json:"metadata,omitempty"`
 	PromotionCodes  []*model.PromotionCode       `json:"promotionCodes,omitempty"`
+	MaxRedemptions  int32                        `json:"maxRedemptions,omitempty"`
 }
 
 func NewAlipayCouponCreateRequest() (*request.AlipayRequest, *AlipayCouponCreateRequest) {

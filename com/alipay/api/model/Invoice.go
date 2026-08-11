@@ -13,8 +13,6 @@ type Invoice struct {
 	PaidAmount        *Amount `json:"paidAmount,omitempty"`
 	RemainAmount      *Amount `json:"remainAmount,omitempty"`
 	Currency          string  `json:"currency,omitempty"`
-	PaidTime          string  `json:"paidTime,omitempty"`
-	VoidedTime        string  `json:"voidedTime,omitempty"`
 	PeriodStart       string  `json:"periodStart,omitempty"`
 	PeriodEnd         string  `json:"periodEnd,omitempty"`
 	DueDate           string  `json:"dueDate,omitempty"`

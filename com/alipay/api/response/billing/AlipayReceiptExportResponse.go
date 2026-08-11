@@ -7,8 +7,10 @@ import (
 
 type AlipayReceiptExportResponse struct {
 	response.AlipayResponse
-	Result      *model.Result `json:"result,omitempty"`
-	Status      string        `json:"status,omitempty"`
-	DownloadUrl string        `json:"downloadUrl,omitempty"`
-	ExpiresAt   string        `json:"expiresAt,omitempty"`
+	Result     *model.Result `json:"result,omitempty"`
+	FileFormat string        `json:"fileFormat,omitempty"`
+	ExpiresAt  string        `json:"expiresAt,omitempty"`
+	FileUrl    string        `json:"fileUrl,omitempty"`
+	FileSize   int64         `json:"fileSize,omitempty"`
+	FileName   string        `json:"fileName,omitempty"`
 }

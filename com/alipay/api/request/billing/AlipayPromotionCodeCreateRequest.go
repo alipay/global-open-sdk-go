@@ -10,12 +10,12 @@ type AlipayPromotionCodeCreateRequest struct {
 	PromotionCodeRequestId string                              `json:"promotionCodeRequestId,omitempty"`
 	CouponId               string                              `json:"couponId,omitempty"`
 	Code                   string                              `json:"code,omitempty"`
-	MaxRedeemSize          int32                               `json:"maxRedeemSize,omitempty"`
 	ExpiryTime             string                              `json:"expiryTime,omitempty"`
 	MinAmount              *model.PromotionCodeCreateMinAmount `json:"minAmount,omitempty"`
 	OneTimeOnly            bool                                `json:"oneTimeOnly,omitempty"`
 	CustomerId             string                              `json:"customerId,omitempty"`
-	Metadata               map[string]string                   `json:"metadata,omitempty"`
+	Metadata               string                              `json:"metadata,omitempty"`
+	MaxRedemptions         int32                               `json:"maxRedemptions,omitempty"`
 }
 
 func NewAlipayPromotionCodeCreateRequest() (*request.AlipayRequest, *AlipayPromotionCodeCreateRequest) {

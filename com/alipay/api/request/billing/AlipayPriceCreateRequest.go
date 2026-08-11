@@ -19,7 +19,8 @@ type AlipayPriceCreateRequest struct {
 	IncludedQuantity int64                    `json:"includedQuantity,omitempty"`
 	TiersMode        string                   `json:"tiersMode,omitempty"`
 	Tiers            []*model.Tier            `json:"tiers,omitempty"`
-	Metadata         map[string]string        `json:"metadata,omitempty"`
+	Metadata         string                   `json:"metadata,omitempty"`
+	DefaultPrice     bool                     `json:"defaultPrice,omitempty"`
 }
 
 func NewAlipayPriceCreateRequest() (*request.AlipayRequest, *AlipayPriceCreateRequest) {

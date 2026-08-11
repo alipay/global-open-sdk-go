@@ -7,7 +7,8 @@ import (
 
 type AlipayInvoiceUpdateResponse struct {
 	response.AlipayResponse
-	Result    *model.Result `json:"result,omitempty"`
-	InvoiceId string        `json:"invoiceId,omitempty"`
-	Status    string        `json:"status,omitempty"`
+	Result            *model.Result `json:"result,omitempty"`
+	InvoiceId         string        `json:"invoiceId,omitempty"`
+	Status            string        `json:"status,omitempty"`
+	PreviousInvoiceId string        `json:"previousInvoiceId,omitempty"`
 }

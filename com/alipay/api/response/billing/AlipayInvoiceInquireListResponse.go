@@ -7,9 +7,11 @@ import (
 
 type AlipayInvoiceInquireListResponse struct {
 	response.AlipayResponse
-	Result     *model.Result    `json:"result,omitempty"`
-	Invoices   []*model.Invoice `json:"invoices,omitempty"`
-	Total      string           `json:"total,omitempty"`
-	HasMore    bool             `json:"hasMore,omitempty"`
-	NextCursor string           `json:"nextCursor,omitempty"`
+	Result         *model.Result    `json:"result,omitempty"`
+	Invoices       []*model.Invoice `json:"invoices,omitempty"`
+	Total          string           `json:"total,omitempty"`
+	HasMore        bool             `json:"hasMore,omitempty"`
+	NextCursor     string           `json:"nextCursor,omitempty"`
+	Degrade        bool             `json:"degrade,omitempty"`
+	PreviousCursor string           `json:"previousCursor,omitempty"`
 }

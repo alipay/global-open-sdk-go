@@ -6,12 +6,13 @@ import (
 )
 
 type AlipayInvoiceConfirmPaymentRequest struct {
-	InvoiceId        string `json:"invoiceId,omitempty"`
-	ConfirmationType string `json:"confirmationType,omitempty"`
-	PaymentMethod    string `json:"paymentMethod,omitempty"`
-	Reference        string `json:"reference,omitempty"`
-	AutoSend         bool   `json:"autoSend,omitempty"`
-	InvoiceNote      string `json:"invoiceNote,omitempty"`
+	InvoiceId        string   `json:"invoiceId,omitempty"`
+	ConfirmationType string   `json:"confirmationType,omitempty"`
+	PaymentMethod    string   `json:"paymentMethod,omitempty"`
+	Reference        string   `json:"reference,omitempty"`
+	AutoSend         bool     `json:"autoSend,omitempty"`
+	InvoiceNote      string   `json:"invoiceNote,omitempty"`
+	CcEmails         []string `json:"ccEmails,omitempty"`
 }
 
 func NewAlipayInvoiceConfirmPaymentRequest() (*request.AlipayRequest, *AlipayInvoiceConfirmPaymentRequest) {

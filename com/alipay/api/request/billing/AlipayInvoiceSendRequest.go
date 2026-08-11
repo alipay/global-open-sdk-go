@@ -6,8 +6,10 @@ import (
 )
 
 type AlipayInvoiceSendRequest struct {
-	InvoiceId     string `json:"invoiceId,omitempty"`
-	SendRequestId string `json:"sendRequestId,omitempty"`
+	InvoiceId          string   `json:"invoiceId,omitempty"`
+	CcEmails           []string `json:"ccEmails,omitempty"`
+	InternalNote       string   `json:"internalNote,omitempty"`
+	IncludePaymentLink bool     `json:"includePaymentLink,omitempty"`
 }
 
 func NewAlipayInvoiceSendRequest() (*request.AlipayRequest, *AlipayInvoiceSendRequest) {

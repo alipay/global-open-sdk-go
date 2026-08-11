@@ -20,6 +20,7 @@ type AlipayInvoiceInquireListRequest struct {
 	EndDate        string        `json:"endDate,omitempty"`
 	MinAmount      *model.Amount `json:"minAmount,omitempty"`
 	MaxAmount      *model.Amount `json:"maxAmount,omitempty"`
+	ExcludeDraft   bool          `json:"excludeDraft,omitempty"`
 }
 
 func NewAlipayInvoiceInquireListRequest() (*request.AlipayRequest, *AlipayInvoiceInquireListRequest) {

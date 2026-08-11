@@ -6,18 +6,19 @@ import (
 )
 
 type AlipayCustomerInquireListRequest struct {
-	StartingAfter       string `json:"startingAfter,omitempty"`
-	EndingBefore        string `json:"endingBefore,omitempty"`
-	Limit               int32  `json:"limit,omitempty"`
-	IncludeTotal        bool   `json:"includeTotal,omitempty"`
-	Status              string `json:"status,omitempty"`
-	Email               string `json:"email,omitempty"`
-	PhoneNo             string `json:"phoneNo,omitempty"`
-	CountryCode         string `json:"countryCode,omitempty"`
-	BillingEmail        string `json:"billingEmail,omitempty"`
-	ShippingFirstName   string `json:"shippingFirstName,omitempty"`
-	ShippingLastName    string `json:"shippingLastName,omitempty"`
-	ShippingCountryCode string `json:"shippingCountryCode,omitempty"`
+	StartingAfter  string   `json:"startingAfter,omitempty"`
+	EndingBefore   string   `json:"endingBefore,omitempty"`
+	Limit          int32    `json:"limit,omitempty"`
+	IncludeTotal   bool     `json:"includeTotal,omitempty"`
+	Status         string   `json:"status,omitempty"`
+	Email          string   `json:"email,omitempty"`
+	PhoneNo        string   `json:"phoneNo,omitempty"`
+	CountryCode    string   `json:"countryCode,omitempty"`
+	GmtCreateEnd   string   `json:"gmtCreateEnd,omitempty"`
+	CustomerId     string   `json:"customerId,omitempty"`
+	Country        []string `json:"country,omitempty"`
+	EmailPrefix    string   `json:"emailPrefix,omitempty"`
+	GmtCreateStart string   `json:"gmtCreateStart,omitempty"`
 }
 
 func NewAlipayCustomerInquireListRequest() (*request.AlipayRequest, *AlipayCustomerInquireListRequest) {

@@ -9,6 +9,6 @@ type AlipayCreditNoteInquireListResponse struct {
 	response.AlipayResponse
 	Result     *model.Result              `json:"result,omitempty"`
 	HasMore    bool                       `json:"hasMore,omitempty"`
-	TotalCount int32                      `json:"totalCount,omitempty"`
+	TotalCount int64                      `json:"totalCount,omitempty"`
 	List       []*model.CreditNoteSummary `json:"list,omitempty"`
 }
