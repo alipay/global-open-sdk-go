@@ -23,5 +23,6 @@ type AlipayPayResultNotify struct {
 	RetryInfo                *model.RetryInfo         `json:"retryInfo,omitempty"`
 	UpdateRequestId          string                   `json:"updateRequestId,omitempty"`
 	AuthExpiryTime           string                   `json:"authExpiryTime,omitempty"`
-	TaxCalculationId         string                   `json:"taxCalculationId,omitempty"`
+	// TaxCalculationId identifies the tax calculation associated with the payment. Retain it for reconciliation and subsequent refunds; query tax details through inquireTransactionList. It does not indicate that tax has been posted or recorded. If absent, the payment is not subject to tax.
+	TaxCalculationId string `json:"taxCalculationId,omitempty"`
 }
