@@ -10,4 +10,5 @@ type AlipayProductUploadImageResponse struct {
 	Result    *model.Result `json:"result,omitempty"`
 	ImageUrl  string        `json:"imageUrl,omitempty"`
 	ImageName string        `json:"imageName,omitempty"`
+	ProductId string        `json:"productId,omitempty"`
 }

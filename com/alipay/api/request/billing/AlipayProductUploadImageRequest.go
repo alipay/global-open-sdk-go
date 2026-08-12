@@ -2,20 +2,33 @@ package billing
 
 import (
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
-	responseBilling "github.com/alipay/global-open-sdk-go/com/alipay/api/response/billing"
+	"io"
+	"os"
+	"path/filepath"
 )
 
 type AlipayProductUploadImageRequest struct {
-	ProductId string `json:"productId,omitempty"`
-	ImageFile string `json:"imageFile,omitempty"`
+	ProductId  string    `json:"productId,omitempty"`
+	FileReader io.Reader `json:"-"`
+	Filename   string    `json:"-"`
 }
 
-func NewAlipayProductUploadImageRequest() (*request.AlipayRequest, *AlipayProductUploadImageRequest) {
+func NewAlipayProductUploadImageRequest() (*request.AlipayFileRequest, *AlipayProductUploadImageRequest) {
 	alipayProductUploadImageRequest := &AlipayProductUploadImageRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayProductUploadImageRequest, "/ams/api/v1/billing/product/uploadImage", &responseBilling.AlipayProductUploadImageResponse{})
+	alipayRequest := request.NewAlipayFileRequest(alipayProductUploadImageRequest)
 	return alipayRequest, alipayProductUploadImageRequest
 }
 
-func (alipayProductUploadImageRequest *AlipayProductUploadImageRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayProductUploadImageRequest, "/ams/api/v1/billing/product/uploadImage", &responseBilling.AlipayProductUploadImageResponse{})
+func (alipayProductUploadImageRequest *AlipayProductUploadImageRequest) NewRequest() *request.AlipayFileRequest {
+	return request.NewAlipayFileRequest(alipayProductUploadImageRequest)
+}
+
+// SetFile configures a local file without transferring ownership to the SDK.
+func (alipayProductUploadImageRequest *AlipayProductUploadImageRequest) SetFile(file *os.File) {
+	alipayProductUploadImageRequest.FileReader = file
+	if file == nil {
+		alipayProductUploadImageRequest.Filename = ""
+		return
+	}
+	alipayProductUploadImageRequest.Filename = filepath.Base(file.Name())
 }
