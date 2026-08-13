@@ -7,6 +7,9 @@ import (
 
 type AlipayMeterInquireListResponse struct {
 	response.AlipayResponse
-	Result *model.Result  `json:"result,omitempty"`
-	Meters []*model.Meter `json:"meters,omitempty"`
+	Result     *model.Result  `json:"result,omitempty"`
+	PageNum    int32          `json:"pageNum,omitempty"`
+	PageSize   int32          `json:"pageSize,omitempty"`
+	TotalCount int32          `json:"totalCount,omitempty"`
+	Meters     []*model.Meter `json:"meters,omitempty"`
 }

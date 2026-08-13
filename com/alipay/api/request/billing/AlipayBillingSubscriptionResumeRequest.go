@@ -6,11 +6,8 @@ import (
 )
 
 type AlipayBillingSubscriptionResumeRequest struct {
-	SubscriptionId     string `json:"subscriptionId,omitempty"`
-	BillingCycleAnchor string `json:"billingCycleAnchor,omitempty"`
-	ProrationBehavior  string `json:"prorationBehavior,omitempty"`
-	ProrationDate      string `json:"prorationDate,omitempty"`
-	ReasonCode         string `json:"reasonCode,omitempty"`
+	SubscriptionId string `json:"subscriptionId,omitempty"`
+	ReasonCode     string `json:"reasonCode,omitempty"`
 }
 
 func NewAlipayBillingSubscriptionResumeRequest() (*request.AlipayRequest, *AlipayBillingSubscriptionResumeRequest) {

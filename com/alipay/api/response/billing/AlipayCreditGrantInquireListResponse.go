@@ -8,5 +8,8 @@ import (
 type AlipayCreditGrantInquireListResponse struct {
 	response.AlipayResponse
 	Result       *model.Result        `json:"result,omitempty"`
+	PageNum      int32                `json:"pageNum,omitempty"`
+	PageSize     int32                `json:"pageSize,omitempty"`
+	TotalCount   int32                `json:"totalCount,omitempty"`
 	CreditGrants []*model.CreditGrant `json:"creditGrants,omitempty"`
 }

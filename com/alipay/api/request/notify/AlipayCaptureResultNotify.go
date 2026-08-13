@@ -11,5 +11,6 @@ type AlipayCaptureResultNotify struct {
 	CaptureTime         string              `json:"captureTime,omitempty"`
 	AcquirerReferenceNo string              `json:"acquirerReferenceNo,omitempty"`
 	AcquirerInfo        *model.AcquirerInfo `json:"acquirerInfo,omitempty"`
-	TaxCalculationId    string              `json:"taxCalculationId,omitempty"`
+	// TaxCalculationId identifies the tax calculation associated with the payment. Retain it for reconciliation and subsequent refunds; query tax details through inquireTransactionList. It does not indicate that tax has been posted or recorded. If absent, the payment is not subject to tax.
+	TaxCalculationId string `json:"taxCalculationId,omitempty"`
 }

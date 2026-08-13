@@ -10,8 +10,10 @@ type AlipayBillingSubscriptionInquireDetailsResponse struct {
 	Result                *model.ResultInfo                                           `json:"result,omitempty"`
 	SubscriptionId        string                                                      `json:"subscriptionId,omitempty"`
 	SubscriptionRequestId string                                                      `json:"subscriptionRequestId,omitempty"`
-	CreatedAt             string                                                      `json:"createdAt,omitempty"`
+	CreateTime            string                                                      `json:"createTime,omitempty"`
 	Status                string                                                      `json:"status,omitempty"`
+	BillingMode           string                                                      `json:"billingMode,omitempty"`
+	PaymentBehavior       string                                                      `json:"paymentBehavior,omitempty"`
 	CurrentPeriodStart    string                                                      `json:"currentPeriodStart,omitempty"`
 	CurrentPeriodEnd      string                                                      `json:"currentPeriodEnd,omitempty"`
 	BillingCycleAnchor    string                                                      `json:"billingCycleAnchor,omitempty"`
@@ -19,8 +21,7 @@ type AlipayBillingSubscriptionInquireDetailsResponse struct {
 	CanceledAt            string                                                      `json:"canceledAt,omitempty"`
 	TrialStart            string                                                      `json:"trialStart,omitempty"`
 	TrialEnd              string                                                      `json:"trialEnd,omitempty"`
-	TrialSettings         *model.BillingSubscriptionInquireDetailsTrialSettings       `json:"trialSettings,omitempty"`
-	PauseCollection       *model.BillingSubscriptionInquireDetailsPauseCollection     `json:"pauseCollection,omitempty"`
+	TrialSettings         *model.BillingSubscriptionTrialSettings                     `json:"trialSettings,omitempty"`
 	CancelAt              string                                                      `json:"cancelAt,omitempty"`
 	CollectionMethod      string                                                      `json:"collectionMethod,omitempty"`
 	DaysUntilDue          int32                                                       `json:"daysUntilDue,omitempty"`
@@ -28,7 +29,10 @@ type AlipayBillingSubscriptionInquireDetailsResponse struct {
 	TerminationReason     string                                                      `json:"terminationReason,omitempty"`
 	Description           string                                                      `json:"description,omitempty"`
 	DefaultPaymentMethod  string                                                      `json:"defaultPaymentMethod,omitempty"`
-	SubscriptionItems     []*model.SubscriptionItem                                   `json:"subscriptionItems,omitempty"`
+	Subtotal              *model.Amount                                               `json:"subtotal,omitempty"`
+	DiscountAmount        *model.Amount                                               `json:"discountAmount,omitempty"`
+	TotalAmount           *model.Amount                                               `json:"totalAmount,omitempty"`
+	PriceItems            []*model.BillingSubscriptionPriceItem                       `json:"priceItems,omitempty"`
 	Discounts             []*model.BillingSubscriptionDiscountInfo                    `json:"discounts,omitempty"`
-	Metadata              map[string]string                                           `json:"metadata,omitempty"`
+	Metadata              string                                                      `json:"metadata,omitempty"`
 }

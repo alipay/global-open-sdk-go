@@ -26,6 +26,21 @@ type DefaultAlipayClient struct {
 	AlipayPublicKey    string
 	AgentToken         string
 	IsSandboxMode      bool
+	uploadGatewayUrl   string
+}
+
+func (alipayClient *DefaultAlipayClient) SetUploadGatewayUrl(uploadGatewayUrl string) error {
+	normalized, err := normalizeExplicitUploadGateway(uploadGatewayUrl)
+	if err != nil {
+		return err
+	}
+	alipayClient.uploadGatewayUrl = normalized
+	return nil
+}
+
+// UploadFile sends an SDK-provided file request through the OpenApiV2File transport.
+func (alipayClient *DefaultAlipayClient) UploadFile(alipayRequest *request.AlipayFileRequest) (any, error) {
+	return executeFileUpload(alipayClient, alipayRequest)
 }
 
 /**

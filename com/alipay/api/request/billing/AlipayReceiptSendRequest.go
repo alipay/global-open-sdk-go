@@ -6,8 +6,8 @@ import (
 )
 
 type AlipayReceiptSendRequest struct {
-	ReceiptId     string `json:"receiptId,omitempty"`
-	SendRequestId string `json:"sendRequestId,omitempty"`
+	ReceiptId string   `json:"receiptId,omitempty"`
+	CcEmails  []string `json:"ccEmails,omitempty"`
 }
 
 func NewAlipayReceiptSendRequest() (*request.AlipayRequest, *AlipayReceiptSendRequest) {

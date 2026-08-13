@@ -9,7 +9,7 @@ import (
 type AlipayPaymentSessionRequest struct {
 	MerchantAccountId           string                        `json:"merchantAccountId,omitempty"`
 	Metadata                    string                        `json:"metadata,omitempty"`
-	AllowedPaymentMethodRegions string                        `json:"allowedPaymentMethodRegions,omitempty"`
+	AllowedPaymentMethodRegions []string                      `json:"allowedPaymentMethodRegions,omitempty"`
 	CustomizedInfo              *model.CustomizedInfo         `json:"customizedInfo,omitempty"`
 	PaymentQuote                *model.Quote                  `json:"paymentQuote,omitempty"`
 	ProcessingAmount            *model.Amount                 `json:"processingAmount,omitempty"`
@@ -39,7 +39,6 @@ type AlipayPaymentSessionRequest struct {
 	AvailablePaymentMethod      *model.AvailablePaymentMethod `json:"availablePaymentMethod,omitempty"`
 	PaymentExpiryTime           string                        `json:"paymentExpiryTime,omitempty"`
 	Subscription                *model.BillingSubscription    `json:"subscription,omitempty"`
-	AutomaticTax                *model.AutomaticTax           `json:"automaticTax,omitempty"`
 }
 
 func NewAlipayPaymentSessionRequest() (*request.AlipayRequest, *AlipayPaymentSessionRequest) {

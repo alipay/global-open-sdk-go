@@ -17,11 +17,11 @@ type AlipayCouponInquireDetailsResponse struct {
 	DurationType    string                               `json:"durationType,omitempty"`
 	DurationValue   int32                                `json:"durationValue,omitempty"`
 	DurationUnit    string                               `json:"durationUnit,omitempty"`
-	MaxRedemptions  int32                                `json:"maxRedemptions,omitempty"`
-	RedeemedCount   int32                                `json:"redeemedCount,omitempty"`
 	RedeemBy        string                               `json:"redeemBy,omitempty"`
 	AppliesTo       *model.CouponInquireDetailsAppliesTo `json:"appliesTo,omitempty"`
 	Status          string                               `json:"status,omitempty"`
-	Metadata        map[string]string                    `json:"metadata,omitempty"`
-	CreateTime      string                               `json:"createTime,omitempty"`
+	Metadata        string                               `json:"metadata,omitempty"`
+	GmtCreate       string                               `json:"gmtCreate,omitempty"`
+	MaxRedemptions  int32                                `json:"maxRedemptions,omitempty"`
+	RedeemedCount   int32                                `json:"redeemedCount,omitempty"`
 }

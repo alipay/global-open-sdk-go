@@ -6,14 +6,15 @@ import (
 )
 
 type AlipayBillingSubscriptionInquireListRequest struct {
-	Status        string `json:"status,omitempty"`
-	CustomerId    string `json:"customerId,omitempty"`
-	ExpiresBefore string `json:"expiresBefore,omitempty"`
-	ExpiresAfter  string `json:"expiresAfter,omitempty"`
-	StartingAfter string `json:"startingAfter,omitempty"`
-	EndingBefore  string `json:"endingBefore,omitempty"`
-	Limit         int32  `json:"limit,omitempty"`
-	IncludeTotal  bool   `json:"includeTotal,omitempty"`
+	Status         string `json:"status,omitempty"`
+	CustomerId     string `json:"customerId,omitempty"`
+	SubscriptionId string `json:"subscriptionId,omitempty"`
+	GmtCreateStart string `json:"gmtCreateStart,omitempty"`
+	GmtCreateEnd   string `json:"gmtCreateEnd,omitempty"`
+	SortOrder      string `json:"sortOrder,omitempty"`
+	StartingAfter  string `json:"startingAfter,omitempty"`
+	EndingBefore   string `json:"endingBefore,omitempty"`
+	Limit          int32  `json:"limit,omitempty"`
 }
 
 func NewAlipayBillingSubscriptionInquireListRequest() (*request.AlipayRequest, *AlipayBillingSubscriptionInquireListRequest) {

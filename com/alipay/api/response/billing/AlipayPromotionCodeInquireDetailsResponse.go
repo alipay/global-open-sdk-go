@@ -19,7 +19,6 @@ type AlipayPromotionCodeInquireDetailsResponse struct {
 	MinAmount              *model.PromotionCodeInquireDetailsMinAmount `json:"minAmount,omitempty"`
 	OneTimeOnly            bool                                        `json:"oneTimeOnly,omitempty"`
 	CustomerId             string                                      `json:"customerId,omitempty"`
-	Metadata               map[string]string                           `json:"metadata,omitempty"`
+	Metadata               string                                      `json:"metadata,omitempty"`
 	CreateTime             string                                      `json:"createTime,omitempty"`
-	UpdateTime             string                                      `json:"updateTime,omitempty"`
 }

@@ -6,8 +6,7 @@ import (
 )
 
 type AlipayProductInquireDetailsRequest struct {
-	ProductId     string `json:"productId,omitempty"`
-	IncludePrices bool   `json:"includePrices,omitempty"`
+	ProductId string `json:"productId,omitempty"`
 }
 
 func NewAlipayProductInquireDetailsRequest() (*request.AlipayRequest, *AlipayProductInquireDetailsRequest) {

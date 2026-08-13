@@ -1,5 +1,5 @@
 package model
 
-type BillingSubscriptionUpdateTrialSettingsEndBehavior struct {
+type BillingSubscriptionTrialSettingsEndBehavior struct {
 	MissingPaymentMethod string `json:"missingPaymentMethod,omitempty"`
 }

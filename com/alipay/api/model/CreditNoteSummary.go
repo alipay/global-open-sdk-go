@@ -7,6 +7,7 @@ type CreditNoteSummary struct {
 	Type          string  `json:"type,omitempty"`
 	Status        string  `json:"status,omitempty"`
 	TotalAmount   *Amount `json:"totalAmount,omitempty"`
+	RefundAmount  *Amount `json:"refundAmount,omitempty"`
 	Reason        string  `json:"reason,omitempty"`
 	EffectiveDate string  `json:"effectiveDate,omitempty"`
 	RefundStatus  string  `json:"refundStatus,omitempty"`
