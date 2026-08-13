@@ -1,10 +1,11 @@
 package billing
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	"io"
 	"os"
 	"path/filepath"
+
+	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 )
 
 type AlipayProductUploadImageRequest struct {
