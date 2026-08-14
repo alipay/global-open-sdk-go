@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Add the HTTP/2 session transport required by `meter/uploadEvent`.
+- `meter/uploadEvent` applications must be rebuilt with Go 1.25.13+ in the Go 1.25 series, Go 1.26.6+ in the Go 1.26 series, or a later stable Go release. Other SDK APIs remain compatible with the Go version declared in `go.mod`.
+
 ## 1.2.31 - 2025-12-01
 - update 20251201
 
@@ -139,5 +143,3 @@
     * Add Sign(privateKey *rsa.PrivateKey, data []byte) (string, error);
     * Add (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRequest) (any, error);
     * Add (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, headers map[string]string, data []byte, alipayResponse any) (any, error)
-
-
