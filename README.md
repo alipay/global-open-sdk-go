@@ -13,6 +13,18 @@ https://mvnrepository.com/artifact/com.alipay.global.sdk/global-open-sdk-go
  go get github.com/alipay/global-open-sdk-go
 ```
 
+#### Meter event upload
+
+`meter/createSession` uses the regular signed AMS transport. Call
+`meter/uploadEvent` with `ExecuteWithHeaders` and the returned `X-Session-Id`.
+The SDK uses the gateway URL configured on the client without sandbox path
+rewriting, request signing, response signature verification, or automatic
+retries. This API requires HTTP/2 and a binary built with Go 1.25.13+, Go
+1.26.6+, or a later stable Go release. Other SDK APIs retain the Go version
+declared in `go.mod`.
+
+See `com/alipay/example/meter_upload_event_demo.go` for a complete request.
+
 #### 2 The demo code for create payment
 ```
    	payRequest, request := pay.NewAlipayPayRequest()
@@ -94,4 +106,3 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 }
 
 ```
-

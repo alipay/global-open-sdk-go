@@ -163,6 +163,10 @@ var reservedHeaders = map[string]bool{
 var sandboxProductionPathPrefixes = []string{}
 
 func (alipayClient *DefaultAlipayClient) ExecuteWithHeaders(alipayRequest *request.AlipayRequest, extraHeaders map[string]string) (any, error) {
+	if requiresSessionHTTP2(alipayRequest) {
+		return executeSessionHTTP2(alipayClient.GatewayUrl, alipayRequest, extraHeaders)
+	}
+
 	reqPayload, err := json.Marshal(alipayRequest.Param)
 	if err != nil {
 		return nil, &exception.AlipayLibraryError{Message: "json.Marshal is fail " + err.Error()}
