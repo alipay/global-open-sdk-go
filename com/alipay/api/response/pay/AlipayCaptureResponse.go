@@ -14,4 +14,5 @@ type AlipayCaptureResponse struct {
 	CaptureAmount       *model.Amount `json:"captureAmount,omitempty"`
 	CaptureTime         string        `json:"captureTime,omitempty"`
 	AcquirerReferenceNo string        `json:"acquirerReferenceNo,omitempty"`
+	Yimutestopenapi     string        `json:"yimutestopenapi,omitempty"`
 }
