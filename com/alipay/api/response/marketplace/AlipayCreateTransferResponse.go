@@ -7,9 +7,9 @@ import (
 
 type AlipayCreateTransferResponse struct {
 	response.AlipayResponse
-	Result             *model.Result             `json:"result,omitempty"`
-	TransferId         string                    `json:"transferId,omitempty"`
-	TransferRequestId  string                    `json:"transferRequestId,omitempty"`
-	TransferFromDetail *model.TransferFromDetail `json:"transferFromDetail,omitempty"`
-	TransferToDetail   *model.TransferToDetail   `json:"transferToDetail,omitempty"`
+	Result             *model.Result                     `json:"result,omitempty"`
+	TransferRequestId  string                            `json:"transferRequestId,omitempty"`
+	TransferId         string                            `json:"transferId,omitempty"`
+	TransferFromDetail *model.TransferFromDetailResponse `json:"transferFromDetail,omitempty"`
+	TransferToDetail   *model.TransferToDetailResponse   `json:"transferToDetail,omitempty"`
 }
