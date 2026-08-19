@@ -1,4 +1,18 @@
 ```
+
+#### Exact amount conversion
+
+```go
+import "github.com/alipay/global-open-sdk-go/com/alipay/api/tools"
+
+value, err := tools.ToAmount("10.25", "USD") // "1025"
+major, err := tools.FromAmount(value, "USD") // "10.25"
+err = tools.Validate(value, "USD")
+```
+
+The functions convert with the ISO 4217 minor unit and never round. Extra
+non-zero decimal places are rejected. Payment-method currency support and
+minimum amounts remain subject to the relevant Antom API docs.
 Language：GO  
 GO version：1.22.5+  
 Tags：v1.3.5
