@@ -13,4 +13,5 @@ type AlipayReceiptExportResponse struct {
 	FileUrl    string        `json:"fileUrl,omitempty"`
 	FileSize   int64         `json:"fileSize,omitempty"`
 	FileName   string        `json:"fileName,omitempty"`
+	Mode       string        `json:"mode,omitempty"`
 }
