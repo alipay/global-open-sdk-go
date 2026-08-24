@@ -7,10 +7,11 @@ import (
 
 type AlipayInquireCardSensitiveInfoResponse struct {
 	response.AlipayResponse
-	Result       *model.Result `json:"result,omitempty"`
-	AssetId      string        `json:"assetId,omitempty"`
-	Cvv          string        `json:"cvv,omitempty"`
-	CardNo       string        `json:"cardNo,omitempty"`
-	ExpiredMonth string        `json:"expiredMonth,omitempty"`
-	ExpiredYear  string        `json:"expiredYear,omitempty"`
+	Result       *model.Result                          `json:"result,omitempty"`
+	AssetId      string                                 `json:"assetId,omitempty"`
+	Cvv          string                                 `json:"cvv,omitempty"`
+	CardNo       string                                 `json:"cardNo,omitempty"`
+	ExpiredMonth string                                 `json:"expiredMonth,omitempty"`
+	ExpiredYear  string                                 `json:"expiredYear,omitempty"`
+	CardDetail   *model.AlipayInquireCardDetailResponse `json:"cardDetail,omitempty"`
 }
