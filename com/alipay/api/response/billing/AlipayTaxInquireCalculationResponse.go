@@ -7,15 +7,17 @@ import (
 
 type AlipayTaxInquireCalculationResponse struct {
 	response.AlipayResponse
-	Result             *model.Result                    `json:"result,omitempty"`
-	TaxCalculationId   string                           `json:"taxCalculationId,omitempty"`
-	Currency           string                           `json:"currency,omitempty"`
-	TotalAmount        string                           `json:"totalAmount,omitempty"`
-	ExclusiveTaxAmount string                           `json:"exclusiveTaxAmount,omitempty"`
-	InclusiveTaxAmount string                           `json:"inclusiveTaxAmount,omitempty"`
-	LineItems          []*model.TaxCalculatedLineItem   `json:"lineItems,omitempty"`
-	TaxBreakdown       []*model.TaxBreakdown            `json:"taxBreakdown,omitempty"`
-	ExpireAt           string                           `json:"expireAt,omitempty"`
-	TaxDate            string                           `json:"taxDate,omitempty"`
-	ShippingCost       *model.TaxCalculatedShippingCost `json:"shippingCost,omitempty"`
+	Result             *model.Result                       `json:"result,omitempty"`
+	TaxCalculationId   string                              `json:"taxCalculationId,omitempty"`
+	Currency           string                              `json:"currency,omitempty"`
+	CustomerDetails    *model.TaxCalculatedCustomerDetails `json:"customerDetails,omitempty"`
+	ShipFromDetails    *model.TaxCalculatedShipFromDetails `json:"shipFromDetails,omitempty"`
+	TotalAmount        string                              `json:"totalAmount,omitempty"`
+	ExclusiveTaxAmount string                              `json:"exclusiveTaxAmount,omitempty"`
+	InclusiveTaxAmount string                              `json:"inclusiveTaxAmount,omitempty"`
+	LineItems          []*model.TaxCalculatedLineItem      `json:"lineItems,omitempty"`
+	TaxBreakdown       []*model.TaxBreakdown               `json:"taxBreakdown,omitempty"`
+	ExpireAt           string                              `json:"expireAt,omitempty"`
+	TaxDate            string                              `json:"taxDate,omitempty"`
+	ShippingCost       *model.TaxCalculatedShippingCost    `json:"shippingCost,omitempty"`
 }
