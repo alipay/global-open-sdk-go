@@ -9,10 +9,9 @@ type AlipayTaxCalculateResponse struct {
 	response.AlipayResponse
 	Result             *model.Result                       `json:"result,omitempty"`
 	TaxCalculationId   string                              `json:"taxCalculationId,omitempty"`
-	Currency           string                              `json:"currency,omitempty"`
-	TotalAmount        string                              `json:"totalAmount,omitempty"`
-	ExclusiveTaxAmount string                              `json:"exclusiveTaxAmount,omitempty"`
-	InclusiveTaxAmount string                              `json:"inclusiveTaxAmount,omitempty"`
+	TotalAmount        *model.Amount                       `json:"totalAmount,omitempty"`
+	ExclusiveTaxAmount *model.Amount                       `json:"exclusiveTaxAmount,omitempty"`
+	InclusiveTaxAmount *model.Amount                       `json:"inclusiveTaxAmount,omitempty"`
 	LineItems          []*model.TaxCalculatedLineItem      `json:"lineItems,omitempty"`
 	TaxBreakdown       []*model.TaxBreakdown               `json:"taxBreakdown,omitempty"`
 	ExpireAt           string                              `json:"expireAt,omitempty"`
