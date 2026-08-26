@@ -12,8 +12,6 @@ type AlipayCustomerInquireListRequest struct {
 	IncludeTotal   bool     `json:"includeTotal,omitempty"`
 	Status         string   `json:"status,omitempty"`
 	Email          string   `json:"email,omitempty"`
-	PhoneNo        string   `json:"phoneNo,omitempty"`
-	CountryCode    string   `json:"countryCode,omitempty"`
 	GmtCreateEnd   string   `json:"gmtCreateEnd,omitempty"`
 	CustomerId     string   `json:"customerId,omitempty"`
 	Country        []string `json:"country,omitempty"`
