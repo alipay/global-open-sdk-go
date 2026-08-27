@@ -1,6 +1,6 @@
 package defaultAlipayClient
 
-const SDKVersion = "1.3.6"
+const SDKVersion = "1.3.7"
 
 func sdkUserAgent() string {
 	return "global-open-sdk-go/" + SDKVersion
