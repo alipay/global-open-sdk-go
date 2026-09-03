@@ -5,12 +5,10 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
-	"go/version"
 	"io"
 	"net"
 	"net/http"
 	"net/url"
-	"runtime"
 	"strings"
 	"time"
 
@@ -53,9 +51,6 @@ var sessionHTTP2Transport = &http.Transport{
 }
 
 func postHTTP2JSON(gatewayURL, path, sessionID string, requestBody []byte) ([]byte, error) {
-	if err := requireSecureHTTP2Runtime(); err != nil {
-		return nil, err
-	}
 	requestURL, err := buildSessionRequestURL(gatewayURL, path)
 	if err != nil {
 		return nil, err
@@ -89,19 +84,6 @@ func postHTTP2JSON(gatewayURL, path, sessionID string, requestBody []byte) ([]by
 		return nil, &exception.AlipayLibraryError{Message: fmt.Sprintf("response data error, HTTP status=%d, responseBody=%s", response.StatusCode, responseBody)}
 	}
 	return responseBody, nil
-}
-
-func requireSecureHTTP2Runtime() error {
-	runtimeVersion := runtime.Version()
-	if !version.IsValid(runtimeVersion) || strings.Contains(runtimeVersion, "beta") || strings.Contains(runtimeVersion, "rc") {
-		return &exception.AlipayLibraryError{Message: "this API requires an official Go release with the HTTP/2 security fix"}
-	}
-	isPatchedGo125 := version.Compare(runtimeVersion, "go1.25.13") >= 0 && version.Compare(runtimeVersion, "go1.26beta1") < 0
-	isPatchedGo126OrLater := version.Compare(runtimeVersion, "go1.26.6") >= 0
-	if !isPatchedGo125 && !isPatchedGo126OrLater {
-		return &exception.AlipayLibraryError{Message: "this API requires Go 1.25.13+, Go 1.26.6+, or a later stable release with the HTTP/2 security fix"}
-	}
-	return nil
 }
 
 func buildSessionRequestURL(gatewayURL, path string) (string, error) {

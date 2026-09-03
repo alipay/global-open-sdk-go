@@ -11,10 +11,9 @@ import (
 )
 
 // UploadMeterEvents uploads events with the session ID returned by
-// meter/createSession. Applications calling this API must be rebuilt with Go
-// 1.25.13+ in the Go 1.25 series, Go 1.26.6+ in the Go 1.26 series, or a later
-// stable Go release. Other SDK APIs can continue to use the Go version declared
-// in go.mod.
+// meter/createSession. This API supports the Go version declared in go.mod.
+// Production applications should use a currently supported Go release
+// containing the latest security fixes.
 func UploadMeterEvents(client *defaultAlipayClient.DefaultAlipayClient, sessionID string) {
 	alipayRequest, uploadRequest := billingRequest.NewAlipayMeterUploadEventRequest()
 	uploadRequest.Meters = []*model.MeterEventBatch{
