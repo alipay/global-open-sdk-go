@@ -22,6 +22,7 @@ type AlipayRefundRequest struct {
 	RefundDetails         []*model.RefundDetail   `json:"refundDetails,omitempty"`
 	RefundSourceAccountNo string                  `json:"refundSourceAccountNo,omitempty"`
 	ActualRefundAmount    *model.Amount           `json:"actualRefundAmount,omitempty"`
+	Goods                 []*model.Goods          `json:"goods,omitempty"`
 }
 
 func NewAlipayRefundRequest() (*request.AlipayRequest, *AlipayRefundRequest) {
