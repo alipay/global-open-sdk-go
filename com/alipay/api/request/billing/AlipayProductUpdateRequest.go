@@ -12,7 +12,7 @@ type AlipayProductUpdateRequest struct {
 	Images      []string `json:"images,omitempty"`
 	UnitLabel   string   `json:"unitLabel,omitempty"`
 	Metadata    string   `json:"metadata,omitempty"`
-	Active      bool     `json:"active,omitempty"`
+	Active      *bool    `json:"active,omitempty"`
 }
 
 func NewAlipayProductUpdateRequest() (*request.AlipayRequest, *AlipayProductUpdateRequest) {
