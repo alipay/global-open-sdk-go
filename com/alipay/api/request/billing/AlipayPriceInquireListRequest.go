@@ -8,7 +8,7 @@ import (
 type AlipayPriceInquireListRequest struct {
 	ProductId     string `json:"productId,omitempty"`
 	PricingModel  string `json:"pricingModel,omitempty"`
-	Active        bool   `json:"active,omitempty"`
+	Active        *bool  `json:"active,omitempty"`
 	StartingAfter string `json:"startingAfter,omitempty"`
 	EndingBefore  string `json:"endingBefore,omitempty"`
 	Limit         int32  `json:"limit,omitempty"`
