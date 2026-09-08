@@ -12,4 +12,5 @@ type Shipping struct {
 	DeliveryEstimate    *DeliveryEstimate `json:"deliveryEstimate,omitempty"`
 	ShippingNumber      string            `json:"shippingNumber,omitempty"`
 	Notes               string            `json:"notes,omitempty"`
+	TrackingUrl         string            `json:"trackingUrl,omitempty"`
 }
