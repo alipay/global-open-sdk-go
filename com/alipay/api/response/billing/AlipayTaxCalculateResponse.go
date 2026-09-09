@@ -18,4 +18,5 @@ type AlipayTaxCalculateResponse struct {
 	TaxDate            string                              `json:"taxDate,omitempty"`
 	ShippingCost       *model.TaxCalculatedShippingCost    `json:"shippingCost,omitempty"`
 	CustomerDetails    *model.TaxCalculatedCustomerDetails `json:"customerDetails,omitempty"`
+	ShipFromDetails    *model.TaxCalculatedShipFromDetails `json:"shipFromDetails,omitempty"`
 }

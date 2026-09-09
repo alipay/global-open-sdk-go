@@ -13,4 +13,6 @@ type Shipping struct {
 	ShippingNumber      string            `json:"shippingNumber,omitempty"`
 	Notes               string            `json:"notes,omitempty"`
 	TrackingUrl         string            `json:"trackingUrl,omitempty"`
+	TaxCode             string            `json:"taxCode,omitempty"`
+	TaxBehavior         string            `json:"taxBehavior,omitempty"`
 }
