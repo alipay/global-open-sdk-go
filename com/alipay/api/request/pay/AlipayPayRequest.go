@@ -37,6 +37,7 @@ type AlipayPayRequest struct {
 	DualOfflinePayment      bool                           `json:"dualOfflinePayment,omitempty"`
 	SubscriptionId          string                         `json:"subscriptionId,omitempty"`
 	TaxCalculationId        string                         `json:"taxCalculationId,omitempty"`
+	Locale                  string                         `json:"locale,omitempty"`
 }
 
 func NewAlipayPayRequest() (*request.AlipayRequest, *AlipayPayRequest) {
