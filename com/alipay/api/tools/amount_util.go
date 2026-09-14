@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+const maxAmountValueLength = 16
+
 // ToAmount converts an exact major-unit decimal string to Antom Amount.value.
 func ToAmount(amount string, currency string) (string, error) {
 	minorUnit, err := amountMinorUnit(currency)
@@ -83,10 +85,10 @@ func amountMinorUnit(currency string) (int, error) {
 	}
 	rule, ok := rules.Currencies[currency]
 	if !ok {
-		return 0, amountError("UNKNOWN_CURRENCY", "currency is not present in the ISO snapshot")
+		return 0, amountError("UNSUPPORTED_CURRENCY", "currency is not supported by AmountUtil")
 	}
 	if rule.MinorUnit == nil {
-		return 0, amountError("UNSUPPORTED_MINOR_UNIT", "currency has no numeric minor unit")
+		return 0, fmt.Errorf("RULE_DATA_ERROR: supported currency has no numeric minor unit")
 	}
 	return *rule.MinorUnit, nil
 }
@@ -100,8 +102,8 @@ func validateValueFormat(value string) error {
 			return amountError("INVALID_VALUE_FORMAT", "value must contain ASCII digits only")
 		}
 	}
-	if len(value) > 16 {
-		return amountError("VALUE_TOO_LONG", "value exceeds 16 digits")
+	if len(value) > maxAmountValueLength {
+		return amountError("VALUE_TOO_LONG", "value must contain at most 16 digits")
 	}
 	return nil
 }
@@ -110,8 +112,8 @@ func validateCanonical(value string, currency string) error {
 	if allZeros(value) {
 		return amountError("AMOUNT_NOT_POSITIVE", "value must be greater than zero")
 	}
-	if len(value) > 16 {
-		return amountError("VALUE_TOO_LONG", "value exceeds 16 digits")
+	if len(value) > maxAmountValueLength {
+		return amountError("VALUE_TOO_LONG", "value must contain at most 16 digits")
 	}
 	rules, err := loadAmountRules()
 	if err != nil {

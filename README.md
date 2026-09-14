@@ -10,9 +10,10 @@ major, err := tools.FromAmount(value, "USD") // "10.25"
 err = tools.Validate(value, "USD")
 ```
 
-The functions convert with the ISO 4217 minor unit and never round. Extra
-non-zero decimal places are rejected. Payment-method currency support and
-minimum amounts remain subject to the relevant Antom API docs.
+The functions use Antom's supported-currency rules and never round. Extra
+non-zero decimal places are rejected. ISO 4217 is reference evidence only.
+Payment-method currency support and minimum amounts remain subject to the
+relevant Antom API docs.
 Language：GO  
 GO version：1.22.5+  
 Tags：v1.3.8
