@@ -15,4 +15,6 @@ type Goods struct {
 	GoodsDiscountAmount *Amount `json:"goodsDiscountAmount,omitempty"`
 	GoodsEndsOnTime     string  `json:"goodsEndsOnTime,omitempty"`
 	CrossSell           *Goods  `json:"crossSell,omitempty"`
+	TaxCode             string  `json:"taxCode,omitempty"`
+	TaxBehavior         string  `json:"taxBehavior,omitempty"`
 }

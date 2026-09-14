@@ -7,6 +7,6 @@ type AlipayVaultingNotify struct {
 	VaultingRequestId   string                     `json:"vaultingRequestId,omitempty"`
 	PaymentMethodDetail *model.PaymentMethodDetail `json:"paymentMethodDetail,omitempty"`
 	VaultingCreateTime  string                     `json:"vaultingCreateTime,omitempty"`
-	AcquirerInfo        string                     `json:"acquirerInfo,omitempty"`
+	AcquirerInfo        *model.AcquirerInfo        `json:"acquirerInfo,omitempty"`
 	Metadata            string                     `json:"metadata,omitempty"`
 }

@@ -12,6 +12,7 @@ type AlipayBillingSubscriptionUpdateRequest struct {
 	ProrationBehavior       string                                        `json:"prorationBehavior,omitempty"`
 	ResetBillingCycleAnchor bool                                          `json:"resetBillingCycleAnchor,omitempty"`
 	TrialSettings           *model.BillingTrialSettings                   `json:"trialSettings,omitempty"`
+	StatusChange            *model.BillingSubscriptionStatusChange        `json:"statusChange,omitempty"`
 	CancelAtPeriodEnd       bool                                          `json:"cancelAtPeriodEnd,omitempty"`
 	CancelAt                string                                        `json:"cancelAt,omitempty"`
 	CancellationDetails     *model.BillingSubscriptionCancellationDetails `json:"cancellationDetails,omitempty"`

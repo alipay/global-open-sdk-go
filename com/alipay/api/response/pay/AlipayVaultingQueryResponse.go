@@ -17,4 +17,5 @@ type AlipayVaultingQueryResponse struct {
 	Metadata              string                     `json:"metadata,omitempty"`
 	VaultingResultCode    string                     `json:"vaultingResultCode,omitempty"`
 	VaultingResultMessage string                     `json:"vaultingResultMessage,omitempty"`
+	AcquirerInfo          *model.AcquirerInfo        `json:"acquirerInfo,omitempty"`
 }

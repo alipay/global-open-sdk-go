@@ -6,6 +6,7 @@ type AuthorizationControl struct {
 	AllowedMerchantCategoryList []string          `json:"allowedMerchantCategoryList,omitempty"`
 	AllowedAuthTimes            int32             `json:"allowedAuthTimes,omitempty"`
 	AllowedCurrencies           []string          `json:"allowedCurrencies,omitempty"`
+	PaymentPreferenceCurrencies []string          `json:"paymentPreferenceCurrencies,omitempty"`
 	CardLimitDetail             *CardLimitDetail  `json:"cardLimitDetail,omitempty"`
 	CardLimitInfo               *CardLimitInfo    `json:"cardLimitInfo,omitempty"`
 	RefundPreference            *RefundPreference `json:"refundPreference,omitempty"`

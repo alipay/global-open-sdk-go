@@ -21,7 +21,6 @@ type AlipayBillingSubscriptionInquireDetailsResponse struct {
 	CanceledAt            string                                                      `json:"canceledAt,omitempty"`
 	TrialStart            string                                                      `json:"trialStart,omitempty"`
 	TrialEnd              string                                                      `json:"trialEnd,omitempty"`
-	TrialSettings         *model.BillingSubscriptionTrialSettings                     `json:"trialSettings,omitempty"`
 	CancelAt              string                                                      `json:"cancelAt,omitempty"`
 	CollectionMethod      string                                                      `json:"collectionMethod,omitempty"`
 	DaysUntilDue          int32                                                       `json:"daysUntilDue,omitempty"`

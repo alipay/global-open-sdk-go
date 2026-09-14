@@ -20,7 +20,6 @@ type AlipayCustomerInquireDetailsResponse struct {
 	Address               string        `json:"address,omitempty"`
 	AddressDetail         string        `json:"addressDetail,omitempty"`
 	Zipcode               string        `json:"zipcode,omitempty"`
-	ShippingPhone         string        `json:"shippingPhone,omitempty"`
 	ShippingCountry       string        `json:"shippingCountry,omitempty"`
 	ShippingState         string        `json:"shippingState,omitempty"`
 	ShippingCity          string        `json:"shippingCity,omitempty"`
@@ -33,12 +32,9 @@ type AlipayCustomerInquireDetailsResponse struct {
 	Status                string        `json:"status,omitempty"`
 	ReferenceCustomerId   string        `json:"referenceCustomerId,omitempty"`
 	Metadata              string        `json:"metadata,omitempty"`
-	PhoneNo               string        `json:"phoneNo,omitempty"`
-	CountryCode           string        `json:"countryCode,omitempty"`
 	BillingEmail          string        `json:"billingEmail,omitempty"`
 	ShippingFirstName     string        `json:"shippingFirstName,omitempty"`
 	ShippingLastName      string        `json:"shippingLastName,omitempty"`
-	ShippingCountryCode   string        `json:"shippingCountryCode,omitempty"`
 	ShippingZipcode       string        `json:"shippingZipcode,omitempty"`
 	GmtCreate             string        `json:"gmtCreate,omitempty"`
 }

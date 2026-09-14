@@ -18,4 +18,5 @@ type Order struct {
 	NeedDeclaration     bool         `json:"needDeclaration,omitempty"`
 	Declaration         *Declaration `json:"declaration,omitempty"`
 	OrderType           string       `json:"orderType,omitempty"`
+	TaxCalculationId    string       `json:"taxCalculationId,omitempty"`
 }

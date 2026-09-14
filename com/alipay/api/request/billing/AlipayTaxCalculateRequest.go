@@ -8,7 +8,6 @@ import (
 
 type AlipayTaxCalculateRequest struct {
 	TaxCalculationRequestId string                          `json:"taxCalculationRequestId,omitempty"`
-	Currency                string                          `json:"currency,omitempty"`
 	LineItems               []*model.TaxCalculationLineItem `json:"lineItems,omitempty"`
 	CustomerId              string                          `json:"customerId,omitempty"`
 	CustomerDetails         *model.TaxCustomerDetails       `json:"customerDetails,omitempty"`

@@ -16,10 +16,10 @@ type AlipayCreateExchangeRequest struct {
 
 func NewAlipayCreateExchangeRequest() (*request.AlipayRequest, *AlipayCreateExchangeRequest) {
 	alipayCreateExchangeRequest := &AlipayCreateExchangeRequest{}
-	alipayRequest := request.NewAlipayRequest(alipayCreateExchangeRequest, "/ams/v1/aba/funds/createExchange", &responseAba.AlipayCreateExchangeResponse{})
+	alipayRequest := request.NewAlipayRequest(alipayCreateExchangeRequest, "/ams/api/v1/aba/funds/createExchange", &responseAba.AlipayCreateExchangeResponse{})
 	return alipayRequest, alipayCreateExchangeRequest
 }
 
 func (alipayCreateExchangeRequest *AlipayCreateExchangeRequest) NewRequest() *request.AlipayRequest {
-	return request.NewAlipayRequest(&alipayCreateExchangeRequest, "/ams/v1/aba/funds/createExchange", &responseAba.AlipayCreateExchangeResponse{})
+	return request.NewAlipayRequest(&alipayCreateExchangeRequest, "/ams/api/v1/aba/funds/createExchange", &responseAba.AlipayCreateExchangeResponse{})
 }

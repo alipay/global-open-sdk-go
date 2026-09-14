@@ -13,4 +13,5 @@ type AlipayVaultingPaymentMethodResponse struct {
 	NormalUrl           string                     `json:"normalUrl,omitempty"`
 	SchemeUrl           string                     `json:"schemeUrl,omitempty"`
 	ApplinkUrl          string                     `json:"applinkUrl,omitempty"`
+	AcquirerInfo        *model.AcquirerInfo        `json:"acquirerInfo,omitempty"`
 }

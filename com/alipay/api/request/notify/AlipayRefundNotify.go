@@ -15,4 +15,6 @@ type AlipayRefundNotify struct {
 	Arn                   string                `json:"arn,omitempty"`
 	ActualRefundAmount    *model.Amount         `json:"actualRefundAmount,omitempty"`
 	Metadata              string                `json:"metadata,omitempty"`
+	// AuthorizationCode is returned only when the merchant is enabled for this capability.
+	AuthorizationCode string `json:"authorizationCode,omitempty"`
 }

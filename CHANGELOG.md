@@ -2,7 +2,7 @@
 
 ## Unreleased
 - Add the HTTP/2 session transport required by `meter/uploadEvent`.
-- `meter/uploadEvent` applications must be rebuilt with Go 1.25.13+ in the Go 1.25 series, Go 1.26.6+ in the Go 1.26 series, or a later stable Go release. Other SDK APIs remain compatible with the Go version declared in `go.mod`.
+- Allow `meter/uploadEvent` applications to use the Go version declared in `go.mod`. Production applications should use a currently supported Go release containing the latest security fixes.
 
 ## 1.2.31 - 2025-12-01
 - update 20251201

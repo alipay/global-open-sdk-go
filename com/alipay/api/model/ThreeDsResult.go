@@ -11,4 +11,6 @@ type ThreeDSResult struct {
 	Challenged                     bool   `json:"challenged,omitempty"`
 	ExemptionType                  string `json:"exemptionType,omitempty"`
 	ThreeDSOffered                 bool   `json:"threeDSOffered,omitempty"`
+	PaResStatus                    string `json:"paResStatus,omitempty"`
+	LiabilityShift                 int32  `json:"liabilityShift,omitempty"`
 }
