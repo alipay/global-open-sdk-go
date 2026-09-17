@@ -27,6 +27,7 @@ type DefaultAlipayClient struct {
 	AgentToken         string
 	IsSandboxMode      bool
 	uploadGatewayUrl   string
+	apiKeyAuth         *apiKeyAuth
 }
 
 func (alipayClient *DefaultAlipayClient) SetUploadGatewayUrl(uploadGatewayUrl string) error {
@@ -40,6 +41,9 @@ func (alipayClient *DefaultAlipayClient) SetUploadGatewayUrl(uploadGatewayUrl st
 
 // UploadFile sends an SDK-provided file request through the OpenApiV2File transport.
 func (alipayClient *DefaultAlipayClient) UploadFile(alipayRequest *request.AlipayFileRequest) (any, error) {
+	if alipayClient.apiKeyAuth != nil {
+		return nil, fmt.Errorf("file upload does not support API Key authentication")
+	}
 	return executeFileUpload(alipayClient, alipayRequest)
 }
 
@@ -133,6 +137,9 @@ func (alipayClient *DefaultAlipayClient) httpDo(url, method string, params, head
 }
 
 func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRequest) (any, error) {
+	if alipayClient.apiKeyAuth != nil {
+		return alipayClient.executeAPIKey(alipayRequest, nil)
+	}
 	reqPayload, err := json.Marshal(alipayRequest.Param)
 	if err != nil {
 		return nil, &exception.AlipayLibraryError{Message: "json.Marshal is fail " + err.Error()}
@@ -165,6 +172,9 @@ var sandboxProductionPathPrefixes = []string{}
 func (alipayClient *DefaultAlipayClient) ExecuteWithHeaders(alipayRequest *request.AlipayRequest, extraHeaders map[string]string) (any, error) {
 	if requiresSessionHTTP2(alipayRequest) {
 		return executeSessionHTTP2(alipayClient.GatewayUrl, alipayRequest, extraHeaders)
+	}
+	if alipayClient.apiKeyAuth != nil {
+		return alipayClient.executeAPIKey(alipayRequest, extraHeaders)
 	}
 
 	reqPayload, err := json.Marshal(alipayRequest.Param)
