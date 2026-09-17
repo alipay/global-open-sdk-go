@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0 (planned; unreleased)
+
+- Add an independent API Key client using a gateway and API Key, with existing business request/response models.
+- Keep existing RSA APIs compatible; retain Session HTTP/2 and notification verification behavior.
+- Add a runnable Restricted TEST createPaymentSession example and configuration documentation.
+- Honor the configured total request timeout when waiting for response headers.
+
 ## Unreleased
 - Add the HTTP/2 session transport required by `meter/uploadEvent`.
 - Allow `meter/uploadEvent` applications to use the Go version declared in `go.mod`. Production applications should use a currently supported Go release containing the latest security fixes.
