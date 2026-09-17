@@ -53,11 +53,10 @@ func NewApiKeyAlipayClient(gatewayURL, apiKey string, options ...ApiKeyClientOpt
 		}
 	}
 	transport := &http.Transport{
-		Proxy:                 http.ProxyFromEnvironment,
-		DialContext:           (&net.Dialer{Timeout: 15 * time.Second, KeepAlive: 30 * time.Second}).DialContext,
-		TLSHandshakeTimeout:   15 * time.Second,
-		ResponseHeaderTimeout: 30 * time.Second,
-		IdleConnTimeout:       90 * time.Second,
+		Proxy:               http.ProxyFromEnvironment,
+		DialContext:         (&net.Dialer{Timeout: 15 * time.Second, KeepAlive: 30 * time.Second}).DialContext,
+		TLSHandshakeTimeout: 15 * time.Second,
+		IdleConnTimeout:     90 * time.Second,
 	}
 	return &ApiKeyAlipayClient{auth: auth, client: &http.Client{
 		Transport: transport, Timeout: config.timeout,

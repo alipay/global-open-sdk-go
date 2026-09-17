@@ -28,7 +28,7 @@ _ = response
 
 ## Configuration and lifecycle
 
-Optional `WithApiKeyTimeout(30 * time.Second)`. The client reuses connections; call `Close()` to release idle connections. The normal environment proxy configuration is honored.
+Optional `WithApiKeyTimeout(30 * time.Second)` sets the total deadline, including waiting for response headers and reading the body. Connection establishment and the TLS handshake each retain a 15-second limit. The client reuses connections; call `Close()` to release idle connections. The normal environment proxy configuration is honored.
 
 Ordinary requests validate TLS certificates and hostnames, do not follow redirects, and do not add automatic retries. Custom headers cannot override Bearer, RSA authentication fields or SDK transport headers.
 
