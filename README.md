@@ -1,9 +1,31 @@
 ```
 Language：GO  
 GO version：1.22.5+  
-Tags：v1.3.8
+Tags：v1.4.0
 Copyright：Ant financial services group  
 ```
+
+
+Planned release: **1.4.0**. This version is not published yet; package/tag references
+below describe the target release. Build this branch to try it before publication.
+
+## API Key client (planned for 1.4.0)
+
+Use `ApiKeyAlipayClient` with a regional HTTPS gateway and API Key. Existing request
+models are shared with the RSA client; ClientId and RSA keys are not required.
+
+```go
+// Imports: "os" and antom "github.com/alipay/global-open-sdk-go/com/alipay/api"
+client, err := antom.NewApiKeyAlipayClient(
+    os.Getenv("ANTOM_GATEWAY_URL"), os.Getenv("ANTOM_API_KEY"))
+if err != nil { return err }
+defer client.Close()
+```
+
+Start with the [sandbox createPaymentSession example](com/alipay/example/api_key_payment_session/main.go) and its
+[configuration and run instructions](docs/api-key-client.md). Existing RSA usage below remains supported.
+
+
 
 #### 1 Please use the latest version
 
