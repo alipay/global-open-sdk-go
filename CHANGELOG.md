@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.4.0 (planned; unreleased)
+## 1.4.1 (planned; unreleased)
+
+- Add post-authorization risk review fields authReviewStatus, authReviewSource, and popRiskDecisionResultInfo to the payment inquiry response and the payment result notification.
+- Add splitDetails to the refund request and refund inquiry response for Shopify ISV split reversal, with the new SplitDetail model.
+- Align Credit Grant and Meter models with the official Billing contract: availableAmount now uses the Amount model, the AvailableAmount model is removed, and enum values and field descriptions are updated.
+
+## 1.4.0 - 2026-09-18
 
 - Add an independent API Key client using a gateway and API Key, with existing business request/response models.
 - Keep existing RSA APIs compatible; retain Session HTTP/2 and notification verification behavior.

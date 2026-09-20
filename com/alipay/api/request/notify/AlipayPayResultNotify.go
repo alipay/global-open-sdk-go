@@ -25,4 +25,10 @@ type AlipayPayResultNotify struct {
 	AuthExpiryTime           string                   `json:"authExpiryTime,omitempty"`
 	// TaxCalculationId identifies the tax calculation associated with the payment. Retain it for reconciliation and subsequent refunds; query tax details through inquireTransactionList. It does not indicate that tax has been posted or recorded. If absent, the payment is not subject to tax.
 	TaxCalculationId string `json:"taxCalculationId,omitempty"`
+	// AuthReviewStatus is the status of the post-authorization manual review. Valid values are PROCESSING, ACCEPT, and REJECT. Returned when the channel authorization requires manual review, or when popRiskDecisionResultInfo.postRiskDecision is REVIEW; when returned, authReviewSource is returned at the same time.
+	AuthReviewStatus string `json:"authReviewStatus,omitempty"`
+	// AuthReviewSource is the source of the post-authorization risk review. Valid values are ANTOM_SHIELD and PSP. Returned only when authReviewStatus is returned.
+	AuthReviewSource string `json:"authReviewSource,omitempty"`
+	// PopRiskDecisionResultInfo is the post-authorization risk review result of the payment.
+	PopRiskDecisionResultInfo *model.PopRiskDecisionResultInfo `json:"popRiskDecisionResultInfo,omitempty"`
 }
