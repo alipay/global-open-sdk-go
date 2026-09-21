@@ -12,35 +12,12 @@ Requires Go 1.22.5+. Use a supported Go release with current security fixes.
 
 ## Quick start
 
-- **API Key:** follow the [setup guide](docs/api-key-client.md) and run the [sandbox example](com/alipay/example/api_key_payment_session/main.go).
 - **RSA:** follow the [configuration](#rsa-configuration) and [inline example](#payment) below.
+- **API Key (limited availability):** follow the [setup guide](docs/api-key-client.md) and run the [sandbox example](com/alipay/example/api_key_payment_session/main.go).
 - Browse [more examples](com/alipay/example) and the [API documentation](https://global.alipay.com/docs/).
 
-API Key and RSA clients share request/response models. File uploads and notification
+RSA and API Key clients share request/response models. File uploads and notification
 verification still require RSA credentials.
-
-### API Key client
-
-Set `ANTOM_GATEWAY_URL` and `ANTOM_API_KEY` in your server environment.
-This initializes the client; see the [setup guide](docs/api-key-client.md) for a
-complete sandbox request and its additional configuration.
-
-```go
-package main
-
-import (
-    "os"
-    antom "github.com/alipay/global-open-sdk-go/com/alipay/api"
-)
-
-func main() {
-    client, err := antom.NewApiKeyAlipayClient(
-        os.Getenv("ANTOM_GATEWAY_URL"), os.Getenv("ANTOM_API_KEY"))
-    if err != nil { panic(err) }
-    defer client.Close()
-    // Use client.Execute(request) with a business request.
-}
-```
 
 ### RSA configuration
 
@@ -113,6 +90,32 @@ func main() {
     }
     response := execute.(*responsePay.AlipayPayResponse)
     fmt.Println(response.Result)
+}
+```
+
+### API Key client (limited availability)
+
+> API Key access is not yet available to all merchants. Use this client only if
+> API Key access has been enabled for your account; otherwise, use RSA.
+
+Set `ANTOM_GATEWAY_URL` and `ANTOM_API_KEY` in your server environment.
+This initializes the client; see the [setup guide](docs/api-key-client.md) for a
+complete sandbox request and its additional configuration.
+
+```go
+package main
+
+import (
+    "os"
+    antom "github.com/alipay/global-open-sdk-go/com/alipay/api"
+)
+
+func main() {
+    client, err := antom.NewApiKeyAlipayClient(
+        os.Getenv("ANTOM_GATEWAY_URL"), os.Getenv("ANTOM_API_KEY"))
+    if err != nil { panic(err) }
+    defer client.Close()
+    // Use client.Execute(request) with a business request.
 }
 ```
 
