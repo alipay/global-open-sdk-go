@@ -109,11 +109,11 @@ func validateValueFormat(value string) error {
 }
 
 func validateCanonical(value string, currency string) error {
-	if allZeros(value) {
-		return amountError("AMOUNT_NOT_POSITIVE", "value must be greater than zero")
-	}
 	if len(value) > maxAmountValueLength {
 		return amountError("VALUE_TOO_LONG", "value must contain at most 16 digits")
+	}
+	if allZeros(value) {
+		return nil
 	}
 	rules, err := loadAmountRules()
 	if err != nil {
