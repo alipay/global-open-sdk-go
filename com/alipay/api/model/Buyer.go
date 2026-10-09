@@ -1,6 +1,8 @@
 package model
 
 type Buyer struct {
+	BusinessName            string        `json:"businessName,omitempty"`
+	BuyerType               string        `json:"buyerType,omitempty"`
 	ReferenceBuyerId        string        `json:"referenceBuyerId,omitempty"`
 	BuyerName               *UserName     `json:"buyerName,omitempty"`
 	BuyerPhoneNo            string        `json:"buyerPhoneNo,omitempty"`
