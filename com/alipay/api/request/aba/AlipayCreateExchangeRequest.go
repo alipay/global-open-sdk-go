@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayCreateExchangeRequest struct {
+	Quote             *model.Quote  `json:"quote,omitempty"`
 	BuyAmount         *model.Amount `json:"buyAmount,omitempty"`
 	SellAmount        *model.Amount `json:"sellAmount,omitempty"`
 	ExchangeTradeType string        `json:"exchangeTradeType,omitempty"`
