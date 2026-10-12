@@ -36,12 +36,12 @@ func loadAmountRules() (*amountRuleSet, error) {
 			amountRulesError = fmt.Errorf("RULE_DATA_ERROR: unable to parse amount currency rules: %w", err)
 			return
 		}
-		if loadedAmountRules.SchemaVersion != 1 || loadedAmountRules.Currencies == nil || loadedAmountRules.AntomConstraints == nil {
+		if loadedAmountRules.SchemaVersion != 1 || len(loadedAmountRules.Currencies) == 0 || loadedAmountRules.AntomConstraints == nil {
 			amountRulesError = fmt.Errorf("RULE_DATA_ERROR: invalid amount currency rules structure")
 			return
 		}
 		for _, rule := range loadedAmountRules.Currencies {
-			if rule.MinorUnit != nil && (*rule.MinorUnit < 0 || *rule.MinorUnit > 4) {
+			if rule.MinorUnit == nil || *rule.MinorUnit < 0 || *rule.MinorUnit > 4 {
 				amountRulesError = fmt.Errorf("RULE_DATA_ERROR: invalid minor unit")
 				return
 			}
