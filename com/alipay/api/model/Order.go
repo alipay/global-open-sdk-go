@@ -1,6 +1,7 @@
 package model
 
 type Order struct {
+	SendReceipt         bool         `json:"sendReceipt,omitempty"`
 	ReferenceOrderId    string       `json:"referenceOrderId,omitempty"`
 	OrderDescription    string       `json:"orderDescription,omitempty"`
 	OrderAmount         *Amount      `json:"orderAmount,omitempty"`

@@ -7,21 +7,24 @@ import (
 )
 
 type AlipayInvoiceCreateRequest struct {
-	InvoiceRequestId string                     `json:"invoiceRequestId,omitempty"`
-	CustomerId       string                     `json:"customerId,omitempty"`
-	SubscriptionId   string                     `json:"subscriptionId,omitempty"`
-	Currency         string                     `json:"currency,omitempty"`
-	Items            []*model.InvoiceCreateItem `json:"items,omitempty"`
-	Status           string                     `json:"status,omitempty"`
-	AutoSend         bool                       `json:"autoSend,omitempty"`
-	CcEmails         []string                   `json:"ccEmails,omitempty"`
-	Description      string                     `json:"description,omitempty"`
-	DueDate          string                     `json:"dueDate,omitempty"`
-	CollectionMethod string                     `json:"collectionMethod,omitempty"`
-	PaymentMethod    *model.PaymentMethod       `json:"paymentMethod,omitempty"`
-	Shipping         *model.InvoiceShipping     `json:"shipping,omitempty"`
-	Discounts        []*model.BillingDiscount   `json:"discounts,omitempty"`
-	InvoiceNotifyUrl string                     `json:"invoiceNotifyUrl,omitempty"`
+	IncludePaymentLink *bool                         `json:"includePaymentLink,omitempty"`
+	AutomaticTax       *model.AutomaticTax           `json:"automaticTax,omitempty"`
+	CustomerDetails    *model.InvoiceCustomerDetails `json:"customerDetails,omitempty"`
+	InvoiceRequestId   string                        `json:"invoiceRequestId,omitempty"`
+	CustomerId         string                        `json:"customerId,omitempty"`
+	SubscriptionId     string                        `json:"subscriptionId,omitempty"`
+	Currency           string                        `json:"currency,omitempty"`
+	Items              []*model.InvoiceCreateItem    `json:"items,omitempty"`
+	Status             string                        `json:"status,omitempty"`
+	AutoSend           bool                          `json:"autoSend,omitempty"`
+	CcEmails           []string                      `json:"ccEmails,omitempty"`
+	Description        string                        `json:"description,omitempty"`
+	DueDate            string                        `json:"dueDate,omitempty"`
+	CollectionMethod   string                        `json:"collectionMethod,omitempty"`
+	PaymentMethod      *model.PaymentMethod          `json:"paymentMethod,omitempty"`
+	Shipping           *model.InvoiceShipping        `json:"shipping,omitempty"`
+	Discounts          []*model.BillingDiscount      `json:"discounts,omitempty"`
+	InvoiceNotifyUrl   string                        `json:"invoiceNotifyUrl,omitempty"`
 }
 
 func NewAlipayInvoiceCreateRequest() (*request.AlipayRequest, *AlipayInvoiceCreateRequest) {

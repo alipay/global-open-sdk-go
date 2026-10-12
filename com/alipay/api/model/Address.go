@@ -1,6 +1,7 @@
 package model
 
 type Address struct {
+	Country  string `json:"country,omitempty"`
 	Region   string `json:"region,omitempty"`
 	State    string `json:"state,omitempty"`
 	City     string `json:"city,omitempty"`

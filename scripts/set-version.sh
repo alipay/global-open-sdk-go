@@ -50,8 +50,8 @@ replace_once(
 )
 replace_once(
     "README.md",
-    r"(?m)^Tags：v[^\r\n]+$",
-    "Tags：v{}".format(version),
+    r"(?m)^Latest release: \*\*[^\r\n*]+\*\*$",
+    "Latest release: **{}**".format(version),
 )
 PY
 
