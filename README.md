@@ -195,23 +195,3 @@ func (alipayClient *DefaultAlipayClient) Execute(alipayRequest *request.AlipayRe
 ## Support
 
 For integration questions, contact overseas_support@service.alibaba.com.
-
-## Exact amount conversion
-
-All three AmountUtil operations accept zero, including IDR. Zero converts to
-`"0"` in minor units; conversion back uses the currency's fixed decimal precision.
-The 16-digit value limit still applies. Callers must check whether their target
-API accepts a zero amount.
-
-```go
-import "github.com/alipay/global-open-sdk-go/com/alipay/api/tools"
-
-value, err := tools.ToAmount("10.25", "USD") // "1025"
-major, err := tools.FromAmount(value, "USD") // "10.25"
-err = tools.Validate(value, "USD")
-```
-
-The functions use Antom's supported-currency rules and never round. Extra
-non-zero decimal places are rejected. ISO 4217 is reference evidence only.
-Payment-method currency support and minimum amounts remain subject to the
-relevant Antom API docs.
