@@ -119,6 +119,69 @@ func main() {
 }
 ```
 
+## Exact amount conversion
+
+Available in SDK version 1.5.0 and later.
+
+Convert a decimal amount string into Antom's integer-string `Amount.value`,
+convert it back to a fixed-precision decimal string, or validate an outbound
+value. Conversion returns a string, not an `Amount` object, and uses bundled
+currency rules without a network request.
+
+This example checks the error returned by each operation:
+
+```go
+package main
+
+import (
+    "fmt"
+    "log"
+
+    "github.com/alipay/global-open-sdk-go/com/alipay/api/tools"
+)
+
+func main() {
+    value, err := tools.ToAmount("10.25", "USD")
+    if err != nil {
+        log.Fatal(err)
+    }
+    amount, err := tools.FromAmount(value, "USD")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if err := tools.Validate(value, "USD"); err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(value, amount) // 1025 10.25
+}
+```
+
+`Validate` returns `nil` on success. Invalid input or bundled-rule loading
+failures return a non-nil `error`.
+Error messages include categories such as `UNSUPPORTED_CURRENCY`,
+`EXCESS_PRECISION`, `VALUE_TOO_LONG`, and `RULE_VIOLATION`.
+
+- Pass amounts, values, and currency codes as strings. Use uppercase currency
+  codes and unsigned ASCII numbers, without spaces, separators, or exponents.
+- Supported currencies: AUD, BDT, BRL, CAD, CLP, CNY, EUR, GBP, HKD, IDR, JPY,
+  KRW, MXN, MYR, NZD, PEN, PHP, PKR, PLN, SGD, THB, TWD, USD, VND. Other codes
+  are rejected; there is no default conversion multiplier.
+- Conversion is exact and never rounds. Extra non-zero decimal places are
+  rejected; trailing zero decimal places are allowed. Zero is accepted, but
+  callers must check whether the target API permits a zero amount.
+- The 16-digit limit applies to `Amount.value`, not to the decimal input string
+  or the business transaction limit. Conversion to a value checks the normalized
+  result; conversion from a value and validation count all input digits,
+  including leading zeros.
+- For IDR, conversion to a value and outbound validation require the value to
+  be a multiple of 100. Conversion from a value does not apply this outbound
+  restriction and never rounds the response amount.
+
+See [Antom's amount rules](https://docs.antom.com/ac/ref/cc) for the conversion
+convention. Supported payment-method currencies, transaction limits, and
+method-specific constraints (such as JKOPay TWD or Octopus HKD multiples) must
+be checked separately; this utility does not validate payment-method context.
+
 ## Upgrade notes
 
 Billing integrations: `availableAmount` now uses `Amount`; the `AvailableAmount`
