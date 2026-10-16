@@ -11,4 +11,6 @@ type Merchant struct {
 	MerchantType         MerchantType         `json:"merchantType,omitempty"`
 	NumberOfTrades       int32                `json:"numberOfTrades,omitempty"`
 	AccountLastModified  *AccountLastModified `json:"accountLastModified,omitempty"`
+	MerchantUrl          string               `json:"merchantUrl,omitempty"`
+	MerchantCountryCode  string               `json:"merchantCountryCode,omitempty"`
 }

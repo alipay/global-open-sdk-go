@@ -20,4 +20,6 @@ type Order struct {
 	Declaration         *Declaration `json:"declaration,omitempty"`
 	OrderType           string       `json:"orderType,omitempty"`
 	TaxCalculationId    string       `json:"taxCalculationId,omitempty"`
+	PaymentAmount       *Amount      `json:"paymentAmount,omitempty"`
+	CheckoutJwt         string       `json:"checkoutJwt,omitempty"`
 }
