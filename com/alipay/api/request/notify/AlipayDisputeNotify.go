@@ -26,4 +26,9 @@ type AlipayDisputeNotify struct {
 	AutoDefendReason        string                        `json:"autoDefendReason,omitempty"`
 	AcquirerInfo            *model.AcquirerInfo           `json:"acquirerInfo,omitempty"`
 	IssuerComments          *model.IssuerComments         `json:"issuerComments,omitempty"`
+
+	// Optional ISO 8601 cancellation time with timezone, returned for DISPUTE_CANCELLED.
+	DisputeCancelledTime string `json:"disputeCancelledTime,omitempty"`
+	// Optional ISO 8601 defense acceptance time with timezone, returned for DEFENSE_SUPPLIED.
+	DefenseSuppliedTime string `json:"defenseSuppliedTime,omitempty"`
 }
