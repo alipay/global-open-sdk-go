@@ -1,0 +1,30 @@
+[
+  {
+    "acquirerInfo": {
+      "acquirerName": "old-acquirerName",
+      "referenceRequestId": "old-referenceRequestId",
+      "acquirerTransactionId": "old-acquirerTransactionId",
+      "acquirerMerchantId": "original-mid",
+      "acquirerResultCode": "old-acquirerResultCode",
+      "acquirerResultMessage": "old-acquirerResultMessage",
+      "acquirerMerchantName": "old-acquirerMerchantName",
+      "acquirerReasonDescription": "old-acquirerReasonDescription",
+      "ptspTransactionId": "old-ptspTransactionId",
+      "acquirerCardToken": "old-acquirerCardToken",
+      "acquirerFingerprint": "old-acquirerFingerprint",
+      "acquirerAccountName": "商户 \"A\" \\ name"
+    }
+  },
+  {
+    "acquirerInfo": {
+      "acquirerMerchantId": "original-mid"
+    }
+  },
+  {},
+  {
+    "acquirerInfo": {
+      "acquirerMerchantId": "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+      "acquirerAccountName": "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN"
+    }
+  }
+]
