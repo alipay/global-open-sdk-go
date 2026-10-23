@@ -5,6 +5,7 @@ type CardTransactionEvent struct {
 	LifecycleId          string             `json:"lifecycleId,omitempty"`
 	EventType            string             `json:"eventType,omitempty"`
 	AuthExpireTime       string             `json:"authExpireTime,omitempty"`
+	AuthTime             string             `json:"authTime,omitempty"`
 	AuthType             string             `json:"authType,omitempty"`
 	AuthCode             string             `json:"authCode,omitempty"`
 	FailureReason        string             `json:"failureReason,omitempty"`
@@ -18,6 +19,7 @@ type CardTransactionEvent struct {
 	ExchangeRate         string             `json:"exchangeRate,omitempty"`
 	TransactionAmount    *Amount            `json:"transactionAmount,omitempty"`
 	AssetId              string             `json:"assetId,omitempty"`
+	CardProduct          string             `json:"cardProduct,omitempty"`
 	MaskedCardNo         string             `json:"maskedCardNo,omitempty"`
 	MerchantInfo         *EventMerchantInfo `json:"merchantInfo,omitempty"`
 	Metadata             map[string]string  `json:"metadata,omitempty"`
