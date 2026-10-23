@@ -12,6 +12,7 @@ type CardTransactionLifecycleDetail struct {
 	TotalRefundAmount     *Amount                 `json:"totalRefundAmount,omitempty"`
 	TotalChargebackAmount *Amount                 `json:"totalChargebackAmount,omitempty"`
 	AssetId               string                  `json:"assetId,omitempty"`
+	CardProduct           string                  `json:"cardProduct,omitempty"`
 	MaskedCardNo          string                  `json:"maskedCardNo,omitempty"`
 	Events                []*CardTransactionEvent `json:"events,omitempty"`
 }
