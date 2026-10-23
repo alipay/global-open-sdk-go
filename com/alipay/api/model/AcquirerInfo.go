@@ -12,4 +12,5 @@ type AcquirerInfo struct {
 	PtspTransactionId         string `json:"ptspTransactionId,omitempty"`
 	AcquirerCardToken         string `json:"acquirerCardToken,omitempty"`
 	AcquirerFingerprint       string `json:"acquirerFingerprint,omitempty"`
+	AcquirerAccountName       string `json:"acquirerAccountName,omitempty"`
 }
