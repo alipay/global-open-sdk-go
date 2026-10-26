@@ -7,6 +7,6 @@ type InvoiceCustomerDetails struct {
 	FirstName        string                   `json:"firstName,omitempty"`
 	LastName         string                   `json:"lastName,omitempty"`
 	BusinessAddress  *CustomerBusinessAddress `json:"businessAddress,omitempty"`
-	PreferredLocales string                   `json:"preferredLocales,omitempty"`
+	PreferredLocales *[]string                `json:"preferredLocales,omitempty"`
 	TaxIds           *[]*BuyerTaxId           `json:"taxIds,omitempty"`
 }
