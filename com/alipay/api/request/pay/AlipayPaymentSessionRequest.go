@@ -39,6 +39,7 @@ type AlipayPaymentSessionRequest struct {
 	AvailablePaymentMethod      *model.AvailablePaymentMethod `json:"availablePaymentMethod,omitempty"`
 	PaymentExpiryTime           string                        `json:"paymentExpiryTime,omitempty"`
 	Subscription                *model.BillingSubscription    `json:"subscription,omitempty"`
+	FundTransferInfo            *model.FundTransferInfo       `json:"fundTransferInfo,omitempty"`
 	AutomaticTax                *model.AutomaticTax           `json:"automaticTax,omitempty"`
 }
 
