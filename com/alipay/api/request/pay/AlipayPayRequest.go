@@ -7,6 +7,7 @@ import (
 )
 
 type AlipayPayRequest struct {
+	FundTransferInfo        *model.FundTransferInfo        `json:"fundTransferInfo,omitempty"`
 	Metadata                string                         `json:"metadata,omitempty"`
 	CustomizedInfo          *model.CustomizedInfo          `json:"customizedInfo,omitempty"`
 	PaymentQuote            *model.Quote                   `json:"paymentQuote,omitempty"`
