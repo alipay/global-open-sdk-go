@@ -36,6 +36,7 @@ type AlipayPayRequest struct {
 	MerchantAccountId       string                         `json:"merchantAccountId,omitempty"`
 	DualOfflinePayment      bool                           `json:"dualOfflinePayment,omitempty"`
 	SubscriptionId          string                         `json:"subscriptionId,omitempty"`
+	FundTransferInfo        *model.FundTransferInfo        `json:"fundTransferInfo,omitempty"`
 	Locale                  string                         `json:"locale,omitempty"`
 }
 
