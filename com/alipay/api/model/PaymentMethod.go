@@ -8,4 +8,5 @@ type PaymentMethod struct {
 	ExtendInfo                  string         `json:"extendInfo,omitempty"`
 	RequireIssuerAuthentication bool           `json:"requireIssuerAuthentication,omitempty"`
 	PaymentMethodMetaData       map[string]any `json:"paymentMethodMetaData,omitempty"`
+	CardBrand                   string         `json:"cardBrand,omitempty"`
 }
