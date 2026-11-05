@@ -1,9 +1,10 @@
 package model
 
 type CreditPayPlan struct {
-	InstallmentNum   int32            `json:"installmentNum,omitempty"`
-	Interval         string           `json:"interval,omitempty"`
-	CreditPayFeeType CreditPayFeeType `json:"creditPayFeeType,omitempty"`
-	FeePercentage    int32            `json:"feePercentage,omitempty"`
-	InterestRate     string           `json:"interestRate,omitempty"`
+	InstallmentNum             int32            `json:"installmentNum,omitempty"`
+	Interval                   string           `json:"interval,omitempty"`
+	CreditPayFeeType           CreditPayFeeType `json:"creditPayFeeType,omitempty"`
+	FeePercentage              int32            `json:"feePercentage,omitempty"`
+	FilteredInstallmentPeriods []int32          `json:"filteredInstallmentPeriods,omitempty"`
+	InterestRate               string           `json:"interestRate,omitempty"`
 }
