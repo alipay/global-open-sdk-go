@@ -7,16 +7,16 @@ import (
 )
 
 type AlipayVaultingPaymentMethodRequest struct {
-	MerchantAccountId       string                     `json:"merchantAccountId,omitempty"`
-	Metadata                string                     `json:"metadata,omitempty"`
-	VaultingRequestId       string                     `json:"vaultingRequestId,omitempty"`
-	VaultingNotificationUrl string                     `json:"vaultingNotificationUrl,omitempty"`
-	RedirectUrl             string                     `json:"redirectUrl,omitempty"`
-	MerchantRegion          string                     `json:"merchantRegion,omitempty"`
-	PaymentMethodDetail     *model.PaymentMethodDetail `json:"paymentMethodDetail,omitempty"`
-	Env                     *model.Env                 `json:"env,omitempty"`
-	VaultingCurrency        string                     `json:"vaultingCurrency,omitempty"`
-	CustomizedInfo          *model.CustomizedInfo      `json:"customizedInfo,omitempty"`
+	MerchantAccountId       string                                    `json:"merchantAccountId,omitempty"`
+	Metadata                string                                    `json:"metadata,omitempty"`
+	VaultingRequestId       string                                    `json:"vaultingRequestId,omitempty"`
+	VaultingNotificationUrl string                                    `json:"vaultingNotificationUrl,omitempty"`
+	RedirectUrl             string                                    `json:"redirectUrl,omitempty"`
+	MerchantRegion          string                                    `json:"merchantRegion,omitempty"`
+	PaymentMethodDetail     *model.VaultingPaymentMethodDetailPayload `json:"paymentMethodDetail,omitempty"`
+	Env                     *model.Env                                `json:"env,omitempty"`
+	VaultingCurrency        string                                    `json:"vaultingCurrency,omitempty"`
+	CustomizedInfo          *model.CustomizedInfo                     `json:"customizedInfo,omitempty"`
 }
 
 func NewAlipayVaultingPaymentMethodRequest() (*request.AlipayRequest, *AlipayVaultingPaymentMethodRequest) {
