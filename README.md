@@ -1,6 +1,6 @@
 # Antom SDK for Go
 
-Latest release: **1.5.2**
+Latest release: **1.5.3**
 
 ## Installation
 
