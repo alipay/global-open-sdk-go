@@ -6,12 +6,13 @@ import (
 )
 
 type AlipayVaultingSessionRequest struct {
-	PaymentMethodType       string `json:"paymentMethodType,omitempty"`
-	VaultingRequestId       string `json:"vaultingRequestId,omitempty"`
-	VaultingNotificationUrl string `json:"vaultingNotificationUrl,omitempty"`
-	RedirectUrl             string `json:"redirectUrl,omitempty"`
-	MerchantRegion          string `json:"merchantRegion,omitempty"`
-	Is3DSAuthentication     bool   `json:"is3DSAuthentication,omitempty"`
+	PaymentMethodType       string          `json:"paymentMethodType,omitempty"`
+	VaultingRequestId       string          `json:"vaultingRequestId,omitempty"`
+	VaultingNotificationUrl string          `json:"vaultingNotificationUrl,omitempty"`
+	RedirectUrl             string          `json:"redirectUrl,omitempty"`
+	MerchantRegion          string          `json:"merchantRegion,omitempty"`
+	Is3DSAuthentication     bool            `json:"is3DSAuthentication,omitempty"`
+	PaymentMethodMetaData   *map[string]any `json:"paymentMethodMetaData,omitempty"`
 }
 
 func NewAlipayVaultingSessionRequest() (*request.AlipayRequest, *AlipayVaultingSessionRequest) {
