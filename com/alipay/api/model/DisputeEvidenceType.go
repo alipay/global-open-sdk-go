@@ -5,4 +5,5 @@ type DisputeEvidenceType string
 const (
 	DisputeEvidenceType_TEMPLATE DisputeEvidenceType = "DISPUTE_EVIDENCE_TEMPLATE"
 	DisputeEvidenceType_FILE     DisputeEvidenceType = "DISPUTE_EVIDENCE_FILE"
+	DisputeEvidenceType_AI       DisputeEvidenceType = "DISPUTE_EVIDENCE_AI"
 )
