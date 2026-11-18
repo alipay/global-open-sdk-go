@@ -10,5 +10,4 @@ type PaymentMethodDetail struct {
 	ExtendInfo              string                       `json:"extendInfo,omitempty"`
 	Wallet                  *Wallet                      `json:"wallet,omitempty"`
 	InteractionType         string                       `json:"interactionType,omitempty"`
-	PaymentMethodMetaData   *PaymentMethodMetaData       `json:"paymentMethodMetaData,omitempty"`
 }
