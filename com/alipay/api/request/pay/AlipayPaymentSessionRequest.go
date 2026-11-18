@@ -27,6 +27,7 @@ type AlipayPaymentSessionRequest struct {
 	PaymentRedirectUrl          string                        `json:"paymentRedirectUrl,omitempty"`
 	PaymentNotifyUrl            string                        `json:"paymentNotifyUrl,omitempty"`
 	PaymentFactor               *model.PaymentFactor          `json:"paymentFactor,omitempty"`
+	ExcludedPaymentMethod       *model.ExcludedPaymentMethod  `json:"excludedPaymentMethod,omitempty"`
 	SettlementStrategy          *model.SettlementStrategy     `json:"settlementStrategy,omitempty"`
 	EnableInstallmentCollection bool                          `json:"enableInstallmentCollection,omitempty"`
 	CreditPayPlan               *model.CreditPayPlan          `json:"creditPayPlan,omitempty"`
