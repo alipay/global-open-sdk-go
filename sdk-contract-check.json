@@ -1,0 +1,26 @@
+{
+  "schema_version": "sdk-contract-check-v1",
+  "command": [
+    "python3",
+    "tests/vcc_contract/check_contract.py"
+  ],
+  "package_checks": {
+    "commands": [
+      [
+        "python3",
+        "tests/vcc_contract/check_package.py",
+        "inventory"
+      ]
+    ],
+    "consumer_commands": [
+      [
+        "python3",
+        "-c",
+        "import json,os,runpy; from pathlib import Path; evidence=json.loads(Path(os.environ['IL_SDK_BUILD_EVIDENCE']).read_text()); runpy.run_path(str(Path(evidence['workspace'])/'tests/vcc_contract/check_package.py'),run_name='__main__')",
+        "consumer"
+      ]
+    ],
+    "artifacts": [],
+    "scope": "Exact bound Go source tree, full package inventory and byte-identical standalone demo relocation; separate-module consumer imports public VCC models and executes real JSON round trips using cached native SDK builds."
+  }
+}
