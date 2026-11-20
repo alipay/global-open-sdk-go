@@ -1,6 +1,8 @@
 package model
 
 type Buyer struct {
+	// Kwai-Bettr consult flag: string "true" or "false"; other merchants omit it.
+	BuyerAccessGroupFlag    *string       `json:"buyerAccessGroupFlag,omitempty"`
 	PreferredLocales        *[]string     `json:"preferredLocales,omitempty"`
 	BusinessName            string        `json:"businessName,omitempty"`
 	BuyerType               string        `json:"buyerType,omitempty"`
