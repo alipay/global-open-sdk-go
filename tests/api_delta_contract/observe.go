@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	pkg1 "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
+	pkg3 "github.com/alipay/global-open-sdk-go/com/alipay/api/request/aba"
+	pkg2 "github.com/alipay/global-open-sdk-go/com/alipay/api/request/agentic"
 	pkg0 "github.com/alipay/global-open-sdk-go/com/alipay/api/request/pay"
 
 	"os"
@@ -98,12 +100,12 @@ func main() {
 		panic(e)
 	}
 	catalog := map[string]reflect.Type{}
-	for _, obj := range []any{pkg0.AlipayPayConsultRequest{}, pkg1.AmountLimit{}, pkg1.ConsultBuyer{}} {
+	for _, obj := range []any{pkg0.AlipayPayConsultRequest{}, pkg1.AmountLimit{}, pkg1.Buyer{}} {
 		catalog[name(obj)] = reflect.TypeOf(obj)
 	}
 
-	catalog["ConsultBuyer"] = reflect.TypeOf(pkg1.ConsultBuyer{})
-	logicalAliases[reflect.TypeOf(pkg1.ConsultBuyer{})] = "ConsultBuyer"
+	catalog["Buyer"] = reflect.TypeOf(pkg1.Buyer{})
+	logicalAliases[reflect.TypeOf(pkg1.Buyer{})] = "Buyer"
 	models := S{}
 	for _, target := range req.Models {
 		parts := strings.Split(target, "/")
@@ -136,7 +138,28 @@ func main() {
 		models[target] = S{"type": "object", "properties": props}
 	}
 	evidence := []string{"Actual Go reflected fields/tags/types and encoding/json roundtrips"}
-	if t, ok := catalog["ConsultBuyer"]; ok {
+	oldBuyer := baselineBuyer{}
+	shared := pkg1.Buyer{}
+	must(reflect.DeepEqual(wire(oldBuyer), wire(shared)), "baseline zero Buyer JSON")
+	oldV := reflect.ValueOf(&oldBuyer).Elem()
+	newV := reflect.ValueOf(&shared).Elem()
+	for i := 0; i < oldV.NumField(); i++ {
+		field := oldV.Type().Field(i)
+		v := value(field.Type)
+		oldV.Field(i).Set(v)
+		newV.FieldByName(field.Name).Set(v)
+	}
+	must(reflect.DeepEqual(wire(oldBuyer), wire(shared)), "baseline populated Buyer JSON")
+	for _, other := range []any{pkg0.AlipayPayRequest{Order: &pkg1.Order{Buyer: &shared}}, pkg0.AlipayPaymentSessionRequest{Order: &pkg1.Order{Buyer: &shared}}} {
+		must(reflect.DeepEqual(wire(other).(map[string]any)["order"].(map[string]any)["buyer"], wire(oldBuyer)), "nested Order Buyer unchanged when unset")
+	}
+	_, present := wire(shared).(map[string]any)["buyerAccessGroupFlag"]
+	must(!present, "nil new field omitted")
+	legacy := pkg0.AlipayPayConsultRequest{Buyer: &shared}
+	must(reflect.DeepEqual(wire(legacy).(map[string]any)["buyer"], wire(oldBuyer)), "keyed consult Buyer JSON unchanged")
+	evidence = append(evidence, "Pinned baseline zero/populated Buyer JSON, all original field types/tags and keyed struct construction verified; nil flag omitted")
+
+	if t, ok := catalog["Buyer"]; ok {
 		for _, flag := range []string{"true", "false"} {
 			o := reflect.New(t)
 			f := o.Elem().FieldByName("BuyerAccessGroupFlag")
@@ -182,6 +205,36 @@ func main() {
 	_ = legacyReadback
 	bindings := []S{}
 	{
+		q, p := pkg0.NewAlipayPayRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
+		q, p := pkg0.NewAlipayPaymentSessionRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
+		q, p := pkg2.NewAlipayCreateAuthenticationSessionRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
+		q, p := pkg2.NewAlipayCreateBindingSessionRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
+		q, p := pkg2.NewAlipayInquirePaymentTokenRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
+		q, p := pkg3.NewAlipayCreateDirectPaymentRequest()
+		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
+	}
+
+	{
 		q, p := pkg0.NewAlipayPayConsultRequest()
 		bindings = append(bindings, S{"path": q.Path, "method": q.HttpMethod, "request": name(p), "response": name(q.AlipayResponse)})
 	}
@@ -191,4 +244,23 @@ func main() {
 		panic(e)
 	}
 	fmt.Print(string(data))
+}
+
+type baselineBuyer struct {
+	PreferredLocales        *[]string          `json:"preferredLocales,omitempty"`
+	BusinessName            string             `json:"businessName,omitempty"`
+	BuyerType               string             `json:"buyerType,omitempty"`
+	ReferenceBuyerId        string             `json:"referenceBuyerId,omitempty"`
+	BuyerName               *pkg1.UserName     `json:"buyerName,omitempty"`
+	BuyerPhoneNo            string             `json:"buyerPhoneNo,omitempty"`
+	BuyerEmail              string             `json:"buyerEmail,omitempty"`
+	BuyerRegistrationTime   string             `json:"buyerRegistrationTime,omitempty"`
+	IsAccountVerified       bool               `json:"isAccountVerified,omitempty"`
+	SuccessfulOrderCount    int32              `json:"successfulOrderCount,omitempty"`
+	BuyerPhoneNoContryCode  string             `json:"buyerPhoneNoContryCode,omitempty"`
+	SuccessfulOrderAmount   *pkg1.Amount       `json:"successfulOrderAmount,omitempty"`
+	DateOfLastPaidPurchase  string             `json:"dateOfLastPaidPurchase,omitempty"`
+	DateOfFirstPaidPurchase string             `json:"dateOfFirstPaidPurchase,omitempty"`
+	TaxIds                  []*pkg1.BuyerTaxId `json:"taxIds,omitempty"`
+	BusinessAddress         *pkg1.Address      `json:"businessAddress,omitempty"`
 }
