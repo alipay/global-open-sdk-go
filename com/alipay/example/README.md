@@ -1,8 +1,6 @@
 # Standalone examples
 
-Each executable demo keeps its own `main` function in a separate package. The root `example` package provides reusable helpers such as `UploadMeterEvents` without an executable entry point.
-
-Validate the complete repository with `go build ./...`, `go test ./...`, and `go vet ./...`.
+Each demo keeps its own `main` function in a separate package so all examples remain runnable and `go test ./...` and `go vet ./...` can cover the complete repository.
 
 Run a demo from the repository root, for example:
 
