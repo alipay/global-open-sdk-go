@@ -21,7 +21,7 @@ type {{classname}} struct {
 {{#vars}}
     {{#lambdas.skipResult}}
     {{#isPrimitiveType}}
-        {{name}} {{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}} `json:"{{baseName}},omitempty"`
+        {{name}} {{#isLong}}{{#isNullable}}*int64{{/isNullable}}{{^isNullable}}{{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}}{{/isNullable}}{{/isLong}}{{^isLong}}{{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}}{{/isLong}} `json:"{{baseName}},omitempty"`
     {{/isPrimitiveType}}
     {{^isPrimitiveType}}
     {{#allowableValues}}
