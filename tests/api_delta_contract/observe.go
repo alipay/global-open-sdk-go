@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	pkg1 "github.com/alipay/global-open-sdk-go/com/alipay/api/request/billing"
@@ -76,7 +77,9 @@ func wire(obj any) any {
 		panic(e)
 	}
 	var out any
-	e = json.Unmarshal(b, &out)
+	dec := json.NewDecoder(bytes.NewReader(b))
+	dec.UseNumber()
+	e = dec.Decode(&out)
 	if e != nil {
 		panic(e)
 	}
@@ -147,12 +150,14 @@ func main() {
 		if _, ok := t.FieldByName("CreditNoteIds"); !ok {
 			continue
 		}
-		for _, fixture := range []string{`{}`, `{"creditNoteIds":null}`, `{"creditNoteIds":[]}`, `{"creditNoteId":"cn_a","creditNoteIds":["cn_a"],"creditNoteAmount":"3000","creditNoteCurrency":"USD"}`, `{"creditNoteIds":["cn_a","cn_z"],"creditNoteAmount":"8000","creditNoteCurrency":"USD"}`} {
+		for _, fixture := range []string{`{}`, `{"creditNoteIds":null}`, `{"creditNoteIds":[]}`, `{"creditNoteId":"cn_a","creditNoteIds":["cn_a"],"creditNoteAmount":3000,"creditNoteCurrency":"USD"}`, `{"creditNoteIds":["cn_a","cn_z"],"creditNoteAmount":8000,"creditNoteCurrency":"USD"}`} {
 			o := reflect.New(t)
 			must(json.Unmarshal([]byte(fixture), o.Interface()) == nil, "subscription parser")
 			actual := wire(o.Interface()).(map[string]any)
 			var input map[string]any
-			json.Unmarshal([]byte(fixture), &input)
+			dec := json.NewDecoder(strings.NewReader(fixture))
+			dec.UseNumber()
+			dec.Decode(&input)
 			for k, v := range input {
 				if v != nil {
 					if a, ok := v.([]any); ok && len(a) == 0 {
@@ -166,22 +171,24 @@ func main() {
 
 	amountType := reflect.TypeOf(pkg0.AlipayBillingSubscriptionUpdateResponse{})
 	amountField, ok := amountType.FieldByName("CreditNoteAmount")
-	must(ok && amountField.Type.Kind() == reflect.Pointer && amountField.Type.Elem().Kind() == reflect.Int64, "public amount must be nullable int64")
+	must(ok && amountField.Type.Kind() == reflect.Pointer && amountField.Type.Elem().Kind() == reflect.Int64, "nullable int64 public field")
+	must(!strings.Contains(amountField.Tag.Get("json"), ",string"), "no string wire tag")
 	for _, amount := range []string{"0", "3000", "8000", "9007199254740993", "9223372036854775807"} {
 		var parsed pkg0.AlipayBillingSubscriptionUpdateResponse
-		must(json.Unmarshal([]byte(`{"creditNoteAmount":"`+amount+`"}`), &parsed) == nil, "exact int64 parse")
-		must(parsed.CreditNoteAmount != nil && fmt.Sprint(*parsed.CreditNoteAmount) == amount, "numeric public int64 value")
-		must(wire(&parsed).(map[string]any)["creditNoteAmount"] == amount, "wire amount must remain exact string")
+		must(json.Unmarshal([]byte(`{"creditNoteAmount":`+amount+`}`), &parsed) == nil, "integer JSON parse")
+		must(parsed.CreditNoteAmount != nil && fmt.Sprint(*parsed.CreditNoteAmount) == amount, "exact Int64 value")
+		value, ok := wire(&parsed).(map[string]any)["creditNoteAmount"].(json.Number)
+		must(ok && value.String() == amount, "exact integer JSON wire without float precision loss")
 		byField := pkg0.AlipayBillingSubscriptionUpdateResponse{CreditNoteAmount: parsed.CreditNoteAmount}
-		must(wire(&byField).(map[string]any)["creditNoteAmount"] == amount, "numeric public field")
+		must(wire(&byField).(map[string]any)["creditNoteAmount"].(json.Number).String() == amount, "numeric public field")
 	}
 	for _, missing := range []string{`{}`, `{"creditNoteAmount":null}`} {
 		var parsed pkg0.AlipayBillingSubscriptionUpdateResponse
-		must(json.Unmarshal([]byte(missing), &parsed) == nil && parsed.CreditNoteAmount == nil, "missing/null amount is not zero")
+		must(json.Unmarshal([]byte(missing), &parsed) == nil && parsed.CreditNoteAmount == nil, "missing/null is not zero")
 		_, exists := wire(&parsed).(map[string]any)["creditNoteAmount"]
-		must(!exists, "nil amount omitted, never zero")
+		must(!exists, "nil amount omitted")
 	}
-	evidence = append(evidence, "Nullable int64, string wire, zero/>2^53/int64 max and null/absent regressions")
+	evidence = append(evidence, "Nullable int64; integer JSON at zero/samples/>2^53/int64 max; absent/null; no string tag")
 	bindings := []S{}
 	{
 		q, p := pkg1.NewAlipayBillingSubscriptionUpdateRequest()

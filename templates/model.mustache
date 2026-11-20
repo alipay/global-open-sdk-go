@@ -20,12 +20,8 @@ type {{classname}} struct {
 {{/lambdas.GoParent}}
 {{#vars}}
     {{#lambdas.skipResult}}
-    {{#vendorExtensions.x-sdk-json-string}}
-        {{name}} *int64 `json:"{{baseName}},string,omitempty"`
-    {{/vendorExtensions.x-sdk-json-string}}
-    {{^vendorExtensions.x-sdk-json-string}}
     {{#isPrimitiveType}}
-        {{name}} {{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}} `json:"{{baseName}},omitempty"`
+        {{name}} {{#isLong}}{{#isNullable}}*int64{{/isNullable}}{{^isNullable}}{{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}}{{/isNullable}}{{/isLong}}{{^isLong}}{{#lambdas.GOspecificList}} {{name}} | {{{dataType}}} | {{classname}} {{/lambdas.GOspecificList}}{{/isLong}} `json:"{{baseName}},omitempty"`
     {{/isPrimitiveType}}
     {{^isPrimitiveType}}
     {{#allowableValues}}
@@ -37,7 +33,6 @@ type {{classname}} struct {
         {{/lambdas.GoModel}}
     {{/allowableValues}}
     {{/isPrimitiveType}}
-    {{/vendorExtensions.x-sdk-json-string}}
     {{/lambdas.skipResult}}
 {{/vars}}
 }
