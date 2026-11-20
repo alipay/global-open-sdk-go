@@ -1,6 +1,7 @@
 package model
 
 type Buyer struct {
+	BuyerAccessGroupFlag    string        `json:"buyerAccessGroupFlag,omitempty"`
 	PreferredLocales        *[]string     `json:"preferredLocales,omitempty"`
 	BusinessName            string        `json:"businessName,omitempty"`
 	BuyerType               string        `json:"buyerType,omitempty"`
