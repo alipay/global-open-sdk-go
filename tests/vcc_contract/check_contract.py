@@ -58,6 +58,14 @@ def api_review(req):
             differences.append({'symbol': path, 'kind': 'standalone_example_package_relocated',
                                 'before': path, 'after': str(relocated.relative_to(ROOT))})
         new = current.read_text(encoding='utf-8-sig')
+        # This helper has no executable entry point. Only its package changes;
+        # keep the entire exported function and body identical to the baseline.
+        if req['language'] == 'go' and path == 'com/alipay/example/meter_upload_event_demo.go':
+            assert old.startswith('package main\n')
+            assert new == old.replace('package main\n', 'package example\n', 1), ('helper body changed', path)
+            differences.append({'symbol': path, 'kind': 'example_helper_package_changed',
+                                'before': 'main', 'after': 'example'})
+            continue
         before, after = declarations(req['language'], old), declarations(req['language'], new)
         if before != after:
             differences.append({'symbol': path, 'kind': 'declaration_changed',

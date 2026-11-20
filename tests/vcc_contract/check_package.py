@@ -22,6 +22,10 @@ mode = sys.argv[1]
 if mode == 'inventory':
     assert Path.cwd().resolve() == root
     assert ['go', 'test', './...'] in evidence['commands']
+    # go test creates its own entry point and can pass with a main package
+    # that has no main function. Build every package to catch linker failures.
+    run(['go', 'build', './...'], root)
+    assert run(['go', 'list', '-f', '{{.Name}}', './com/alipay/example'], root).strip() == 'example'
     packages = set(run(['go', 'list', './...'], root).splitlines())
     for stem in ['auth_demo', 'customs_demo', 'dispute', 'marketplace_demo', 'pay_demo', 'subscription_demo', 'vaulting_demo']:
         before = 'com/alipay/example/' + stem + '.go'
@@ -30,7 +34,7 @@ if mode == 'inventory':
         assert hashlib.sha256(after.read_bytes()).digest() == hashlib.sha256(baseline).digest()
         assert module + '/com/alipay/example/' + stem in packages
     assert module + '/com/alipay/api/model' in packages
-    print('All seven unchanged demo bodies are present in separate compiled packages; native full-repository build reused.')
+    print('Full-repository go build passed; all seven unchanged demo bodies remain in separate packages.')
 elif mode == 'consumer':
     consumer = Path.cwd().resolve()
     assert consumer != root and root not in consumer.parents
@@ -43,7 +47,9 @@ import (
  m "github.com/alipay/global-open-sdk-go/com/alipay/api/model"
  a "github.com/alipay/global-open-sdk-go/com/alipay/api/request/aba"
  r "github.com/alipay/global-open-sdk-go/com/alipay/api/response/aba"
+ examples "github.com/alipay/global-open-sdk-go/com/alipay/example"
 )
+var _ = examples.UploadMeterEvents
 func TestInstalledSourceConsumer(t *testing.T) {
  currencies:=[]string{"HKD","USD"}
  request,body:=a.NewAlipayApplyCardRequest()
