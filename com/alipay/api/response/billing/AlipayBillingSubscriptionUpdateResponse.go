@@ -15,7 +15,8 @@ type AlipayBillingSubscriptionUpdateResponse struct {
 	ProrationInvoiceAmount   int64                     `json:"prorationInvoiceAmount,omitempty"`
 	ProrationInvoiceCurrency string                    `json:"prorationInvoiceCurrency,omitempty"`
 	CreditNoteId             string                    `json:"creditNoteId,omitempty"`
-	CreditNoteAmount         int64                     `json:"creditNoteAmount,omitempty"`
+	CreditNoteIds            *[]string                 `json:"creditNoteIds,omitempty"`
+	CreditNoteAmount         *string                   `json:"creditNoteAmount,omitempty"`
 	CreditNoteCurrency       string                    `json:"creditNoteCurrency,omitempty"`
 	PendingUpdate            bool                      `json:"pendingUpdate,omitempty"`
 }
