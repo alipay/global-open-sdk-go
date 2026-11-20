@@ -7,13 +7,13 @@ import (
 )
 
 type AlipayApplyCardRequest struct {
-	RequestId            string                               `json:"requestId,omitempty"`
-	CardNickName         string                               `json:"cardNickName,omitempty"`
-	Note                 string                               `json:"note,omitempty"`
-	CardBinRule          string                               `json:"cardBinRule,omitempty"`
-	Purpose              string                               `json:"purpose,omitempty"`
-	Metadata             map[string]string                    `json:"metadata,omitempty"`
-	AuthorizationControl *model.ApplyCardAuthorizationControl `json:"authorizationControl,omitempty"`
+	RequestId            string                      `json:"requestId,omitempty"`
+	CardNickName         string                      `json:"cardNickName,omitempty"`
+	Note                 string                      `json:"note,omitempty"`
+	CardBinRule          string                      `json:"cardBinRule,omitempty"`
+	Purpose              string                      `json:"purpose,omitempty"`
+	Metadata             map[string]string           `json:"metadata,omitempty"`
+	AuthorizationControl *model.AuthorizationControl `json:"authorizationControl,omitempty"`
 }
 
 func NewAlipayApplyCardRequest() (*request.AlipayRequest, *AlipayApplyCardRequest) {
