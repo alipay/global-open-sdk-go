@@ -65,6 +65,11 @@ def review_api(req):
         if (isinstance(before, str) and isinstance(after, str)
                 and before.startswith('#/components/schemas/') and after.startswith('#/components/schemas/')):
             aliases[after.rsplit('/', 1)[-1]] = before.rsplit('/', 1)[-1]
+    # A pointer is needed for documented absent/null versus measured zero.
+    # This is an explicitly reported Go source compatibility change, not an
+    # assertion that existing int64 assignments remain unchanged.
+    if req['language'] == 'go':
+        changed_scalar_fields.add('creditNoteAmount')
     for path in paths:
         old = run(['git', 'show', req['baseline_commit'] + ':' + path])
         current = ROOT / path

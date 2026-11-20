@@ -163,6 +163,25 @@ func main() {
 			}
 		}
 	}
+
+	amountType := reflect.TypeOf(pkg0.AlipayBillingSubscriptionUpdateResponse{})
+	amountField, ok := amountType.FieldByName("CreditNoteAmount")
+	must(ok && amountField.Type.Kind() == reflect.Pointer && amountField.Type.Elem().Kind() == reflect.Int64, "public amount must be nullable int64")
+	for _, amount := range []string{"0", "3000", "8000", "9007199254740993", "9223372036854775807"} {
+		var parsed pkg0.AlipayBillingSubscriptionUpdateResponse
+		must(json.Unmarshal([]byte(`{"creditNoteAmount":"`+amount+`"}`), &parsed) == nil, "exact int64 parse")
+		must(parsed.CreditNoteAmount != nil && fmt.Sprint(*parsed.CreditNoteAmount) == amount, "numeric public int64 value")
+		must(wire(&parsed).(map[string]any)["creditNoteAmount"] == amount, "wire amount must remain exact string")
+		byField := pkg0.AlipayBillingSubscriptionUpdateResponse{CreditNoteAmount: parsed.CreditNoteAmount}
+		must(wire(&byField).(map[string]any)["creditNoteAmount"] == amount, "numeric public field")
+	}
+	for _, missing := range []string{`{}`, `{"creditNoteAmount":null}`} {
+		var parsed pkg0.AlipayBillingSubscriptionUpdateResponse
+		must(json.Unmarshal([]byte(missing), &parsed) == nil && parsed.CreditNoteAmount == nil, "missing/null amount is not zero")
+		_, exists := wire(&parsed).(map[string]any)["creditNoteAmount"]
+		must(!exists, "nil amount omitted, never zero")
+	}
+	evidence = append(evidence, "Nullable int64, string wire, zero/>2^53/int64 max and null/absent regressions")
 	bindings := []S{}
 	{
 		q, p := pkg1.NewAlipayBillingSubscriptionUpdateRequest()
