@@ -24,7 +24,7 @@ type AlipayPayConsultRequest struct {
 	SettlementStrategy          *model.SettlementStrategy `json:"settlementStrategy,omitempty"`
 	Merchant                    *model.Merchant           `json:"merchant,omitempty"`
 	AllowedPspRegions           []string                  `json:"allowedPspRegions,omitempty"`
-	Buyer                       *model.Buyer              `json:"buyer,omitempty"`
+	Buyer                       *model.ConsultBuyer       `json:"buyer,omitempty"`
 	MerchantAccountId           string                    `json:"merchantAccountId,omitempty"`
 }
 
