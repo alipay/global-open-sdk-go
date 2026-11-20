@@ -1,19 +1,18 @@
 package pay
 
 import (
-	"github.com/alipay/global-open-sdk-go/com/alipay/api/model"
 	"github.com/alipay/global-open-sdk-go/com/alipay/api/request"
 	responsePay "github.com/alipay/global-open-sdk-go/com/alipay/api/response/pay"
 )
 
 type AlipayVaultingSessionRequest struct {
-	PaymentMethodType       string                       `json:"paymentMethodType,omitempty"`
-	VaultingRequestId       string                       `json:"vaultingRequestId,omitempty"`
-	VaultingNotificationUrl string                       `json:"vaultingNotificationUrl,omitempty"`
-	RedirectUrl             string                       `json:"redirectUrl,omitempty"`
-	MerchantRegion          string                       `json:"merchantRegion,omitempty"`
-	Is3DSAuthentication     bool                         `json:"is3DSAuthentication,omitempty"`
-	PaymentMethodMetaData   *model.PaymentMethodMetaData `json:"paymentMethodMetaData,omitempty"`
+	PaymentMethodType       string         `json:"paymentMethodType,omitempty"`
+	VaultingRequestId       string         `json:"vaultingRequestId,omitempty"`
+	VaultingNotificationUrl string         `json:"vaultingNotificationUrl,omitempty"`
+	RedirectUrl             string         `json:"redirectUrl,omitempty"`
+	MerchantRegion          string         `json:"merchantRegion,omitempty"`
+	Is3DSAuthentication     bool           `json:"is3DSAuthentication,omitempty"`
+	PaymentMethodMetaData   map[string]any `json:"paymentMethodMetaData,omitempty"`
 }
 
 func NewAlipayVaultingSessionRequest() (*request.AlipayRequest, *AlipayVaultingSessionRequest) {
