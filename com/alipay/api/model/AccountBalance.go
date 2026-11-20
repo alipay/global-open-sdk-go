@@ -5,4 +5,5 @@ type AccountBalance struct {
 	AvailableBalance *Amount `json:"availableBalance,omitempty"`
 	FrozenBalance    *Amount `json:"frozenBalance,omitempty"`
 	TotalBalance     *Amount `json:"totalBalance,omitempty"`
+	AccountNo        string  `json:"accountNo,omitempty"`
 }
