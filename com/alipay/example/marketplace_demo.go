@@ -1,3 +1,7 @@
+//go:build ignore
+// +build ignore
+
+// Standalone example; the contract probe compiles and vets each main separately.
 package main
 
 import (
