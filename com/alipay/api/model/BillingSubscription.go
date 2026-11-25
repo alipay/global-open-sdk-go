@@ -13,4 +13,6 @@ type BillingSubscription struct {
 	DefaultPaymentMethod  string                `json:"defaultPaymentMethod,omitempty"`
 	AllowPromotionCode    bool                  `json:"allowPromotionCode,omitempty"`
 	SubscriptionNotifyUrl string                `json:"subscriptionNotifyUrl,omitempty"`
+	CustomerEmail         string                `json:"customerEmail,omitempty"`
+	CustomerDetails       *CustomerDetails      `json:"customerDetails,omitempty"`
 }
