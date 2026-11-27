@@ -38,6 +38,7 @@ type AlipayPayRequest struct {
 	DualOfflinePayment      bool                           `json:"dualOfflinePayment,omitempty"`
 	SubscriptionId          string                         `json:"subscriptionId,omitempty"`
 	Locale                  string                         `json:"locale,omitempty"`
+	InvoiceCreation         *model.PayInvoiceCreation      `json:"invoiceCreation,omitempty"`
 }
 
 func NewAlipayPayRequest() (*request.AlipayRequest, *AlipayPayRequest) {
