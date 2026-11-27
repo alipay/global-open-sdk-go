@@ -23,4 +23,6 @@ type AlipayInquiryRefundResponse struct {
 	AcquirerInfo          *model.AcquirerInfo         `json:"acquirerInfo,omitempty"`
 	Rrn                   string                      `json:"rrn,omitempty"`
 	AuthorizationCode     string                      `json:"authorizationCode,omitempty"`
+	PaymentId             string                      `json:"paymentId,omitempty"`
+	PaymentRequestId      string                      `json:"paymentRequestId,omitempty"`
 }
