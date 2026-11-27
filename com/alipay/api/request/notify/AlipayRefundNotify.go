@@ -6,6 +6,8 @@ type AlipayRefundNotify struct {
 	AlipayNotify
 	RefundStatus          string                `json:"refundStatus,omitempty"`
 	RefundRequestId       string                `json:"refundRequestId,omitempty"`
+	PaymentId             string                `json:"paymentId,omitempty"`
+	PaymentRequestId      string                `json:"paymentRequestId,omitempty"`
 	RefundId              string                `json:"refundId,omitempty"`
 	RefundAmount          *model.Amount         `json:"refundAmount,omitempty"`
 	RefundTime            string                `json:"refundTime,omitempty"`
